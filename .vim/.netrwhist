@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/root/.armitage'
+let g:netrw_dirhist_2='/root/.armitage/140611'
+let g:netrw_dirhist_3='/root/cloud'
+let g:netrw_dirhist_4='/root'
+let g:netrw_dirhist_5='/root/cloud/dotfiles/.vim/bundle'

@@ -1,0 +1,9 @@
+[submodule ".vim/bundle/airline.git"]
+	path = .vim/bundle/airline.git
+	url = https://github.com/bling/vim-airline.git
+[submodule ".vim/bundle/NERD_tree.git"]
+	path = .vim/bundle/NERD_tree.git
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule ".vim/bundle/easymotion.git"]
+	path = .vim/bundle/easymotion.git
+	url = https://github.com/Lokaltog/vim-easymotion.git
