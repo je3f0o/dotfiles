@@ -1,8 +1,8 @@
 " Unmap the arrow keys
 
 " Normal mode
-no <down> ddp 
-no <up> ddkP 
+no <down> <Nop> 
+no <up> <Nop> 
 no <left> <Nop>
 no <right> <Nop>
 
