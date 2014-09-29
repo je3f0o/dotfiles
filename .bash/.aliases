@@ -1,0 +1,31 @@
+
+# Easier navigation for now
+alias ..="cd .."
+
+# Be nice :)
+alias please=sudo
+
+# List files
+alias ll="ls -lh"
+alias lla="ls -lah"
+
+# List only directories
+alias lsd='ls -l | grep "^d"'
+
+# IP addresses
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
+
+# Trim new lines and copy to clipboard
+alias trimcopy="tr -d '\n' | pbcopy"
+
+# Shortcuts
+alias g="git"
+alias v="vim"
+
+# Copy git post-commit to current git project
+alias gpost="cp ~/.git/hooks/post-commit .git/hooks"
+
+
+
+
