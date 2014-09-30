@@ -18,7 +18,7 @@ alias llf='ls -lh  --color | grep "^[^d]"'
 alias llaf='ls -lah  --color | grep "^[^d]"'
 
 # Remove all files including hidden files
-alias rmall="rm -rf .[^.] .??*"
+alias rmall="rm -rf .[^.] .??* *"
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
