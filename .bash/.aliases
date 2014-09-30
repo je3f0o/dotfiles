@@ -6,11 +6,19 @@ alias ..="cd .."
 alias please=sudo
 
 # List files
-alias ll="ls -lh"
-alias lla="ls -lah"
+alias ll="ls -lh --color"
+alias lla="ls -lah --color"
 
 # List only directories
-alias lsd='ls -l | grep "^d"'
+alias lld='ls -lh --color | grep "^d"'
+alias llad="ls -lah --color | grep "^d""
+
+# List only directories
+alias llf='ls -lh  --color | grep "^[^d]"'
+alias llaf='ls -lah  --color | grep "^[^d]"'
+
+# Remove all files including hidden files
+alias rmall="rm -rf .[^.] .??* *"
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
@@ -26,6 +34,7 @@ alias v="vim"
 # Copy git post-commit to current git project
 alias gpost="cp ~/.git/hooks/post-commit .git/hooks"
 
-
+# Programs
+alias subl="subl -a $@"
 
 
