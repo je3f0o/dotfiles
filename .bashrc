@@ -167,7 +167,7 @@ txtrst_only='\e[0m'    # Text Reset only
 
 # Load ~/.bash
 # ~/.extra can be used for settings you don’t want to commit
-for file in ~/cloud/dotfiles/.bash/.{extra,bash_prompt,exports,aliases,functions}; do
+for file in ~/.bash/.{extra,bash_prompt,exports,aliases,functions}; do
 	[ -r "$file" ] && source "$file"
 done
 unset file
