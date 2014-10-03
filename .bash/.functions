@@ -9,6 +9,32 @@ function f {
 	find . -name "$1"
 }
 
+# Git snapshot
+function g-snapshot {
+	local post_commit=~/.git/hooks/post-commit
+	local post_commit_local=`pwd`"/.git/hooks/post-commit"
+
+	if [ -e $post_commit_local ] && [ $post_commit -nt $post_commit_local ]; then
+		rm -f $post_commit_local
+	fi
+
+	[ ! -e $post_commit_local ] && cp $post_commit $post_commit_local
+}
+
+# Git commit and snapshot
+function g-commit {
+	gitsnapshot
+
+	git commit -am "$@"
+}
+
+# Git commit rewrite history and snapshot
+function g-amend {
+	gitsnapshot
+
+	git commit -a --amend -C HEAD "$@"
+}
+
 # Wifi adapter's mac change for wifi hacking
 function mac {
 	local wlan1=$(airmon-ng | grep wlan1)

@@ -32,7 +32,7 @@ alias g="git"
 alias v="vim"
 
 # Copy git post-commit to current git project
-alias gpost="cp ~/.git/hooks/post-commit .git/hooks"
+#alias gpost="cp ~/.git/hooks/post-commit .git/hooks"
 
 # Programs
 alias subl="subl -a $@"
