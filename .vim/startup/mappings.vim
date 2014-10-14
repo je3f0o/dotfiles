@@ -1,24 +1,14 @@
-" Unmap the arrow keys
 
-" Normal mode
-no <down> <Nop> 
-no <up> <Nop> 
+" ------------------ NORMAL MODE ------------------
+" Unmap the arrow keys
 no <left> <Nop>
 no <right> <Nop>
 
-" Insert mode
-ino <down> <Nop>
-ino <up> <Nop>
-ino <left> <Nop>
-ino <right> <Nop>
+" Move line up or down
+no <down> ddp 
+no <up> ddkP 
 
-" Visual mode
-vno <down> <Nop>
-vno <up> <Nop>
-vno <left> <Nop>
-vno <right> <Nop>
-
-
+" Do not understand right now, fuck I really need to write comments
 nmap gO O<ESC>j
 nmap g<C-O> o<ESC>k
 
@@ -29,11 +19,28 @@ nmap N Nzz
 nmap } }zz
 nmap { {zz
 
+" Toggle list! command
+nmap <leader>l :set list!<CR>
+
+" ------------------ INSERT MODE ------------------
+" Unmap the arrow keys
+ino <down> <Nop>
+ino <up> <Nop>
+ino <left> <Nop>
+ino <right> <Nop>
+
 " Quick pairs
 imap <leader>' ''<ESC>i
 imap <leader>" ""<ESC>i
 imap <leader>( ()<ESC>i
 imap <leader>[ []<ESC>i
+
+" ------------------ VISUAL MODE ------------------
+" Unmap the arrow keys
+vno <down> <Nop>
+vno <up> <Nop>
+vno <left> <Nop>
+vno <right> <Nop>
 
 " correction
 iabbr ture true

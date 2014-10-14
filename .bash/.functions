@@ -23,14 +23,14 @@ function g-snapshot {
 
 # Git commit and snapshot
 function g-commit {
-	gitsnapshot
+	g-snapshot
 
 	git commit -am "$@"
 }
 
 # Git commit rewrite history and snapshot
 function g-amend {
-	gitsnapshot
+	g-snapshot
 
 	git commit -a --amend -C HEAD "$@"
 }

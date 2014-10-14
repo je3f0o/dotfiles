@@ -172,6 +172,8 @@ for file in ~/.bash/.{extra,bash_prompt,exports,aliases,functions}; do
 done
 unset file
 
+export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
+
 #functions
 function __git_ps1 (){
 	local b="$(git symbolic-ref HEAD 2>/dev/null)";

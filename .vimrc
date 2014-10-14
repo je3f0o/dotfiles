@@ -28,9 +28,13 @@ set softtabstop=4
 set shiftwidth=4
 
 " Some settings
-set list listchars=tab:› ,extends:>,precedes:<
+"set list extends:>,precedes:<
+
+" Invisible character symbol
+set listchars=tab:▸\ ,eol:¬
 
 " Load custom settings
+source ~/.vim/startup/color.vim
 source ~/.vim/startup/mappings.vim
 
 " Airline
