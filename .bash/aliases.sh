@@ -1,6 +1,7 @@
 
 # Easier navigation for now
 alias ..="cd .."
+alias ...="cd ../.."
 
 # Be nice :)
 alias please=sudo
@@ -37,4 +38,5 @@ alias v="vim"
 # Programs
 alias subl="subl -a $@"
 
-
+# bower allow root permanently
+alias bower="bower --allow-root"

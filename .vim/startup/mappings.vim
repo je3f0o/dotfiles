@@ -24,10 +24,16 @@ nmap <leader>l :set list!<CR>
 
 " ------------------ INSERT MODE ------------------
 " Unmap the arrow keys
-ino <down> <Nop>
-ino <up> <Nop>
-ino <left> <Nop>
-ino <right> <Nop>
+"ino <down> <Nop>
+"ino <up> <Nop>
+"ino <left> <Nop>
+"ino <right> <Nop>
+
+" Move cursor 
+imap <C-h> <left>
+imap <C-j> <down>
+imap <C-k> <up>
+imap <C-l> <right>
 
 " Quick pairs
 imap <leader>' ''<ESC>i

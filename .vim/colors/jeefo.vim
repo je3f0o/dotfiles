@@ -25,7 +25,7 @@ hi Search ctermfg=NONE ctermbg=17 cterm=NONE guifg=NONE guibg=#142d4b gui=NONE
 hi Directory ctermfg=68 ctermbg=NONE cterm=NONE guifg=#3387cc guibg=NONE gui=NONE
 hi Folded ctermfg=249 ctermbg=0 cterm=NONE guifg=#aeaeae guibg=#000000 gui=NONE
 
-hi Normal cterm=NONE ctermbg=232 ctermfg=250
+hi Normal cterm=NONE ctermbg=NONE ctermfg=250
 hi Boolean ctermfg=68 ctermbg=NONE cterm=NONE guifg=#3387cc guibg=NONE gui=NONE
 hi Character ctermfg=68 ctermbg=NONE cterm=NONE guifg=#3387cc guibg=NONE gui=NONE
 hi Comment ctermfg=249 ctermbg=NONE cterm=NONE guifg=#aeaeae guibg=NONE gui=italic
@@ -96,7 +96,7 @@ hi htmlSpecialChar ctermfg=68 ctermbg=NONE cterm=NONE guifg=#3387cc guibg=NONE g
 " JavaScript
 hi javaScriptFunction cterm=NONE ctermbg=NONE ctermfg=34
 hi javaScriptRailsFunction ctermfg=186 ctermbg=NONE cterm=NONE guifg=#dad085 guibg=NONE gui=NONE
-hi javaScriptBraces ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
+hi javaScriptBraces cterm=NONE ctermbg=NONE ctermfg=250
 
 
 hi yamlKey ctermfg=111 ctermbg=NONE cterm=NONE guifg=#89bdff guibg=NONE gui=NONE

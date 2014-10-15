@@ -9,7 +9,6 @@ set nocompatible
 scriptencoding utf8
 set encoding=utf8
 set number
-set showbreak=+++
 set textwidth=100
 set showmatch
 set visualbell
@@ -27,15 +26,14 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 
+
 " Some settings
 "set list extends:>,precedes:<
 
 " Invisible character symbol
 set listchars=tab:▸\ ,eol:¬
+set showbreak=+++
 
-" Load custom settings
-source ~/.vim/startup/color.vim
-source ~/.vim/startup/mappings.vim
 
 " Airline
 set t_Co=256
@@ -49,3 +47,8 @@ let g:airline_powerline_fonts = 1
 "let g:airline#extensions#tabline#enabled=1
 "let g:airline#extensions#tabline#left_sep=' '
 "let g:airline#extensions#tabline#left_alt_sep='|'
+
+
+" Load custom settings
+source ~/.vim/startup/mappings.vim
+source ~/.vim/startup/color.vim
