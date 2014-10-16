@@ -22,12 +22,28 @@ nmap { {zz
 " Toggle list! command
 nmap <leader>l :set list!<CR>
 
+" GUI MODE move window
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
+
+" Swap characters
+nmap <C-u> xhhpl
+
+" Indent and outdent
+"nmap <C-]> <<
+"nmap <C-]> >>
+
 " ------------------ INSERT MODE ------------------
 " Unmap the arrow keys
 "ino <down> <Nop>
 "ino <up> <Nop>
 "ino <left> <Nop>
 "ino <right> <Nop>
+
+" Exit insert mode
+imap jj <ESC>
 
 " Move cursor 
 imap <C-h> <left>
@@ -48,16 +64,11 @@ vno <up> <Nop>
 vno <left> <Nop>
 vno <right> <Nop>
 
-" correction
-iabbr ture true
-iabbr flase false
+" Indent and outdent
+vmap <C-[> <gv
+vmap <C-]> >gv
 
-
-" correction
-iabbr ture true
-iabbr flase false
-
-
+" ------------------------------------------------------------
 " correction
 iabbr ture true
 iabbr flase false

@@ -45,6 +45,26 @@ function mac {
 	fi
 }
 
+# Create a blank RequireJS template file
+function requirejs {
+	bash ~/.bash/templates/javascript/requirejs.sh "$@"
+}
+
+function requirejsc {
+	if [ -z $1 ]; then
+		echo "Function name required"
+	else
+		local function_name="${1}Controller"
+		local path="controllers"
+
+		if [ ! -z $2 ]; then
+			path=$2/$path
+		fi
+
+		requirejs $function_name $path
+	fi
+}
+
 # # Let's toss an image onto my server and pbcopy that bitch.
 # function scpp() {
 #     scp "$1" aurgasm@aurgasm.us:~/paulirish.com/i;

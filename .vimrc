@@ -52,3 +52,5 @@ let g:airline_powerline_fonts = 1
 " Load custom settings
 source ~/.vim/startup/mappings.vim
 source ~/.vim/startup/color.vim
+
+set guifont=Monaco\ 15
