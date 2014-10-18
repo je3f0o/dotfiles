@@ -35,6 +35,21 @@ function g-amend {
 	git commit -a --amend -C HEAD "$@"
 }
 
+# Git submodule add in your ~/vim/bundle
+# later update more ...
+# maybe git.sh for own functionality
+function g-vim-plugin-add-module {
+	if [ -z $1 ] || [ -z $2 ]; then
+		echo "ARG1 = git repo and ARG2 = plugin name required!"
+	else
+		git submodule add $1 ".vim/bundle/${2}.git"
+	fi
+}
+
+function g-submodule {
+	git submodule status
+}
+
 # Wifi adapter's mac change for wifi hacking
 function mac {
 	local wlan1=$(airmon-ng | grep wlan1)
@@ -48,21 +63,6 @@ function mac {
 # Create a blank RequireJS template file
 function requirejs {
 	bash ~/.bash/templates/javascript/requirejs.sh "$@"
-}
-
-function requirejsc {
-	if [ -z $1 ]; then
-		echo "Function name required"
-	else
-		local function_name="${1}Controller"
-		local path="controllers"
-
-		if [ ! -z $2 ]; then
-			path=$2/$path
-		fi
-
-		requirejs $function_name $path
-	fi
 }
 
 # # Let's toss an image onto my server and pbcopy that bitch.

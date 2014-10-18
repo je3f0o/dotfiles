@@ -1,17 +1,33 @@
 
-" ------------------ NORMAL MODE ------------------
 " Unmap the arrow keys
 no <left> <Nop>
 no <right> <Nop>
+no <down> <Nop>
+no <up> <Nop>
+"ino <down> <Nop>
+"ino <up> <Nop>
+"ino <left> <Nop>
+"ino <right> <Nop>
+vno <down> <Nop>
+vno <up> <Nop>
+vno <left> <Nop>
+vno <right> <Nop>
 
-" Move line up or down
-no <down> ddp 
-no <up> ddkP 
+" Exit insert or visual mode
+imap jj <C-c>
+vmap ii <C-c>
 
-" Do not understand right now, fuck I really need to write comments
-nmap gO O<ESC>j
-nmap g<C-O> o<ESC>k
+" Save file
+nmap <C-s> :update<CR>
+imap <C-s> <C-c>:update<CR>a
+vmap <C-s> <C-c>:update<CR>gv
 
+" Toggle NERDTree
+nmap <F5> :NERDTreeToggle<CR>
+imap <F5> <C-c>:NERDTreeToggle<CR>
+vmap <F5> <C-c>:NERDTreeToggle<CR>
+
+" ------------------ NORMAL MODE ------------------
 " I really hate that things don't auto-center
 nmap G Gzz
 nmap n nzz
@@ -22,7 +38,7 @@ nmap { {zz
 " Toggle list! command
 nmap <leader>l :set list!<CR>
 
-" GUI MODE move window
+" Move window
 nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
@@ -35,16 +51,15 @@ nmap <C-u> xhhpl
 "nmap <C-]> <<
 "nmap <C-]> >>
 
+" Insert new line before or after
+nmap gO O<ESC>j
+nmap <S-CR> o<ESC>k " fucking not work :(
+
+" Move line up or down
+"no <down> ddp 
+"no <up> ddkP 
+
 " ------------------ INSERT MODE ------------------
-" Unmap the arrow keys
-"ino <down> <Nop>
-"ino <up> <Nop>
-"ino <left> <Nop>
-"ino <right> <Nop>
-
-" Exit insert mode
-imap jj <ESC>
-
 " Move cursor 
 imap <C-h> <left>
 imap <C-j> <down>
@@ -58,12 +73,6 @@ imap <leader>( ()<ESC>i
 imap <leader>[ []<ESC>i
 
 " ------------------ VISUAL MODE ------------------
-" Unmap the arrow keys
-vno <down> <Nop>
-vno <up> <Nop>
-vno <left> <Nop>
-vno <right> <Nop>
-
 " Indent and outdent
 vmap <C-[> <gv
 vmap <C-]> >gv

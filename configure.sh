@@ -1,4 +1,6 @@
 #!/bin/bash
+echo "Do not use this. This file is depricated. Update it jeefo ! "
+exit 1
 
 dotfiles=(bash bashrc vim vimrc)
 
