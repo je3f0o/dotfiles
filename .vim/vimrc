@@ -9,9 +9,12 @@ set nocompatible
 scriptencoding utf8
 set encoding=utf8
 set number
-set textwidth=100
 set showmatch
 set visualbell
+
+" Automaticaly word wrap and insert new line
+set textwidth=0
+set nowrap
 
 set hlsearch
 set smartcase
@@ -48,10 +51,24 @@ let g:airline_powerline_fonts = 1
 "let g:airline#extensions#tabline#left_sep=' '
 "let g:airline#extensions#tabline#left_alt_sep='|'
 
+" Emmet - Enable in different mode
+let g:user_emmet_mode='n'    "only enable normal mode functions.
+let g:user_emmet_mode='inv'  "enable all functions, which is equal to
+let g:user_emmet_mode='a'    "enable all function in all mode.
+
+" Emmet - Enable just for html/css files
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
+
+" Emmet - remap
+nmap <C-e> <C-y>,
 
 " Load custom settings
 source ~/.vim/startup/mappings.vim
 source ~/.vim/startup/color.vim
 
+" My settings
 set guifont=Monaco\ 15
 set hidden
+
+" let configs

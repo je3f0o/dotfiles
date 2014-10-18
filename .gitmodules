@@ -13,3 +13,6 @@
 [submodule ".vim/bundle/ctrlp.git"]
 	path = .vim/bundle/ctrlp.git
 	url = git@github.com:kien/ctrlp.vim.git
+[submodule ".vim/bundle/emmet.git"]
+	path = .vim/bundle/emmet.git
+	url = git@github.com:mattn/emmet-vim.git

@@ -27,6 +27,9 @@ nmap <F5> :NERDTreeToggle<CR>
 imap <F5> <C-c>:NERDTreeToggle<CR>
 vmap <F5> <C-c>:NERDTreeToggle<CR>
 
+" add comment
+nmap <C-_> ^i// <C-c>
+
 " ------------------ NORMAL MODE ------------------
 " I really hate that things don't auto-center
 nmap G Gzz
@@ -58,6 +61,12 @@ nmap <S-CR> o<ESC>k " fucking not work :(
 " Move line up or down
 "no <down> ddp 
 "no <up> ddkP 
+
+" Remove quote
+"nmap "" T"dht"lx
+
+" Cut line
+nmap <C-x> dd
 
 " ------------------ INSERT MODE ------------------
 " Move cursor 

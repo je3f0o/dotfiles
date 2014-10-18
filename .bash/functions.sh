@@ -46,7 +46,7 @@ function g-vim-plugin-add-module {
 	fi
 }
 
-function g-submodule {
+function g-submodules {
 	git submodule status
 }
 
