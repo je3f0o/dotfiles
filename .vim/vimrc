@@ -35,7 +35,8 @@ set shiftwidth=4
 
 " Invisible character symbol
 set listchars=tab:▸\ ,eol:¬
-set showbreak=+++
+"set showbreak=➤
+set showbreak=…
 
 
 " Airline
@@ -52,16 +53,19 @@ let g:airline_powerline_fonts = 1
 "let g:airline#extensions#tabline#left_alt_sep='|'
 
 " Emmet - Enable in different mode
-let g:user_emmet_mode='n'    "only enable normal mode functions.
-let g:user_emmet_mode='inv'  "enable all functions, which is equal to
-let g:user_emmet_mode='a'    "enable all function in all mode.
+let g:user_emmet_mode="a"    "enable all function in all mode.
 
 " Emmet - Enable just for html/css files
 let g:user_emmet_install_global = 0
-autocmd FileType html,css EmmetInstall
 
-" Emmet - remap
-nmap <C-e> <C-y>,
+if has("autocmd")
+	" Enable filetype detection
+	filetype plugin indent on
+	autocmd FileType html,css EmmetInstall
+
+	" Automatically apply any changes in vimrc
+	"autocmd BufWritePost .vimrc tabe $MYVIMRC
+endif
 
 " Load custom settings
 source ~/.vim/startup/mappings.vim
@@ -72,3 +76,8 @@ set guifont=Monaco\ 15
 set hidden
 
 " let configs
+let mapleader=","
+
+" correction
+iabbr ture true
+iabbr flase false

@@ -16,3 +16,9 @@
 [submodule ".vim/bundle/emmet.git"]
 	path = .vim/bundle/emmet.git
 	url = git@github.com:mattn/emmet-vim.git
+[submodule ".vim/bundle/tabular.git"]
+	path = .vim/bundle/tabular.git
+	url = git@github.com:godlygeek/tabular.git
+[submodule ".vim/bundle/unimpaired.git"]
+	path = .vim/bundle/unimpaired.git
+	url = git@github.com:tpope/vim-unimpaired.git

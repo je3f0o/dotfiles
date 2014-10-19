@@ -18,9 +18,9 @@ imap jj <C-c>
 vmap ii <C-c>
 
 " Save file
-nmap <C-s> :update<CR>
-imap <C-s> <C-c>:update<CR>a
-vmap <C-s> <C-c>:update<CR>gv
+nmap <C-s> :update<CR>:echo "Saved"<CR>
+imap <C-s> <C-c>:update<CR>:echo "Saved"<CR>a
+vmap <C-s> <C-c>:update<CR>:echo "Saved"<CR>gv
 
 " Toggle NERDTree
 nmap <F5> :NERDTreeToggle<CR>
@@ -29,6 +29,17 @@ vmap <F5> <C-c>:NERDTreeToggle<CR>
 
 " add comment
 nmap <C-_> ^i// <C-c>
+
+" Bubble lines
+nmap <C-Up> [e
+nmap <C-Down> ]e
+nmap <C-Left> <<
+nmap <C-Right> >>
+
+vmap <C-K> [egv " up
+vmap <C-J> ]egv " down
+vmap <C-H> <gv  " left
+vmap <C-L> >gv  " righ
 
 " ------------------ NORMAL MODE ------------------
 " I really hate that things don't auto-center
@@ -50,23 +61,18 @@ nmap <C-l> <C-w>l
 " Swap characters
 nmap <C-u> xhhpl
 
-" Indent and outdent
-"nmap <C-]> <<
-"nmap <C-]> >>
-
 " Insert new line before or after
 nmap gO O<ESC>j
 nmap <S-CR> o<ESC>k " fucking not work :(
 
-" Move line up or down
-"no <down> ddp 
-"no <up> ddkP 
-
 " Remove quote
-"nmap "" T"dht"lx
+nmap "" T"dht"lx
 
 " Cut line
 nmap <C-x> dd
+
+" Emmet - remap
+nmap <C-e> <C-y>,
 
 " ------------------ INSERT MODE ------------------
 " Move cursor 
@@ -82,12 +88,14 @@ imap <leader>( ()<ESC>i
 imap <leader>[ []<ESC>i
 
 " ------------------ VISUAL MODE ------------------
-" Indent and outdent
-vmap <C-[> <gv
-vmap <C-]> >gv
 
-" ------------------------------------------------------------
-" correction
-iabbr ture true
-iabbr flase false
+
+
+
+if exists(":Tabularize")
+	nmap <leader>l= :Tabularize /=<CR>
+	vmap <leader>l= :Tabularize /=<CR>
+	nmap <leader>l: :Tabularize /:<CR>
+	vmap <leader>l: :Tabularize /:<CR>
+endif
 
