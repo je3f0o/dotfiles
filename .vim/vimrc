@@ -39,7 +39,7 @@ set listchars=tab:▸\ ,eol:¬
 set showbreak=…
 
 " let configs
-let mapleader=","
+"let mapleader=","
 
 " Airline
 set t_Co=256
@@ -92,6 +92,6 @@ set noswapfile
 iabbr ture true
 iabbr flase false
 
-if &t_Co > 2 || has("gui_running")
+if has("gui_running")
 	source ~/.vim/gvimrc
 endif

@@ -73,7 +73,7 @@ nmap <C-x> dd
 
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>evr :e $MYVIMRC<CR>
-nmap <silent> <leader>sv :source $MYVIMRC<CR>
+nmap <silent> <leader>sv :source $MYVIMRC<CR>:echo "vimrc reloaded."<CR>
 
 " Quickly edit vim mappings file
 nmap <silent> <leader>evm :exec ":e " . MYVIMMAP<CR>
@@ -90,6 +90,14 @@ imap <leader>' ''<ESC>i
 imap <leader>" ""<ESC>i
 imap <leader>( ()<ESC>i
 imap <leader>[ []<ESC>i
+
+" Automatically close brackets
+imap { {<CR>}<C-c>O
+imap ( ()<left>
+imap [ []<left>
+
+" Insert new line
+"imap <C-CR> 
 
 " ------------------ VISUAL MODE ------------------
 

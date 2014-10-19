@@ -10,200 +10,138 @@
 # 	standard CSS declarations use two letters (occasionally three)
 # 	SASS functions use the first three letters of the function (occ. four)
 
-# element
-snippet e
-	${1:element} {
-		${2}
-	}
-# class
-snippet c
-	.${1:class} {
-		${2}
-	}
-# id
-snippet i
-	#${1:id} {
-		${2}
-	}
 # Define a variable
 snippet v
-	$${1:name}: ${2:value};
-	${3}
+	$${1:name}: ${2:value};${3}
 # @extend - Selector Inheritance
 snippet ex
-	@extend .${1:class};
-	${2}
+	@extend .${1:class};${2}
 # @mixin - Define a mixin
 snippet mix
-	@mixin ${1:name} {
-		${2}
+	@mixin ${1:name} {${2}
 	}
 # @include - Use a mixin
 snippet inc
-	@include ${1:mixin};
-	${2}
+	@include ${1:mixin};${2}
 # Standard CSS Declarations
 # positioning
 snippet di
-	display: ${1:none};
-	${2}
-snippet po
-	position: ${1:relative};
-	${2}
+	display: ${1:none};${2}
 snippet poa
-	position: ${1:absolute};
-	${2}
+	position: absolute;${1}
+snippet por
+	position: relative;${1}
+snippet pof
+	position: fixed;${1}
 snippet fl
-	float: ${1:left};
-	${2}
-snippet cl
-	clear: ${1:left};
-	${2}
-snippet top
-	top: ${1:0};
-	${2}
-snippet bot
-	bottom: ${1:0};
-	${2}
-snippet lef
-	left: ${1:0};
-	${2}
-snippet rig
-	right: ${1:0};
-	${2}
+	float: left;${1}
+snippet fr
+	float: right;${1}
+snippet cll
+	clear: left;${1}
+snippet clr
+	clear: right;${1}
+snippet clb
+	clear: both;${1}
 # sizing
-snippet hi
-	height: ${1:100%};
-	${2}
+snippet he
+	height: ${1:100%};${2}
 snippet wi
-	width: ${1:80%};
-	${2}
+	width: ${1:80%};${2}
 snippet maw
-	max-width: ${1:80%};
-	${2}
+	max-width: ${1:80%};${2}
 snippet miw
-	min-width: ${1:25%};
-	${2}
+	min-width: ${1:25%};${2}
+snippet mah
+	max-height: ${1:80%};${2}
+snippet mih
+	min-height: ${1:25%};${2}
 # margins
 snippet m
-	margin: ${1:0} ${2:auto};
-	${3}
+	margin: ${1:0};${2}
+snippet m2
+	padding: ${1:0} ${2:0};${3}
+snippet m3
+	padding: ${1:0} ${2:0} ${3:0};${4}
+snippet m4
+	padding: ${1:0} ${2:0} ${3:0} ${4:0};${5}
 snippet mt
-	margin-top: ${1:0};
-	${2}
+	margin-top: ${1:0};${2}
 snippet mb
-	margin-bottom: ${1:0};
-	${2}
+	margin-bottom: ${1:0};${2}
 snippet ml
-	margin-left: ${1:0};
-	${2}
+	margin-left: ${1:0};${2}
 snippet mr
-	margin-right: ${1:0};
-	${2}
+	margin-right: ${1:0};${2}
 # padding
 snippet p
-	padding: ${1:0} ${2:0};
-	${3}
+	padding: ${1:0};${2}
+snippet p2
+	padding: ${1:0} ${2:0};${3}
+snippet p3
+	padding: ${1:0} ${2:0} ${3:0};${4}
+snippet p4
+	padding: ${1:0} ${2:0} ${3:0} ${4:0};${5}
 snippet pt
-	padding-top: ${1:0};
-	${2}
+	padding-top: ${1:0};${2}
 snippet pb
-	padding-bottom: ${1:0};
-	${2}
+	padding-bottom: ${1:0};${2}
 snippet pl
-	padding-left: ${1:0};
-	${2}
+	padding-left: ${1:0};${2}
 snippet pr
-	padding-right: ${1:0};
-	${2}
+	padding-right: ${1:0};${2}
 #borders
 snippet b
-	border: ${1:1px} ${2:solid} ${3:#000};
-	${4}
-snippet bt
-	border-top: ${1:1px} ${2:solid} ${3:#000};
-	${4}
-snippet bb
-	border-bottom: ${1:1px} ${2:solid} ${3:#000};
-	${4}
-snippet bl
-	border-left: ${1:1px} ${2:solid} ${3:#000};
-	${4}
-snippet br
-	border-right: ${1:1px} ${2:solid} ${3:#000};
-	${4}
-# backgrounds
-snippet ba
-	background: ${1:#fff} ${2:url} ${3:repeat} ${4:left} ${5:top};
-	${6}
-snippet bc
-	background-color: ${1:#fff};
-	${2}
-snippet bi
-	background-image: url('${1}');
-	${2}
-snippet bp
-	background-position: ${1:left} ${2:top};
-	${3}
+	border: ${1:1px} ${2:solid} ${3:#000};${4}
+snippet btop
+	border-top: ${1:1px} ${2:solid} ${3:#000};${4}
+snippet bbot
+	border-bottom: ${1:1px} ${2:solid} ${3:#000};${4}
+snippet bleft
+	border-left: ${1:1px} ${2:solid} ${3:#000};${4}
+snippet bright
+	border-right: ${1:1px} ${2:solid} ${3:#000};${4}
 # fonts
 snippet f
-	font: ${1:size}em/${2:1.5} ${3:"Helvetica Neue", Helvetica, Arial, sans-serif};
-	${4}
+	font: ${1:size}em/${2:1.5} ${3:"Helvetica Neue", Helvetica, Arial, sans-serif};${4}
 snippet font
-	font: ${1:weight} ${2:style} ${3:variant} ${4:size}/${5:line-height} ${6:family};
-	${7}
+	font: ${1:weight} ${2:style} ${3:variant} ${4:size}/${5:line-height} ${6:family};${7}
 snippet ff
-	font-family: ${1:"Helvetica Neue", Helvetica, Arial, sans-serif};
-	${2}
+	font-family: ${1:"Helvetica Neue", Helvetica, Arial, sans-serif};${2}
 snippet fs
-	font-size: ${1:1.2em};
-	${2}
+	font-size: ${1:1.2em};${2}
 snippet fst
-	font-style: ${1:italic};
-	${2}
+	font-style: ${1:italic};${2}
 snippet fv
-	font-variant: ${1:small-caps};
-	${2}
+	font-variant: ${1:small-caps};${2}
 snippet fw
-	font-weight: ${1:bold};
-	${2}
+	font-weight: ${1:bold};${2}
 snippet @ff
 	@font-face {
 		font-family: ${1:name};
 		src: ${2:url};
-	}
-	${3}
+	}${3}
 # text- & lettering
-snippet co
-	color: ${1:#000};
-	${2}
+snippet col
+	color: ${1:#000};${2}
 snippet ta
-	text-align: ${1:center};
-	${2}
+	text-align: ${1:center};${2}
 snippet td
-	text-decoration: ${1:none};
-	${2}
+	text-decoration: ${1:none};${2}
 snippet ti
-	text-indent: ${1:length};
-	${2}
+	text-indent: ${1:length};${2}
 snippet to
-	text-overflow: ${1:ellipsis};
-	${2}
+	text-overflow: ${1:ellipsis};${2}
 snippet tr
-	text-rendering: ${1:optimizeLegibility};
-	${2}
+	text-rendering: ${1:optimizeLegibility};${2}
 snippet ts
-	text-shadow: ${1:color} ${2:x} ${3:y} ${4:blur};
-	${5}
+	text-shadow: ${1:color} ${2:x} ${3:y} ${4:blur};${5}
 snippet tt
-	text-transform: ${1:uppercase};
-	${2}
+	text-transform: ${1:uppercase};${2}
 snippet lh
-	line-height: ${1:1.5em};
-	${2}
+	line-height: ${1:1.5em};${2}
 snippet ls
-	letter-spacing: ${1:0.025em};
-	${2}
+	letter-spacing: ${1:0.025em};${2}
 # SASS RGB Functions
 # Converts an rgb(red, green, blue) triplet into a color.
 snippet rgb
@@ -214,15 +152,6 @@ snippet rgba
 # Adds an alpha layer to any color value.
 snippet rgbc
 	rgba(${1:color}, ${2:alpha})
-# Gets the red component of a color.
-snippet red
-	red(${1:color})
-# Gets the green component of a color.
-snippet gre
-	green(${1:color})
-# Gets the blue component of a color.
-snippet blu
-	blue(${1:color})
 # Mixes two colors together.
 snippet mixc
 	mix(${1:color1}, ${2:color2})
@@ -285,15 +214,53 @@ snippet tra
 # Converts a unitless number to a percentage.
 snippet per
 	percentage(${1:value})
-# Rounds a number to the nearest whole number.
-snippet rou
-	round(${1:value})
 # Rounds a number up to the nearest whole number.
 snippet cei
 	ceil(${1:value})
 # Rounds a number down to the nearest whole number.
 snippet flo
 	floor(${1:value})
+#
+#
+#
+#
+#------------- My custom sass snippets ------------- 
+
 # Returns the absolute value of a number.
 snippet abs
-	abs(${1:value})
+	@include absalute(${1});${2}
+snippet rel
+	@include relative(${1});${2}
+snippet fix
+	@include fixed(${1});${2}
+# Rounds a number to the nearest whole number.
+snippet ro
+	@include round(${1});${2}
+snippet sq
+	@include square;${1}
+snippet br
+	@include border-radius(${1});${2}
+snippet clp
+	@include pie-clearfix;${1}
+# backgrounds
+snippet bg
+	background: ${1:#fff} ${2:url} ${3:repeat} ${4:left} ${5:top};${6}
+snippet bgc
+	background-color: ${1:#fff};${2}
+snippet bgcl
+	background-color: lighten(${1:color}, ${2:amount});${3}
+snippet bgcd
+	background-color: darken(${1:color}, ${2:amount});${2}
+snippet bgi
+	background-image: url('${1}');${2}
+snippet bgp
+	background-position: ${1:left} ${2:top};${3}
+# Gets the red component of a color.
+snippet bgred
+	background-color: red;${1}
+# Gets the green component of a color.
+snippet bggre
+	background-color: green;${1}
+# Gets the blue component of a color.
+snippet bgblu
+	background-color: blue;${1}
