@@ -71,8 +71,12 @@ nmap "" T"dht"lx
 " Cut line
 nmap <C-x> dd
 
-" Emmet - remap
-nmap <C-e> <C-y>,
+" Quickly edit/reload the vimrc file
+nmap <silent> <leader>evr :e $MYVIMRC<CR>
+nmap <silent> <leader>sv :source $MYVIMRC<CR>
+
+" Quickly edit vim mappings file
+nmap <silent> <leader>evm :exec ":e " . MYVIMMAP<CR>
 
 " ------------------ INSERT MODE ------------------
 " Move cursor 
@@ -93,9 +97,14 @@ imap <leader>[ []<ESC>i
 
 
 if exists(":Tabularize")
-	nmap <leader>l= :Tabularize /=<CR>
-	vmap <leader>l= :Tabularize /=<CR>
-	nmap <leader>l: :Tabularize /:<CR>
-	vmap <leader>l: :Tabularize /:<CR>
+	nmap <leader>t= :Tabularize /=<CR>
+	vmap <leader>t= :Tabularize /=<CR>
+	nmap <leader>t: :Tabularize /:<CR>
+	vmap <leader>t: :Tabularize /:<CR>
 endif
+
+if has("autocmd")
+	autocmd FileType html exec ":source " . expand("<sfile>:p:h") . "/html.vim"
+endif
+
 

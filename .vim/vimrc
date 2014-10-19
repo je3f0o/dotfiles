@@ -38,6 +38,8 @@ set listchars=tab:▸\ ,eol:¬
 "set showbreak=➤
 set showbreak=…
 
+" let configs
+let mapleader=","
 
 " Airline
 set t_Co=256
@@ -61,6 +63,7 @@ let g:user_emmet_install_global = 0
 if has("autocmd")
 	" Enable filetype detection
 	filetype plugin indent on
+	filetype plugin on
 	autocmd FileType html,css EmmetInstall
 
 	" Automatically apply any changes in vimrc
@@ -68,16 +71,27 @@ if has("autocmd")
 endif
 
 " Load custom settings
-source ~/.vim/startup/mappings.vim
+source ~/.vim/variables.vim
+exec ":source " . MYVIMMAP
 source ~/.vim/startup/color.vim
 
 " My settings
-set guifont=Monaco\ 15
 set hidden
 
-" let configs
-let mapleader=","
+" Vertical window split on right side
+set splitright
+
+" Toggle paste mode
+set pastetoggle=<F2>
+
+" I use ore more modern way to loss data, I use GIT
+set nobackup
+set noswapfile
 
 " correction
 iabbr ture true
 iabbr flase false
+
+if &t_Co > 2 || has("gui_running")
+	source ~/.vim/gvimrc
+endif
