@@ -1,4 +1,4 @@
 
 " Set global variables
-let g:MYVIMMAP = expand("~/.vim/mappings/mappings.vim")
+let g:MYVIMMAP = expand("~/.vim/startup/mappings.vim")
 

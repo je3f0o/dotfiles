@@ -62,7 +62,12 @@ function mac {
 
 # Create a blank RequireJS template file
 function requirejs {
-	bash ~/.bash/templates/javascript/requirejs.sh "$@"
+	local status=$(node ~/Programming/nodejs/requirejs/requirejs.js "$@")
+	if [[ $status == SUCCESS:* ]]; then
+		vim `sed -e 's/^SUCCESS\:\s*//' <<< ${status}`
+	else
+		echo $status
+	fi
 }
 
 # # Let's toss an image onto my server and pbcopy that bitch.

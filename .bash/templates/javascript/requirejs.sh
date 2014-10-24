@@ -8,7 +8,7 @@ function lowercase {
 
 TYPE="Controller"
 TYPE_LOWERCASE=`lowercase $TYPE`.
-TYPE_DIR="contrrollers"
+TYPE_DIR="controllers"
 OPT_PATH=
 
 function usage {
@@ -36,7 +36,7 @@ while getopts ":hfsdp:" OPTION; do
 	s)
 		TYPE="Service"
 		TYPE_DIR="services"
-		TYPE_LOWERCASE=
+		TYPE_LOWERCASE=`lowercase $TYPE`.
 		;;
 	d)
 		TYPE="Directive"

@@ -13,7 +13,6 @@ hi Visual ctermfg=NONE ctermbg=236 cterm=NONE gui=NONE guibg=#2c3033 guifg=NONE
 hi CursorLine ctermfg=NONE ctermbg=234 cterm=NONE guifg=NONE guibg=#191919 gui=NONE
 hi CursorColumn ctermfg=NONE ctermbg=234 cterm=NONE guifg=NONE guibg=#191919 gui=NONE
 hi ColorColumn ctermfg=NONE ctermbg=234 cterm=NONE guifg=NONE guibg=#191919 gui=NONE
-hi LineNr ctermfg=244 ctermbg=234 cterm=NONE guifg=#7c7c7c guibg=#191919 gui=NONE
 hi VertSplit ctermfg=238 ctermbg=238 cterm=NONE guifg=#484848 guibg=#484848 gui=NONE
 hi MatchParen ctermfg=173 ctermbg=NONE cterm=NONE guifg=#e28964 guibg=NONE gui=NONE
 hi StatusLine ctermfg=231 ctermbg=238 cterm=bold guifg=#f8f8f8 guibg=#484848 gui=bold
@@ -23,7 +22,13 @@ hi PmenuSel ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=#2c3033 gui=NON
 hi IncSearch ctermfg=NONE ctermbg=17 cterm=NONE guifg=NONE guibg=#142d4b gui=NONE
 hi Search ctermfg=NONE ctermbg=17 cterm=NONE guifg=NONE guibg=#142d4b gui=NONE
 hi Directory ctermfg=68 ctermbg=NONE cterm=NONE guifg=#3387cc guibg=NONE gui=NONE
+
+" Line number
+hi LineNr cterm=NONE ctermbg=234 ctermfg=244 gui=NONE guibg=#191919 guifg=#7c7c7c 
+
+" Fold line
 hi Folded ctermfg=249 ctermbg=0 cterm=NONE guifg=#aeaeae guibg=#000000 gui=NONE
+hi FoldColumn cterm=NONE ctermbg=234 ctermfg=249 gui=NONE guibg=#000000 guifg=#aeaeae 
 
 hi Normal cterm=NONE ctermbg=NONE ctermfg=250 gui=NONE guibg=#000000 guifg=#f8f8f8
 hi Boolean ctermfg=68 ctermbg=NONE cterm=NONE guifg=#3387cc guibg=NONE gui=NONE

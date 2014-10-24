@@ -8,7 +8,7 @@ syntax enable
 set nocompatible
 scriptencoding utf8
 set encoding=utf8
-set number
+set relativenumber
 set showmatch
 set visualbell
 
@@ -54,26 +54,21 @@ let g:airline_powerline_fonts = 1
 "let g:airline#extensions#tabline#left_sep=' '
 "let g:airline#extensions#tabline#left_alt_sep='|'
 
-" Emmet - Enable in different mode
-let g:user_emmet_mode="a"    "enable all function in all mode.
 
-" Emmet - Enable just for html/css files
-let g:user_emmet_install_global = 0
+" Load custom settings
+source ~/.vim/variables.vim
+source ~/.vim/functions.vim
+source ~/.vim/startup/mappings.vim
+source ~/.vim/startup/color.vim
 
 if has("autocmd")
 	" Enable filetype detection
-	filetype plugin indent on
 	filetype plugin on
-	autocmd FileType html,css EmmetInstall
+	"filetype plugin indent on
 
 	" Automatically apply any changes in vimrc
 	"autocmd BufWritePost .vimrc tabe $MYVIMRC
 endif
-
-" Load custom settings
-source ~/.vim/variables.vim
-exec ":source " . MYVIMMAP
-source ~/.vim/startup/color.vim
 
 " My settings
 set hidden
@@ -95,3 +90,11 @@ iabbr flase false
 if has("gui_running")
 	source ~/.vim/gvimrc
 endif
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"

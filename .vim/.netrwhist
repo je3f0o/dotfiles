@@ -1,8 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/root/desk/node/reveal.js'
-let g:netrw_dirhist_2='/root/desk/node'
-let g:netrw_dirhist_3='/root/desk/node/reveal.js'
-let g:netrw_dirhist_4='/root/Desktop/content'
-let g:netrw_dirhist_5='/root/Desktop/content/public/js'
-let g:netrw_dirhist_6='/root/Desktop/node/twitterbot'
+let g:netrw_dirhist_cnt =0

@@ -6,16 +6,21 @@ snippet proto
 		${4:// body...}
 	};
 # Function
-snippet fun
-	function ${1:function_name} (${2:argument}) {
-		${3:// body...}
+snippet fn
+	function ${1:function_name} (${2:arguments}) {
+		$0
 	}
+endsnippet
 # Anonymous Function
-snippet f
-	function(${1}) {${2}};
+snippet fna
+	function (${1}) {${2}
+	}
 # if
 snippet if
-	if (${1:true}) {${2}}
+	if (${1:true}) {
+		$0
+	}
+endsnippet
 # if ... else
 snippet ife
 	if (${1:true}) {${2}}
@@ -41,11 +46,11 @@ snippet case
 	${3}
 # for (...) {...}
 snippet each
-	for (${2:i} = 0, ${3:len} = ${1:Things}.length; $2 < len; ++$2) {${4:// code...}
+	for (${2:i} = 0, ${3:len} = ${1:Things}.length; $2 < len; ++$2) {${4}
 	}
 # for (...) {...} (Improved Native For-Loop)
 snippet eachr
-	for (${2:i} = ${1:Things}.length - 1; $2 >= 0; --$2) {${3:// code...}
+	for (${2:i} = ${1:Things}.length - 1; $2 >= 0; --$2) {${3}
 	}
 # while (...) {...}
 snippet wh

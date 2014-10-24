@@ -228,7 +228,7 @@ snippet flo
 
 # Returns the absolute value of a number.
 snippet abs
-	@include absalute(${1});${2}
+	@include absolute(${1});${2}
 snippet rel
 	@include relative(${1});${2}
 snippet fix
@@ -240,6 +240,18 @@ snippet sq
 	@include square;${1}
 snippet br
 	@include border-radius(${1});${2}
+snippet trans
+	@include transition(${1});${2}
+snippet sz
+	@include size(${1});${2}
+snippet msz
+	@include max-size(${1});${2}
+snippet anim
+	@include animation(${1});${2}
+snippet key
+	@include keyframes (${1}) {
+		${2}
+	}
 snippet clp
 	@include pie-clearfix;${1}
 # backgrounds

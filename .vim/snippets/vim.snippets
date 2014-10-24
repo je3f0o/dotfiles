@@ -1,0 +1,8 @@
+
+# Function
+snippet fn
+	if !exists("*${1:FunctionName}")
+		function $1(${2})
+			${3}
+		endfunction
+	endif
