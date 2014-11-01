@@ -1,13 +1,60 @@
 
 # function
 snippet fn
-function ${1:function_name} (${2:arguments}) {
+function ${1:function_name} ($2) {
 	$0
 }
 endsnippet
+
 # Anonymous function
 snippet fna
-function (${1:arguments}) {
+function ($1) {
 	$0
 }
 endsnippet
+
+# Anonymous function
+snippet fnae
+function ($1) {
+	$0
+};
+endsnippet
+
+# if condition
+snippet if
+if (${1:condition}) {
+	$0
+}
+endsnippet
+
+# for each loop
+snippet each
+for (i = 0, len = ${1:things}.length; i < len; ++i) {
+	$0
+}
+endsnippet
+
+# reverse for each loop
+snippet eachr
+for (i = ${1:things}.length - 1; i >= 0; --i) {
+	$0
+}
+endsnippet
+
+snippet fe
+${1:things}.forEach(function (${2:thing}) {
+	$0
+});
+endsnippet
+
+snippet ngeach
+angular.forEach(${1:things}, function (${2:thing}) {
+	$0
+});
+endsnippet
+
+
+
+
+
+

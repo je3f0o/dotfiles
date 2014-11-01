@@ -1,0 +1,11 @@
+:insert
+/* -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
+* File Name  :
+* Purpose    :
+* Created at :
+* Updated at :
+* Author     : jeefo
+_._._._._._._._._._._._._._._._._._._._._.*/
+
+END
+.

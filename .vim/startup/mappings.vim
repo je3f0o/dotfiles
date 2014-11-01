@@ -52,7 +52,7 @@ inoremap <leader>w <C-w>
 vnoremap <leader>w <C-w>
 
 " Kill current buffer
-nnoremap <C-w> :bd<CR>
+nnoremap <silent> <C-w> :bd<CR>
 inoremap <C-w> <C-c><C-w>
 vnoremap <C-w> <C-c><C-w>
 
@@ -138,3 +138,17 @@ nnoremap <leader>t] :Tabularize /\]<CR>
 vnoremap <leader>t] :Tabularize /\]<CR>
 
 
+
+if !exists("*HTMLEmmetMapping")
+	function HTMLEmmetMapping()
+		nmap <buffer> <Tab> <C-y>,
+		imap <buffer> <Tab> <C-c><C-y>,i
+	endfunction
+endif
+
+if has("autocmd")
+	" Emmet - remap
+	autocmd BufNewFile,BufRead *.html :call HTMLEmmetMapping()
+	autocmd BufNewFile,BufRead *.md set filetype=markdown | startinsert
+	autocmd BufNewFile *.js :call PreHeaderJavascript()
+endif

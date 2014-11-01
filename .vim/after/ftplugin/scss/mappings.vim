@@ -1,5 +1,5 @@
 
-inoremap <buffer> <Tab> <C-R>=TriggerSnippet()<CR>
+"inoremap <buffer> <Tab> <C-R>=TriggerSnippet()<CR>
 call AutoCloseBrackets()
 
 
