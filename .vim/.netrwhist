@@ -1,3 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
-let g:netrw_dirhist_1='/root/Desktop/content/public/templates/controllers'
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/root/Desktop/ineg'
+let g:netrw_dirhist_2='/root/Programming/nodejs/requirejs'
+let g:netrw_dirhist_3='/root/Desktop/bower/bower_components/angular-file-upload'
+let g:netrw_dirhist_4='/root/Desktop/content/server/api/controllers'

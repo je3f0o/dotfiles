@@ -9,66 +9,9 @@ function f {
 	find . -name "$1"
 }
 
-# Git snapshot
-function g-snapshot {
-	local post_commit=~/.git/hooks/post-commit
-	local post_commit_local=`pwd`"/.git/hooks/post-commit"
-
-	if [ -e $post_commit_local ] && [ $post_commit -nt $post_commit_local ]; then
-		rm -f $post_commit_local
-	fi
-
-	[ ! -e $post_commit_local ] && cp $post_commit $post_commit_local
-}
-
-# Git commit and snapshot
-function g-commit {
-	g-snapshot
-
-	git commit -am "$@"
-}
-
-# Git commit rewrite history and snapshot
-function g-amend {
-	g-snapshot
-
-	git commit -a --amend -C HEAD "$@"
-}
-
-# Git submodule add in your ~/vim/bundle
-# later update more ...
-# maybe git.sh for own functionality
-function g-vim-plugin-add-module {
-	if [ -z $1 ] || [ -z $2 ]; then
-		echo "ARG1 = git repo and ARG2 = plugin name required!"
-	else
-		git submodule add $1 ".vim/bundle/${2}.git"
-	fi
-}
-
-function g-submodules {
-	git submodule status
-}
-
-# Wifi adapter's mac change for wifi hacking
-function mac {
-	local wlan1=$(airmon-ng | grep wlan1)
-	if [ -z wlan1 ]; then
-		ifconfig wlan1 down; macchanger -m 00:11:22:33:44:55 wlan1; ifconfig wlan1 up
-	else
-		echo "First plug usb wifi card you stupid! and happy hacking :)"
-	fi
-}
-
-# Create a blank RequireJS template file
-function requirejs {
-	local status=$(node ~/Programming/nodejs/requirejs/requirejs.js "$@")
-	if [[ $status == SUCCESS:* ]]; then
-		vim `sed -e 's/^SUCCESS\:\s*//' <<< ${status}`
-	else
-		echo $status
-	fi
-}
+private_fn_path=~/private/functions.sh
+[ -e $private_fn_path ] && source $private_fn_path
+unset private_fn_path
 
 # # Let's toss an image onto my server and pbcopy that bitch.
 # function scpp() {

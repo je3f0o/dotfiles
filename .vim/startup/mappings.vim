@@ -119,8 +119,11 @@ imap <C-l> <right>
 
 " ------------------ VISUAL MODE ------------------
 
+vnoremap <leader>" c""<C-c>P
+vnoremap <leader>' c''<C-c>P
 
 
+" -------------------------------------------------
 
 nnoremap <leader>t= :Tabularize /=<CR>
 vnoremap <leader>t= :Tabularize /=<CR>

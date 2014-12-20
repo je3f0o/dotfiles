@@ -28,3 +28,6 @@
 [submodule ".vim/bundle/syntastic.git"]
 	path = .vim/bundle/syntastic.git
 	url = git@github.com:scrooloose/syntastic.git
+[submodule ".vim/bundle/vim-glsl.git"]
+	path = .vim/bundle/vim-glsl.git
+	url = https://github.com/tikhomirov/vim-glsl.git

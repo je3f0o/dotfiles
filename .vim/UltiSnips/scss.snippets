@@ -57,6 +57,10 @@ snippet fr
 float: right;$0
 endsnippet
 
+snippet fn
+float: none;$0
+endsnippet
+
 snippet cll
 clear: left;$0
 endsnippet
@@ -104,7 +108,7 @@ margin: ${1:0} ${2:0};$0
 endsnippet
 
 snippet m3
-kargin: ${1:0} ${2:0} ${3:0};$0
+margin: ${1:0} ${2:0} ${3:0};$0
 endsnippet
 
 snippet m4
@@ -416,8 +420,16 @@ snippet br
 @include border-radius($1);$0
 endsnippet
 
-snippet trans
+snippet bs
+@include box-shadow($1);$0
+endsnippet
+
+snippet tsi
 @include transition($1);$0
+endsnippet
+
+snippet tsf
+@include transform($1);$0
 endsnippet
 
 snippet sz
