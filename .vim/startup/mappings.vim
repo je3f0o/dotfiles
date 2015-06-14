@@ -58,7 +58,15 @@ vnoremap <C-w> <C-c><C-w>
 
 " Toggle folds
 nnoremap <Space> za
-vnoremap <Space> za
+
+" Copy to clipboard
+nnoremap <C-y> "+y
+vnoremap <C-y> "+y
+" Paste from clipboard
+nnoremap <F2> "+gP
+inoremap <F2> <C-c>"+gPi
+vnoremap <F2> "+gP
+
 
 " ------------------ NORMAL MODE ------------------
 " I really hate that things don't auto-center
@@ -107,6 +115,8 @@ nnoremap <C-t> :t.<left><left>
 " Toggle number
 nnoremap <leader>n :call CycleLineNumbers()<CR>
 
+nnoremap <C-a> ggVG
+
 " ------------------ INSERT MODE ------------------
 " Move cursor 
 imap <C-h> <left>
@@ -121,7 +131,6 @@ imap <C-l> <right>
 
 vnoremap <leader>" c""<C-c>P
 vnoremap <leader>' c''<C-c>P
-
 
 " -------------------------------------------------
 

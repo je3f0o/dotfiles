@@ -1,0 +1,40 @@
+
+
+# Create
+snippet cr
+CREATE TABLE IF NOT EXISTS \`${1:table_name}\` (
+	\`id\` int(10) unsigned NOT NULL AUTO_INCREMENT,
+	\`user_id\` int(10) unsigned NOT NULL,
+	$0
+	\`created_at\` datetime NOT NULL,
+	\`updated_at\` datetime NOT NULL,
+	PRIMARY KEY (\`id\`),
+	KEY \`FK_$1_users\` (\`user_id\`),
+	CONSTRAINT \`FK_$1_users\` FOREIGN KEY (\`user_id\`) REFERENCES \`users\` (\`id\`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT '${2:comment}';
+endsnippet
+
+# Varchar
+snippet str
+\`${1:column_name}\` varchar(${2:150}) NOT NULL COMMENT '${3:commnet}',$0
+endsnippet
+
+# Integer not null
+snippet int
+\`${1:column_name}\` int($10) NOT NULL COMMENT '${2:commnet}',$0
+endsnippet
+
+# Unsigned Integer not null
+snippet uint
+\`${1:column_name}\` int($10) unsigned NOT NULL COMMENT '${2:commnet}',$0
+endsnippet
+
+# Date null
+snippet daten
+\`${1:name}_date\` date DEFAULT NULL COMMENT '${2:commnet}',$0
+endsnippet
+
+# Date not null
+snippet date
+\`${1:name}_date\` date NOT NULL COMMENT '${2:commnet}',$0
+endsnippet

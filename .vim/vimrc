@@ -77,7 +77,7 @@ set hidden
 set splitright
 
 " Toggle paste mode
-set pastetoggle=<F2>
+" set pastetoggle=<F2>
 
 " I use ore more modern way to loss data, I use GIT
 set nobackup
@@ -86,6 +86,7 @@ set noswapfile
 " correction
 iabbr ture true
 iabbr flase false
+iabbr fasle false
 
 if has("gui_running")
 	source ~/.vim/gvimrc

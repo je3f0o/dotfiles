@@ -254,6 +254,10 @@ snippet tt
 text-transform: ${1:uppercase};$0
 endsnippet
 
+snippet va
+vertical-align: ${1:middle};$0
+endsnippet
+
 snippet lh
 line-height: ${1:1.5em};$0
 endsnippet
@@ -265,17 +269,17 @@ endsnippet
 # SASS RGB Functions
 # Converts an rgb(red, green, blue) triplet into a color.
 snippet rgb
-rgb(${1:red}, ${2:green}, ${3:blue});$0
+rgb(${1:red}, ${2:green}, ${3:blue})$0
 endsnippet
 
 # Converts an rgba(red, green, blue, alpha) quadruplet into a color.
 snippet rgba
-rgba(${1:red}, ${2:green}, ${3:blue}, ${4:alpha});$0
+rgba(${1:red}, ${2:green}, ${3:blue}, ${4:alpha})$0
 endsnippet
 
 # Adds an alpha layer to any color value.
 snippet rgbc
-rgba(${1:color}, ${2:alpha});$0
+rgba(${1:color}, ${2:alpha})$0
 endsnippet
 
 # Mixes two colors together.
@@ -360,13 +364,6 @@ snippet alp
 alpha(${1:color});$0
 endsnippet
 
-# Add or change an alpha layer for any color value.
-# - already defined, see 'rgbc'
-# Makes a color more opaque.
-snippet opa
-opacify(${1:color}, ${2:amount});$0
-endsnippet
-
 # Makes a color more transparent.
 snippet tra
 transparentize(${1:color}, ${2:amount});$0
@@ -416,6 +413,14 @@ snippet sq
 @include square;$0
 endsnippet
 
+snippet op
+@include opacity($1);$0
+endsnippet
+
+snippet bc
+border-color: (${1:black});$0
+endsnippet
+
 snippet br
 @include border-radius($1);$0
 endsnippet
@@ -442,6 +447,10 @@ endsnippet
 
 snippet anim
 @include animation(${1:animation-name});$0
+endsnippet
+
+snippet tri
+@include triangle(${1:direction}, ${2:position}, ${3:[color]}, ${4:[border-size]}, ${5:[side-size]});$0
 endsnippet
 
 snippet key
@@ -492,5 +501,26 @@ endsnippet
 # Gets the blue component of a color.
 snippet bgblu
 background-color: blue;$0
+endsnippet
+
+# Media
+snippet me
+@media (${1:min-width} : ${2:value}) {
+	$0
+}
+endsnippet
+
+# Each
+snippet each
+@each $${1:item} in $${2:items} {
+	$0
+}
+endsnippet
+
+# Each
+snippet if
+@if $${1:condition} {
+	$0
+}
 endsnippet
 

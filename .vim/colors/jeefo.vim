@@ -10,7 +10,8 @@ let g:colors_name = "jeefo"
 
 hi Cursor ctermfg=NONE ctermbg=248 cterm=NONE guifg=NONE guibg=#a7a7a7 gui=NONE
 hi Visual ctermfg=NONE ctermbg=236 cterm=NONE gui=NONE guibg=#2c3033 guifg=NONE
-hi CursorLine ctermfg=NONE ctermbg=234 cterm=NONE guifg=NONE guibg=#191919 gui=NONE
+hi CursorLine ctermfg=NONE ctermbg=234 cterm=NONE guifg=#ff0000 guibg=#191919 gui=NONE
+hi CursorLineNr ctermfg=11 ctermbg=234 cterm=BOLD guifg=#ff0000 guibg=#191919 gui=NONE
 hi CursorColumn ctermfg=NONE ctermbg=234 cterm=NONE guifg=NONE guibg=#191919 gui=NONE
 hi ColorColumn ctermfg=NONE ctermbg=234 cterm=NONE guifg=NONE guibg=#191919 gui=NONE
 hi VertSplit ctermfg=238 ctermbg=238 cterm=NONE guifg=#484848 guibg=#484848 gui=NONE
