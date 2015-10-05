@@ -1,6 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/root/Desktop/bower/bower_components/angular-loading-bar'
-let g:netrw_dirhist_2='/root/Desktop/projects/ng-lbc/source/directives'
-let g:netrw_dirhist_3='/root/.npm/configstore'
-let g:netrw_dirhist_4='/root/Desktop/naahzg/public/js/site'
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/root/Desktop/naahzg'
+let g:netrw_dirhist_2='/root/private'
+let g:netrw_dirhist_3='/root/openvpn/ny-vpn/keys'
+let g:netrw_dirhist_4='/root/Desktop/naahzg/public/js'
+let g:netrw_dirhist_5='/root/Downloads/mram/nodejitsu/forms'
+let g:netrw_dirhist_6='/opt/metasploit/apps'
+let g:netrw_dirhist_7='/root/Desktop/javascript-hicheel'

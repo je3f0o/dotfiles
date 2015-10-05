@@ -11,8 +11,8 @@ let g:colors_name = "jeefo"
 hi Cursor ctermfg=NONE ctermbg=248 cterm=NONE guifg=NONE guibg=#a7a7a7 gui=NONE
 hi Visual ctermfg=NONE ctermbg=236 cterm=NONE gui=NONE guibg=#2c3033 guifg=NONE
 hi CursorLine ctermfg=NONE ctermbg=234 cterm=NONE guifg=#ff0000 guibg=#191919 gui=NONE
-hi CursorLineNr ctermfg=11 ctermbg=234 cterm=BOLD guifg=#ff0000 guibg=#191919 gui=NONE
 hi CursorColumn ctermfg=NONE ctermbg=234 cterm=NONE guifg=NONE guibg=#191919 gui=NONE
+hi CursorLineNr ctermfg=11 ctermbg=0 cterm=BOLD guifg=#ff0000 guibg=#191919 gui=NONE
 hi ColorColumn ctermfg=NONE ctermbg=234 cterm=NONE guifg=NONE guibg=#191919 gui=NONE
 hi VertSplit ctermfg=238 ctermbg=238 cterm=NONE guifg=#484848 guibg=#484848 gui=NONE
 hi MatchParen ctermfg=173 ctermbg=NONE cterm=NONE guifg=#e28964 guibg=NONE gui=NONE
@@ -25,7 +25,7 @@ hi Search ctermfg=NONE ctermbg=17 cterm=NONE guifg=NONE guibg=#142d4b gui=NONE
 hi Directory ctermfg=68 ctermbg=NONE cterm=NONE guifg=#3387cc guibg=NONE gui=NONE
 
 " Line number
-hi LineNr cterm=NONE ctermbg=234 ctermfg=244 gui=NONE guibg=#191919 guifg=#7c7c7c 
+hi LineNr cterm=NONE ctermbg=0 ctermfg=7 gui=NONE guibg=#191919 guifg=#7c7c7c 
 
 " Fold line
 hi Folded ctermfg=249 ctermbg=0 cterm=NONE guifg=#aeaeae guibg=#000000 gui=NONE
@@ -34,7 +34,7 @@ hi FoldColumn cterm=NONE ctermbg=234 ctermfg=249 gui=NONE guibg=#000000 guifg=#a
 hi Normal cterm=NONE ctermbg=NONE ctermfg=250 gui=NONE guibg=#000000 guifg=#f8f8f8
 hi Boolean ctermfg=68 ctermbg=NONE cterm=NONE guifg=#3387cc guibg=NONE gui=NONE
 hi Character ctermfg=68 ctermbg=NONE cterm=NONE guifg=#3387cc guibg=NONE gui=NONE
-hi Comment cterm=NONE ctermbg=NONE ctermfg=249 gui=italic guibg=NONE guifg=#aeaeae
+hi Comment cterm=NONE ctermbg=NONE ctermfg=9 gui=italic guibg=NONE guifg=#aeaeae
 hi Conditional ctermfg=173 ctermbg=NONE cterm=NONE guifg=#e28964 guibg=NONE gui=NONE
 hi Constant ctermfg=68 ctermbg=NONE cterm=NONE guifg=#3387cc guibg=NONE gui=NONE
 hi Define ctermfg=173 ctermbg=NONE cterm=NONE guifg=#e28964 guibg=NONE gui=NONE

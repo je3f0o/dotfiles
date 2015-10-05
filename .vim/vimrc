@@ -16,6 +16,9 @@ set visualbell
 set textwidth=0
 set nowrap
 
+set cursorline
+set cursorcolumn
+
 set hlsearch
 set smartcase
 set ignorecase
@@ -34,7 +37,7 @@ set shiftwidth=4
 "set list extends:>,precedes:<
 
 " Invisible character symbol
-set listchars=tab:▸\ ,eol:¬
+set listchars=tab:▸\ ,eol:⏎
 "set showbreak=➤
 set showbreak=…
 

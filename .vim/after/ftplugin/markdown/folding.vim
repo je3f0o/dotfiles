@@ -1,5 +1,5 @@
 
-if !exists("*MyMarkDownFolds")
+if ! exists("*MyMarkDownFolds")
 	function MyMarkDownFolds()
 		let thisline = getline(v:lnum)
 		if match(thisline, "^##") >= 0
@@ -12,7 +12,7 @@ if !exists("*MyMarkDownFolds")
 	endfunction
 endif
 
-if !exists("*MyMarkDownFoldText")
+if ! exists("*MyMarkDownFoldText")
 	function MyMarkDownFoldText()
 		let foldsize = (v:foldend-v:foldstart)
 		return getline(v:foldstart) . " (" . foldsize . ") "

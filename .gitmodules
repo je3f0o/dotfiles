@@ -64,3 +64,9 @@
 [submodule ".vim/bundle/sunbrust.git"]
 	path = .vim/bundle/sunbrust.git
 	url = git@github.com:sickill/vim-sunburst.git
+[submodule ".vim/bundle/seti.git"]
+	path = .vim/bundle/seti.git
+	url = https://github.com/trusktr/seti.vim
+[submodule ".vim/bundle/vim-repeat.git"]
+	path = .vim/bundle/vim-repeat.git
+	url = git@github.com:tpope/vim-repeat.git

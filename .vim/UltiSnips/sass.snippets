@@ -1,0 +1,526 @@
+# CSS & SASS Snippets for VIM's Snipmate
+# Author: Chris Batchelor, Firegoby Design
+# Install: -
+#   Put in your SnipMate's snippets/ dir
+#   :set filetype=scss
+#      or
+#   'filetype on' in your .vimrc
+# Notes: -
+#	most used features use single letter abbreviations
+# 	standard CSS declarations use two letters (occasionally three)
+# 	SASS functions use the first three letters of the function (occ. four)
+
+# Define a variable
+snippet v
+$${1:name}: ${2:value}$0
+endsnippet
+
+# @extend - Selector Inheritance
+snippet ex
+@extend .${1:class}$0
+endsnippet
+
+# @mixin - Define a mixin
+snippet mix
+@mixin ${1:name} {
+	$0
+}
+endsnippet
+
+# +- Use a mixin
+snippet inc
++${1:mixin}$0
+endsnippet
+
+# Standard CSS Declarations
+snippet di
+display: ${1:none}$0
+endsnippet
+
+# positioning
+snippet poa
+position: absolute$0
+endsnippet
+snippet por
+position: relative$0
+endsnippet
+
+snippet pof
+position: fixed$0
+endsnippet
+
+snippet fl
+float: left$0
+endsnippet
+
+snippet fr
+float: right$0
+endsnippet
+
+snippet fn
+float: none$0
+endsnippet
+
+snippet cll
+clear: left$0
+endsnippet
+
+snippet clr
+clear: right$0
+endsnippet
+
+snippet clb
+clear: both$0
+endsnippet
+
+# sizing
+snippet he
+height: ${1:100%}$0
+endsnippet
+
+snippet wi
+width: ${1:80%}$0
+endsnippet
+
+snippet maw
+max-width: ${1:80%}$0
+endsnippet
+
+snippet miw
+min-width: ${1:25%}$0
+endsnippet
+
+snippet mah
+max-height: ${1:80%}$0
+endsnippet
+
+snippet mih
+min-height: ${1:25%}$0
+endsnippet
+
+# margins
+snippet m
+margin: ${1:0}$0
+endsnippet
+
+snippet m2
+margin: ${1:0} ${2:0}$0
+endsnippet
+
+snippet m3
+margin: ${1:0} ${2:0} ${3:0}$0
+endsnippet
+
+snippet m4
+margin: ${1:0} ${2:0} ${3:0} ${4:0}$0
+endsnippet
+
+snippet mt
+margin-top: ${1:0}$0
+endsnippet
+
+snippet mb
+margin-bottom: ${1:0}$0
+endsnippet
+
+snippet ml
+margin-left: ${1:0}$0
+endsnippet
+
+snippet mr
+margin-right: ${1:0}$0
+endsnippet
+
+# padding
+snippet p
+padding: ${1:0}$0
+endsnippet
+
+snippet p2
+padding: ${1:0} ${2:0}$0
+endsnippet
+
+snippet p3
+padding: ${1:0} ${2:0} ${3:0}$0
+endsnippet
+
+snippet p4
+padding: ${1:0} ${2:0} ${3:0} ${4:0}$0
+endsnippet
+
+snippet pt
+padding-top: ${1:0}$0
+endsnippet
+
+snippet pb
+padding-bottom: ${1:0}$0
+endsnippet
+
+snippet pl
+padding-left: ${1:0}$0
+endsnippet
+
+snippet pr
+padding-right: ${1:0}$0
+endsnippet
+
+#borders
+snippet b
+border: ${1:1px} ${2:solid} ${3:#000}$0
+endsnippet
+
+snippet btop
+border-top: ${1:1px} ${2:solid} ${3:#000}$0
+endsnippet
+
+snippet bbot
+border-bottom: ${1:1px} ${2:solid} ${3:#000}$0
+endsnippet
+
+snippet bleft
+border-left: ${1:1px} ${2:solid} ${3:#000}$0
+endsnippet
+
+snippet bright
+border-right: ${1:1px} ${2:solid} ${3:#000}$0
+endsnippet
+
+# fonts
+snippet f
+font: ${1:size}em/${2:1.5} ${3:"Helvetica Neue", Helvetica, Arial, sans-serif}$0
+endsnippet
+
+snippet font
+font: ${1:weight} ${2:style} ${3:variant} ${4:size}/${5:line-height} ${6:family}$0
+endsnippet
+
+snippet ff
+font-family: ${1:"Helvetica Neue", Helvetica, Arial, sans-serif}$0
+endsnippet
+
+snippet fs
+font-size: ${1:1.2em}$0
+endsnippet
+
+snippet fst
+font-style: ${1:italic}$0
+endsnippet
+
+snippet fv
+font-variant: ${1:small-caps}$0
+endsnippet
+
+snippet fw
+font-weight: ${1:bold}$0
+endsnippet
+
+snippet @ff
+@font-face {
+	font-family: ${1:name}
+	src: ${2:url}
+}$0
+endsnippet
+
+# text- & lettering
+snippet col
+color: ${1:#000}$0
+endsnippet
+
+snippet ta
+text-align: ${1:center}$0
+endsnippet
+
+snippet td
+text-decoration: ${1:none}$0
+endsnippet
+
+snippet ti
+text-indent: ${1:length}$0
+endsnippet
+
+snippet to
+text-overflow: ${1:ellipsis}$0
+endsnippet
+
+snippet tr
+text-rendering: ${1:optimizeLegibility}$0
+endsnippet
+
+snippet ts
+text-shadow: ${1:color} ${2:x} ${3:y} ${4:blur}$0
+endsnippet
+
+snippet tt
+text-transform: ${1:uppercase}$0
+endsnippet
+
+snippet va
+vertical-align: ${1:middle}$0
+endsnippet
+
+snippet lh
+line-height: ${1:1.5em}$0
+endsnippet
+
+snippet ls
+letter-spacing: ${1:0.025em}$0
+endsnippet
+
+# SASS RGB Functions
+# Converts an rgb(red, green, blue) triplet into a color.
+snippet rgb
+rgb(${1:red}, ${2:green}, ${3:blue})$0
+endsnippet
+
+# Converts an rgba(red, green, blue, alpha) quadruplet into a color.
+snippet rgba
+rgba(${1:red}, ${2:green}, ${3:blue}, ${4:alpha})$0
+endsnippet
+
+# Adds an alpha layer to any color value.
+snippet rgbc
+rgba(${1:color}, ${2:alpha})$0
+endsnippet
+
+# Mixes two colors together.
+snippet mixc
+mix(${1:color1}, ${2:color2})$0
+endsnippet
+
+# Mixes two colors together (weighted)
+snippet mixcw
+mix(${1:color1}, ${2:color2}, ${3:weight})$0
+endsnippet
+
+# SASS HSL Functions
+# Converts an hsl(hue, saturation, lightness) triplet into a color.
+snippet hsl
+hsl(${1:hue}, ${2:saturation}, ${3:lightness})$0
+endsnippet
+
+# Converts an hsla(hue, saturation, lightness, alpha) quadruplet into a color.
+snippet hsla
+hsla(${1:hue}, ${2:saturation}, ${3:lightness}, ${4:alpha})$0
+endsnippet
+
+# Gets the hue component of a color.
+snippet hue
+hue(${1:color})$0
+endsnippet
+
+# Gets the saturation component of a color.
+snippet satc
+saturation(${1:color})$0
+endsnippet
+
+# Gets the lightness component of a color.
+snippet ligc
+lightness(${1:color})$0
+endsnippet
+
+# Changes the hue of a color.
+snippet adj
+adjust-hue(${1:color}, ${2:degrees})$0
+endsnippet
+
+# Makes a color lighter.
+snippet lig
+lighten(${1:color}, ${2:amount})$0
+endsnippet
+
+# Makes a color darker.
+snippet dar
+darken(${1:color}, ${2:amount})$0
+endsnippet
+
+# Makes a color more saturated.
+snippet sat
+saturate(${1:color}, ${2:amount})$0
+endsnippet
+
+# Makes a color less saturated.
+snippet des
+desaturate(${1:color}, ${2:amount})$0
+endsnippet
+
+# Converts a color to grayscale.
+snippet gra
+grayscale(${1:color})$0
+endsnippet
+
+# Returns the complement of a color.
+snippet com
+complement(${1:color})$0
+endsnippet
+
+# Returns the inverse of a color.
+snippet inv
+invert(${1:color})$0
+endsnippet
+
+# SASS Opacity Functions
+# Gets the alpha component (opacity) of a color.
+snippet alp
+alpha(${1:color})$0
+endsnippet
+
+# Makes a color more transparent.
+snippet tra
+transparentize(${1:color}, ${2:amount})$0
+endsnippet
+
+# SASS Number Functions
+# Converts a unitless number to a percentage.
+snippet per
+percentage(${1:value})$0
+endsnippet
+
+# Rounds a number up to the nearest whole number.
+snippet cei
+ceil(${1:value})$0
+endsnippet
+
+# Rounds a number down to the nearest whole number.
+snippet flo
+floor(${1:value})$0
+endsnippet
+
+#
+#
+#
+#
+#------------- My custom sass snippets ------------- 
+
+# Returns the absolute value of a number.
+snippet abs
++absolute($1)$0
+endsnippet
+
+snippet rel
++relative($1)$0
+endsnippet
+
+snippet fix
++fixed($1)$0
+endsnippet
+
+# Rounds a number to the nearest whole number.
+snippet ro
++round($1)$0
+endsnippet
+
+snippet sq
++square$0
+endsnippet
+
+snippet op
++opacity($1)$0
+endsnippet
+
+snippet bc
+border-color: (${1:black})$0
+endsnippet
+
+snippet br
++border-radius($1)$0
+endsnippet
+
+snippet bs
++box-shadow($1)$0
+endsnippet
+
+snippet tsi
++transition($1)$0
+endsnippet
+
+snippet tsf
++transform($1)$0
+endsnippet
+
+snippet sz
++size($1)$0
+endsnippet
+
+snippet msz
++max-size($1)$0
+endsnippet
+
+snippet anim
++animation(${1:animation-name})$0
+endsnippet
+
+snippet tri
++triangle(${1:direction}, ${2:position}, ${3:[color]}, ${4:[border-size]}, ${5:[side-size]})$0
+endsnippet
+
+snippet key
++keyframes (${1:keyframes-name}) {
+	$0
+}
+endsnippet
+
+snippet clp
++pie-clearfix$0
+endsnippet
+
+# backgrounds
+snippet bg
+background: ${1:#fff} ${2:url} ${3:repeat} ${4:left} ${5:top}$0
+endsnippet
+
+snippet bgc
+background-color: ${1:#fff}$0
+endsnippet
+
+snippet bgcl
+background-color: lighten(${1:color}, ${2:amount})$0
+endsnippet
+
+snippet bgcd
+background-color: darken(${1:color}, ${2:amount})$0
+endsnippet
+
+snippet bgi
+background-image: url("${1:image.jpg}")$0
+endsnippet
+
+snippet bgp
+background-position: ${1:left} ${2:top}$0
+endsnippet
+
+# Gets the red component of a color.
+snippet bgred
+background-color: red$0
+endsnippet
+
+# Gets the green component of a color.
+snippet bggre
+background-color: green$0
+endsnippet
+
+# Gets the blue component of a color.
+snippet bgblu
+background-color: blue$0
+endsnippet
+
+# Media
+snippet me
+@media (${1:min-width} : ${2:value}) {
+	$0
+}
+endsnippet
+
+# Each
+snippet each
+@each $${1:item} in $${2:items} {
+	$0
+}
+endsnippet
+
+# Each
+snippet if
+@if $${1:condition} {
+	$0
+}
+endsnippet
+
