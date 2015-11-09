@@ -1,4 +1,19 @@
 
+# stringify
+snippet str
+JSON.stringify($1);$0
+endsnippet
+
+# parse
+snippet parse
+JSON.parse($1);$0
+endsnippet
+
+# require
+snippet req
+require("$1")$0
+endsnippet
+
 # console.log
 snippet log
 console.log($1);$0
@@ -127,6 +142,32 @@ switch (${1:value}) {
 }
 endsnippet
 
+snippet des
+describe("${1:description}", function () {
+	$0
+});
+endsnippet
 
+snippet it
+it("Should $1", function () {
+	$0
+});
+endsnippet
+
+snippet bef
+beforeEach(function () {
+	$0
+});
+endsnippet
+
+snippet aft
+afterEach(function () {
+	$0
+});
+endsnippet
+
+snippet ex
+expect(${1:value}).toBe(${2:expectation});$0
+endsnippet
 
 

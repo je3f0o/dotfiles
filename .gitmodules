@@ -70,3 +70,9 @@
 [submodule ".vim/bundle/vim-repeat.git"]
 	path = .vim/bundle/vim-repeat.git
 	url = git@github.com:tpope/vim-repeat.git
+[submodule ".vim/bundle/YouCompleteMe.git"]
+	path = .vim/bundle/YouCompleteMe.git
+	url = git@github.com:Valloric/YouCompleteMe.git
+[submodule ".vim/bundle/supertab.git"]
+	path = .vim/bundle/supertab.git
+	url = git@github.com:ervandew/supertab.git

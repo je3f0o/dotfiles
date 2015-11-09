@@ -4,6 +4,10 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
+# copy and remove with folders
+alias cp='cp -R'
+alias rm='rm -rf'
+
 # Be nice :)
 alias please=sudo
 
@@ -23,27 +27,21 @@ alias llaf='ls -lah  --color | grep "^[^d]"'
 alias rmall='rm -rf .[^.] .??* *'
 
 # IP addresses
-alias ip='dig +short myip.opendns.com @resolver1.opendns.com'
+#alias ip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 
 # Trim new lines and copy to clipboard
 alias trimcopy='tr -d '\n' | pbcopy'
 
 # Shortcuts
-alias g='git'
 alias v='vim'
+alias catc='pygmentize'
 
 # Copy git post-commit to current git project
 #alias gpost="cp ~/.git/hooks/post-commit .git/hooks"
 
-# Programs
-alias subl="subl -a $@"
-
 # bower allow root permanently
 alias bower='bower --allow-root'
-
-# bower allow root permanently
-alias rm='rm -rf'
 
 # debug on bash scripts
 xdo_compiler_path="$HOME/Programming/bash/xdo_compiler/compiler.sh"

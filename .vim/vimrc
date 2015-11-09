@@ -8,7 +8,6 @@ syntax enable
 set nocompatible
 scriptencoding utf8
 set encoding=utf8
-set relativenumber
 set showmatch
 set visualbell
 
@@ -32,6 +31,8 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 
+" Syntastic
+let g:syntastic_cpp_compiler_options = ' -std=c++11'
 
 " Some settings
 "set list extends:>,precedes:<
@@ -90,10 +91,18 @@ set noswapfile
 iabbr ture true
 iabbr flase false
 iabbr fasle false
+iabbr recieve receive
 
 if has("gui_running")
 	source ~/.vim/gvimrc
 endif
+
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+" If you prefer the Omni-Completion tip window to close when a selection is
+" made, these lines close it on movement in insert mode or when leaving
+" insert mode
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -102,3 +111,7 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'

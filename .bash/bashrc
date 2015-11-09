@@ -17,7 +17,7 @@ shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
-HISTFILESIZE=2000
+HISTFILESIZE=10000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -147,3 +147,5 @@ PS1="${bldred}\u ${txtrst}in ${bldblu}\w ${txtrst}on ${txtgrn}\h \$(__git_ps1)\n
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+### Added Virtual GL
+export PATH="/opt/VirtualGL/bin:$PATH"

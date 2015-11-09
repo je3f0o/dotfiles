@@ -28,11 +28,23 @@ if !exists("*AutoCloseBrackets")
 endif
 
 if !exists("*CycleLineNumbers")
+	let s:state = 2
+	set number
+	set relativenumber
+
 	function CycleLineNumbers()
-		if (&number == 1)
-			set relativenumber
+		if (s:state == 1)
+			set nu
+			set rnu
+			let s:state = 2
+		elseif (s:state == 2)
+			set nonu
+			set rnu
+			let s:state = 3
 		else
-			set number
+			set nornu
+			set nu
+			let s:state = 1
 		endif
 	endfunction
 endif

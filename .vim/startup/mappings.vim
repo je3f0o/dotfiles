@@ -161,6 +161,6 @@ endif
 if has("autocmd")
 	" Emmet - remap
 	autocmd BufNewFile,BufRead *.html :call HTMLEmmetMapping()
-	autocmd BufNewFile,BufRead *.md set filetype=markdown | startinsert
+	autocmd BufNewFile,BufRead *.md set filetype=markdown
 	autocmd BufNewFile *.js :call PreHeaderJavascript()
 endif
