@@ -1,0 +1,23 @@
+
+snippet html
+doctype html
+html(lang="mn")
+	head
+		meta(charset="UTF-8")
+		meta(http-equiv="X-UA-Compatible", content="IE=edge")
+		meta(name="viewport", content="width=device-width, initial-scale=1")
+
+		title LBC Content | Welcome
+
+		link(rel="stylesheet", href="/bower_components/bootstrap-css-only/css/bootstrap-theme.min.css")
+
+		//- Google Fonts
+		// link(rel="stylesheet", href="http://fonts.googleapis.com/css?family=Open+Sans&subset=cyrillic-ext,latin")
+
+		//- Custom style for this template
+		link(rel="stylesheet", href="/css/main.css")
+	body(ui-view)
+
+		//- RequireJS Lazyload
+		script(src="/bower_components/requirejs/require.js", data-main="/js/main")
+endsnippet
