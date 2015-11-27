@@ -12,6 +12,8 @@ Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdtree'
 " YouCompleteMe
 Bundle 'Valloric/YouCompleteMe'
+" Tern JS autocompletor using YouCompleteMe
+Bundle 'ternjs/tern_for_vim'
 " airline
 Bundle 'bling/vim-airline'
 " ctrlp
@@ -25,7 +27,7 @@ Bundle 'tpope/vim-fugitive'
 " jade
 Bundle 'digitaltoad/vim-jade'
 " seti
-Bundle 'trusktr/seti'
+Bundle 'trusktr/seti.vim'
 " simple-todo
 Bundle 'vitalk/vim-simple-todo'
 " supertab
@@ -123,9 +125,6 @@ set hidden
 
 " Vertical window split on right side
 set splitright
-
-" Toggle paste mode
-" set pastetoggle=<F2>
 
 " I use ore more modern way to loss data, I use GIT
 set nobackup
