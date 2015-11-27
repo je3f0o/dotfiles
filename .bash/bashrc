@@ -79,23 +79,12 @@ if [ -x /usr/bin/dircolors ]; then
 	#alias dir='dir --color=auto'
 	#alias vdir='vdir --color=auto'
 
-	alias grep='grep --color=auto'
-	alias fgrep='fgrep --color=auto'
-	alias egrep='egrep --color=auto'
 fi
 
 # some more ls aliases
-#alias la='ls -A'
-#alias l='ls -CF'
-
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-if [ -f ~/.bash_aliases ]; then
-	. ~/.bash_aliases
-fi
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -143,9 +132,17 @@ function __git_ps1 {
 
 # source ~/.git-prompt.sh
 
-PS1="${bldred}\u ${txtrst}in ${bldblu}\w ${txtrst}on ${txtgrn}\h \$(__git_ps1)\n${bldpur}➜ ${txtrst}"
+hostname=`scutil --get HostName`
+PS1="${bldred}\u ${txtrst}in ${bldblu}\w ${txtrst}on ${txtgrn}${hostname} \$(__git_ps1)\n${bldpur}➜ ${txtrst}"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 ### Added Virtual GL
 export PATH="/opt/VirtualGL/bin:$PATH"
+
+# Mac color
+export CLICOLOR=1
+export LSCOLORS=ExFxBxDxCxegedabagacad
+
+### MySQL
+export PATH="/usr/local/mysql/bin:$PATH"

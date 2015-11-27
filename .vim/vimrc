@@ -1,5 +1,47 @@
-call pathogen#infect()
-call pathogen#helptags()
+" Of course
+set nocompatible
+
+" Required Vundle setup
+filetype off
+set runtimepath+=~/.vim/bundle/vundle
+call vundle#rc()
+
+" Vundle itself
+Bundle 'gmarik/vundle'
+" NERD_tree
+Bundle 'scrooloose/nerdtree'
+" YouCompleteMe
+Bundle 'Valloric/YouCompleteMe'
+" airline
+Bundle 'bling/vim-airline'
+" ctrlp
+Bundle 'kien/ctrlp.vim'
+" easymotion
+Bundle 'Lokaltog/vim-easymotion'
+" emmet
+Bundle 'mattn/emmet-vim'
+" fugitive
+Bundle 'tpope/vim-fugitive'
+" jade
+Bundle 'digitaltoad/vim-jade'
+" seti
+Bundle 'trusktr/seti'
+" simple-todo
+Bundle 'vitalk/vim-simple-todo'
+" supertab
+Bundle 'ervandew/supertab'
+" syntastic
+Bundle 'scrooloose/syntastic'
+" tabular
+Bundle 'godlygeek/tabular'
+" ultisnips
+Bundle 'SirVer/ultisnips'
+" unimpaired
+Bundle 'tpope/vim-unimpaired'
+" vim-glsl
+Bundle 'tikhomirov/vim-glsl'
+" vim-repeat
+Bundle 'tpope/vim-repeat'
 
 syntax on
 syntax enable
@@ -10,6 +52,8 @@ scriptencoding utf8
 set encoding=utf8
 set showmatch
 set visualbell
+set backspace=indent,eol,start
+set mouse=a
 
 " Automaticaly word wrap and insert new line
 set textwidth=0
@@ -115,3 +159,4 @@ let g:UltiSnipsEditSplit="vertical"
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:SuperTabDefaultCompletionType = '<C-n>'
+

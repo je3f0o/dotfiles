@@ -9,19 +9,20 @@ alias cp='cp -R'
 alias rm='rm -rf'
 
 # Be nice :)
+alias pls=sudo
 alias please=sudo
 
 # List files
-alias ll='ls -lh --color'
-alias lla='ls -lah --color'
+alias ll='ls -lhG' # --color=auto
+alias lla='ls -lahG'
 
 # List only directories
-alias lld='ls -lh --color | grep "^d"'
-alias llad='ls -lah --color | grep "^d"'
+alias lld='ls -lhG | grep "^d"'
+alias llad='ls -lahG | grep "^d"'
 
 # List only directories
-alias llf='ls -lh  --color | grep "^[^d]"'
-alias llaf='ls -lah  --color | grep "^[^d]"'
+alias llf='ls -lhG | grep "^[^d]"'
+alias llaf='ls -lahG | grep "^[^d]"'
 
 # Remove all files including hidden files
 alias rmall='rm -rf .[^.] .??* *'
@@ -37,11 +38,14 @@ alias trimcopy='tr -d '\n' | pbcopy'
 alias v='vim'
 alias catc='pygmentize'
 
+# Shutdown
+alias shutdown='shutdown -h now'
+
 # Copy git post-commit to current git project
 #alias gpost="cp ~/.git/hooks/post-commit .git/hooks"
 
 # bower allow root permanently
-alias bower='bower --allow-root'
+#alias bower='bower --allow-root'
 
 # debug on bash scripts
 xdo_compiler_path="$HOME/Programming/bash/xdo_compiler/compiler.sh"
