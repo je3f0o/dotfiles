@@ -58,8 +58,8 @@ endsnippet
 # if condition
 snippet if
 if (${1:condition}) {
-	$2
-}$0
+	$0
+}
 endsnippet
 
 # for each loop inline
@@ -99,6 +99,10 @@ snippet map
 ${1:things}.map(function (${2:thing}) {
 	$0
 });
+endsnippet
+
+snippet ngex
+angular.extend(${1:destination}, ${2:source...});$0
 endsnippet
 
 snippet ngeach

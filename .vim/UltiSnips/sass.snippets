@@ -247,7 +247,7 @@ text-rendering: ${1:optimizeLegibility}$0
 endsnippet
 
 snippet ts
-text-shadow: ${1:color} ${2:x} ${3:y} ${4:blur}$0
++text-shadow(${1:x} ${2:y} ${3:blur} ${4:color})$0
 endsnippet
 
 snippet tt
@@ -519,8 +519,7 @@ endsnippet
 
 # Each
 snippet if
-@if $${1:condition} {
+@if ${1:condition}
 	$0
-}
 endsnippet
 

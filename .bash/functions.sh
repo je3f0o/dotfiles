@@ -9,6 +9,15 @@ function f {
 	find . -name "$1"
 }
 
+# Copy w/ progress
+function cp_p {
+	rsync -WavP --human-readable --progress "$1" "$2"
+}
+
+function real-ip {
+	dig +short myip.opendns.com @resolver1.opendns.com
+}
+
 private_fn_path=~/private/functions.sh
 [ -e $private_fn_path ] && source $private_fn_path
 unset private_fn_path
@@ -25,17 +34,6 @@ unset private_fn_path
 # 	cd "`osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)'`"
 # }
 
-
-
-# # Start an HTTP server from a directory, optionally specifying the port
-# function server() {
-# 	local port="${1:-8000}"
-# 	open "http://localhost:${port}/"
-# 	# Set the default Content-Type to `text/plain` instead of `application/octet-stream`
-# 	# And serve everything as UTF-8 (although not technically correct, this doesn’t break anything for binary files)
-# 	python -c $'import SimpleHTTPServer;\nmap = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nmap[""] = "text/plain";\nfor key, value in map.items():\n\tmap[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();' "$port"
-# }
-
 # # git log with per-commit cmd-clickable GitHub URLs (iTerm)
 # function gf() {
 #   local remote="$(git remote -v | awk '/^origin.*\(push\)$/ {print $2}')"
@@ -50,27 +48,11 @@ unset private_fn_path
 # }
 
 
-# # Copy w/ progress
-# cp_p () {
-#   rsync -WavP --human-readable --progress $1 $2
-# }
-
 
 # # Test if HTTP compression (RFC 2616 + SDCH) is enabled for a given URL.
 # # Send a fake UA string for sites that sniff it instead of using the Accept-Encoding header. (Looking at you, ajax.googleapis.com!)
 # function httpcompression() {
 # 	encoding="$(curl -LIs -H 'User-Agent: Mozilla/5 Gecko' -H 'Accept-Encoding: gzip,deflate,compress,sdch' "$1" | grep '^Content-Encoding:')" && echo "$1 is encoded using ${encoding#* }" || echo "$1 is not using any encoding"
-# }
-
-# # Syntax-highlight JSON strings or files
-# function json() {
-# 	if [ -p /dev/stdin ]; then
-# 		# piping, e.g. `echo '{"foo":42}' | json`
-# 		python -mjson.tool | pygmentize -l javascript
-# 	else
-# 		# e.g. `json '{"foo":42}'`
-# 		python -mjson.tool <<< "$*" | pygmentize -l javascript
-# 	fi
 # }
 
 
@@ -145,18 +127,3 @@ unset private_fn_path
 # }
 
 
-# # animated gifs from any video
-# # from alex sexton   gist.github.com/SlexAxton/4989674
-# gifify() {
-#   if [[ -n "$1" ]]; then
-#     if [[ $2 == '--good' ]]; then
-#       ffmpeg -i $1 -r 10 -vcodec png out-static-%05d.png
-#       time convert -verbose +dither -layers Optimize -resize 600x600\> out-static*.png  GIF:- | gifsicle --colors 128 --delay=5 --loop --optimize=3 --multifile - > $1.gif
-#       rm out-static*.png
-#     else
-#       ffmpeg -i $1 -s 600x400 -pix_fmt rgb24 -r 10 -f gif - | gifsicle --optimize=3 --delay=3 > $1.gif
-#     fi
-#   else
-#     echo "proper usage: gifify <input_movie.mov>. You DO need to include extension."
-#   fi
-# }

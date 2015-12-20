@@ -44,6 +44,10 @@ Bundle 'tpope/vim-unimpaired'
 Bundle 'tikhomirov/vim-glsl'
 " vim-repeat
 Bundle 'tpope/vim-repeat'
+" Surround
+Bundle 'tpope/vim-surround'
+" Solarized
+Bundle 'altercation/vim-colors-solarized'
 
 syntax on
 syntax enable
@@ -126,7 +130,7 @@ set hidden
 " Vertical window split on right side
 set splitright
 
-" I use ore more modern way to loss data, I use GIT
+" I use more more modern way to loss data, I use GIT
 set nobackup
 set noswapfile
 

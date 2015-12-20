@@ -34,7 +34,7 @@ hi FoldColumn cterm=NONE ctermbg=234 ctermfg=249 gui=NONE guibg=#000000 guifg=#a
 hi Normal cterm=NONE ctermbg=NONE ctermfg=250 gui=NONE guibg=#000000 guifg=#f8f8f8
 hi Boolean ctermfg=68 ctermbg=NONE cterm=NONE guifg=#3387cc guibg=NONE gui=NONE
 hi Character ctermfg=68 ctermbg=NONE cterm=NONE guifg=#3387cc guibg=NONE gui=NONE
-hi Comment cterm=NONE ctermbg=NONE ctermfg=9 gui=italic guibg=NONE guifg=#aeaeae
+hi Comment cterm=italic ctermbg=NONE ctermfg=9 gui=italic guibg=NONE guifg=#aeaeae
 hi Conditional ctermfg=173 ctermbg=NONE cterm=NONE guifg=#e28964 guibg=NONE gui=NONE
 hi Constant ctermfg=68 ctermbg=NONE cterm=NONE guifg=#3387cc guibg=NONE gui=NONE
 hi Define ctermfg=173 ctermbg=NONE cterm=NONE guifg=#e28964 guibg=NONE gui=NONE

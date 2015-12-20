@@ -1,8 +1,4 @@
 #!/bin/bash
-echo "Do not use this. This file is depricated. Update it jeefo ! "
-exit 1
-
-dotfiles=(bash bashrc vim vimrc)
 
 function backup {
 	local backup_dir=~/.backup-dotfiles
@@ -19,16 +15,27 @@ function backup {
 }
 
 function symlink {
-	local file=$1
+	local from=~/cloud/dotfiles/."${1}"
+	local to_filename="${2}"
+	local to_path=~/."${to_filename}"
 	
-	[ -L ~/.$file ] && rm -f ~/.$file
-	[ -e ~/.$file ] && mv ~/.$file $(backup $file)
+	# Be careful with `rm -rf` command. Only use it for symbolic links.
+	if [ -L "${to_path}" ]; then
+		echo "Removing symbolic link: ${to_path}"
+		rm -rf "${to_path}" # symbolic link exists
+	fi
+	if [ -e "${to_path}" ];then
+		echo "Backuping existing file: ${to_path}"
+		mv "${to_path}" $(backup "${to_filename}") # file exists
+	fi
 
-	ln -s ~/cloud/dotfiles/.$file ~/.$file
+	ln -s "${from}" "${to_path}"
 }
 
-
+dotfiles=(bash vim)
 for file in ${dotfiles[@]}; do
-	symlink $file
+	symlink "${file}" "${file}"
 done
 
+symlink bash/bashrc bash_profile
+symlink vim/vimrc vimrc
