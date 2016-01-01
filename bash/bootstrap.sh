@@ -3,9 +3,14 @@ if [[ $OSTYPE == 'darwin'* ]]; then
 	__IS_MAC=true
 	__BASHRC='bash_profile'
 else
-	__IS_MAC=false
+	__IS_LINUX=true
 	__BASHRC='bashrc'
 fi
+
+function source_relative {
+	local dir=$(dirname ${BASH_SOURCE[1]})
+	source "${dir}/${1}"
+}
 
 source ~/.bash/autoloader.sh
 

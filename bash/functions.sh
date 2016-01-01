@@ -31,12 +31,10 @@ function auto-rename-tmux-window {
 }
 export PROMPT_COMMAND=auto-rename-tmux-window
 
-# # Let's toss an image onto my server and pbcopy that bitch.
-# function scpp() {
-#     scp "$1" aurgasm@aurgasm.us:~/paulirish.com/i;
-#     echo "http://paulirish.com/i/$1" | pbcopy;
-#     echo "Copied to clipboard: http://paulirish.com/i/$1"
-# }
+# Let's toss an image onto my server and pbcopy that bitch.
+function myscp {
+    scp "$1" "jeefo@${2}:${3}";
+}
 
 # # cd into whatever is the forefront Finder window.
 # cdf() {  # short for cdfinder

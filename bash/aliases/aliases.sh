@@ -5,7 +5,7 @@ if __is_command_exists gsed; then
 fi
 
 # List files
-if [ $__IS_MAC ]; then
+if is_true $__IS_MAC; then
 	alias ll='ls -lhG'
 	alias lla='ls -lahG'
 else

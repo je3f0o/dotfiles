@@ -8,6 +8,13 @@ endsnippet
 
 # function
 snippet if
+if ${1:condition}; then
+	$0
+fi
+endsnippet
+
+# function
+snippet ifb
 if [ ${1:condition} ]; then
 	$0
 fi

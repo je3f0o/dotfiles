@@ -1,5 +1,5 @@
 
-if [ $__IS_MAC ]; then
+if is_true $__IS_MAC; then
 	# List only directories
 	function lld {
 		ls -lh $@ | grep '^d'

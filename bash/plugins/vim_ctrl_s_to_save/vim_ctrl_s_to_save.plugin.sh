@@ -17,7 +17,7 @@ function vim_linux {
 	stty "$STTYOPTS"
 }
 
-if [[ $OSTYPE == 'darwin'* ]]; then
+if is_true $__IS_MAC; then
 	alias vim=vim_mac
 else
 	alias vim=vim_linux
