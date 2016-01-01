@@ -22,6 +22,15 @@ private_fn_path=~/private/functions.sh
 [ -e $private_fn_path ] && source $private_fn_path
 unset private_fn_path
 
+function auto-rename-tmux-window {
+	local LPWD=''
+	if [ "${PWD}" != "${LPWD}" ]; then
+		LPWD="$PWD"
+		tmux rename-window ${PWD//*\//}
+	fi
+}
+export PROMPT_COMMAND=auto-rename-tmux-window
+
 # # Let's toss an image onto my server and pbcopy that bitch.
 # function scpp() {
 #     scp "$1" aurgasm@aurgasm.us:~/paulirish.com/i;

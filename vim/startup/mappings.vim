@@ -100,7 +100,7 @@ nnoremap <C-x> dd
 
 " Quickly edit/reload the vimrc file
 nnoremap <silent> <leader>evr :e $MYVIMRC<CR>
-nnoremap <silent> <leader>sv :source $MYVIMRC<CR>:echo "vimrc reloaded."<CR>
+nnoremap <silent> <leader>vr :source $MYVIMRC<CR>:echo "vimrc reloaded."<CR>
 
 " Quickly edit vim mappings file
 nnoremap <silent> <leader>evm :exec ":e " . MYVIMMAP<CR>

@@ -1,0 +1,16 @@
+[user]
+	name  = je3f0o
+	email = je3f0o@gmail.com
+[alias]
+	c  = commit -am
+	up = pull
+	p  = push
+	s  = status -s
+[url "https://"]
+	insteadOf = git://
+[push]
+	default = simple
+[color]
+	ui = always
+[init]
+	templatedir = ~/.git_snapshots
