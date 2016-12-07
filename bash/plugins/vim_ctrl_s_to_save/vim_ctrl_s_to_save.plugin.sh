@@ -17,8 +17,13 @@ function vim_linux {
 	stty "$STTYOPTS"
 }
 
+function vim_cliclick {
+	/usr/local/bin/vim --cmd 'let cliclick=1' $@
+}
+
 if is_true $__IS_MAC; then
 	alias vim=vim_mac
+	alias weakvim=vim_cliclick
 else
 	alias vim=vim_linux
 fi

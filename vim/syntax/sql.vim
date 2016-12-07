@@ -39,7 +39,7 @@ syn keyword sqlKeyword      access add after aggregate as asc authorization
 syn keyword sqlKeyword      begin by cache cascade check cluster collate
 syn keyword sqlKeyword      collation column compress conflict connect connection
 syn keyword sqlKeyword      constraint current cursor database debug decimal
-syn keyword sqlKeyword      default desc each else elsif escape exception
+syn keyword sqlKeyword      default desc each else elseif escape exception
 syn keyword sqlKeyword      exclusive explain external file for foreign from function
 syn keyword sqlKeyword      group having identified if immediate increment index
 syn keyword sqlKeyword      initial inner into is join key left level loop
@@ -50,11 +50,11 @@ syn keyword sqlKeyword      referencing release resource return role row
 syn keyword sqlKeyword      rowlabel rownum rows schema session share size
 syn keyword sqlKeyword      start successful synonym then to transaction trigger
 syn keyword sqlKeyword      uid user using validate values view virtual whenever
-syn keyword sqlKeyword      where with
+syn keyword sqlKeyword      where with from duplicate auto_increment set
 syn match   sqlKeyword      "\<prompt\>"
 syn match   sqlKeyword      "\<glob\>"
 " Do special things with CREATE TABLE ( below.
-syn match   sqlKeyword      "\<table\>"
+syn match   sqlKeyword      "\(^\|\s\)table\($\|\s\)"
 
 " SQLite Pragmas - Treat them as keywords.
 syn keyword sqlKeyword      auto_vacuum automatic_index cache_size
@@ -93,6 +93,10 @@ syn match   sqlFunction     "\<\(range\|replace\|root\|round\|rpad\|sin\|soundex
 syn match   sqlFunction     "\<\(sqrtstdev\|strftime\|substr\|substring\|sum\|sysdate\|tan\)(\@="
 syn match   sqlFunction     "\<\(to_char\|to_date\|total\|trim\|trunc\|typeof\)(\@="
 syn match   sqlFunction     "\<\(upper\|variance\)(\@="
+syn match   sqlFunction     "\<\(concat\)(\@="
+syn match   sqlFunction     "\<\(curdate\)(\@="
+syn match   sqlFunction     "\<\(find_in_set\)(\@="
+syn match   sqlFunction     "\<\(now\|int\|varchar\|enum\)(\@="
 
 " SQLite Functions
 syn match   sqlFunction     "\<\(last_insert_rowid\|load_extension\|randomblob\)(\@="
@@ -105,8 +109,9 @@ syn match   sqlFunction     "^\.\w\+"
 " Statements
 syn keyword sqlStatement    alter analyze audit begin comment commit delete
 syn keyword sqlStatement    drop execute explain grant insert lock noaudit
-syn keyword sqlStatement    rename revoke rollback savepoint select
+syn keyword sqlStatement    rename revoke rollback savepoint
 syn keyword sqlStatement    truncate update vacuum
+syn keyword sqlStatement    select from where call
 syn match   sqlStatement    "\<\(replace\|create\)\>"
 
 " SQLite Statements
@@ -133,7 +138,9 @@ syn match   sqlVariable     contained "&\a\w\+"
 " Strings
 syn region sqlString        start=+"+  skip=+\\\\\|\\"+  end=+"+ contains=sqlVariable
 syn region sqlString        start=+'+  skip=+\\\\\|\\'+  end=+'+ contains=sqlVariable
-syn region sqlString        start=+`+  skip=+\\\\\|\\`+  end=+`+ contains=sqlVariable
+" syn region sqlString        start=+`+  skip=+\\\\\|\\`+  end=+`+ contains=sqlVariable
+
+syn region sqlField         start=+`+  end=+`+
 
 " Numbers
 syn match sqlNumber         "-\=\<[0-9]*\>"
@@ -218,10 +225,10 @@ if version >= 508 || !exists("did_sql_syn_inits")
     HiLink sqlKeyword       Special
     HiLink sqlNumber        Number
     HiLink sqlOperator      Operator
-    HiLink sqlParen         Comment
+    HiLink sqlParen         Type
     HiLink sqlParenEmpty    Operator
     HiLink sqlParenFunc     Function
-    HiLink sqlSpecial       Keyword
+    HiLink sqlSpecial       sqlKeyword
     HiLink sqlStatement     Statement
     HiLink sqlString        String
     HiLink sqlTodo          Todo
@@ -232,6 +239,8 @@ if version >= 508 || !exists("did_sql_syn_inits")
     HiLink sqlAnyVariable   sqlVariable
     HiLink sqlSetOptions    Operator
     HiLink sqlSetValues     Special
+
+	hi sqlField ctermfg=242
 
     delcommand HiLink
 endif

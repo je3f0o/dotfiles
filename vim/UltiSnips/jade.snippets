@@ -21,3 +21,14 @@ html(lang="mn")
 		//- RequireJS Lazyload
 		script(src="/bower_components/requirejs/require.js", data-main="/js/main")
 endsnippet
+
+snippet form
+form(name="${1:name}" novalidate="")$0
+endsnippet
+
+snippet form-group
+.form-group
+	label.control-label ${1:label}
+	input.form-control(type="text" name="${2:name}")
+endsnippet
+

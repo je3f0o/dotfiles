@@ -1,17 +1,30 @@
 
-let s:filename=expand("<sfile>:h") . "/js_header.txt"
-
 if !exists("*PreHeaderJavascript")
-	function PreHeaderJavascript()
+	let s:filename=expand("<sfile>:h") . "/js_header.txt"
+
+	function! PreHeaderJavascript()
 		exec "source " . s:filename
-		exec "1,11g/File Name *:.*/s//File Name  : " . expand("%:t")
-		exec "1,11g/Created at :.*/s//Created at : " . strftime("%Y-%m-%d")
-		exec "1,11g/END/s///"
+		exec "2g/File Name\\s*:.*/s//File Name   : " . expand("%:t")
+		exec "3g/Created at\\s*:.*/s//Created at  : " . strftime("%Y-%m-%d")
+		normal G
+	endfunction
+endif
+
+" TODO: if you can clear last 2 jump lists
+if !exists("*UpdateHeaderJavascript")
+	function! s:edit_header()
+		normal ma
+		silent! exec "2g/File Name\\s*:.*/s//File Name   : " . expand("%:t")
+		silent! exec "4g/Updated at\\s*:.*/s//Updated at  : " . strftime("%Y-%m-%d")
+		normal `azz
+	endfunction
+
+	function! UpdateHeaderJavascript()
+		silent! undojoin | call s:edit_header()
 	endfunction
 endif
 
 if has("autocmd")
-	autocmd BufWritePre,FileWritePre *.js exec "normal ma"
-	autocmd BufWritePre,FileWritePre *.js silent! exec "1,9g/Updated at :.*/s//Updated at : " . strftime("%Y-%m-%d")
-	autocmd BufWritePre,FileWritePost *.js exec "normal `azz"
+	autocmd BufWritePre,FileWritePre *.js call UpdateHeaderJavascript()
 endif
+

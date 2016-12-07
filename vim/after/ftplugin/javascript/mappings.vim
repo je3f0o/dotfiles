@@ -5,5 +5,4 @@ call AutoCloseBrackets()
 
 
 
-
 "inoremap <buffer> <BS> 

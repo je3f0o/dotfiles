@@ -1,5 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_cnt =8
 let g:netrw_dirhist_1='/root/Programming/nodejs/node-jeefo-jade-watcher'
 let g:netrw_dirhist_2='/root/myvpn/ny-vpn/stunnel'
 let g:netrw_dirhist_3='/tmp/newsite/build'
@@ -7,3 +7,4 @@ let g:netrw_dirhist_4='/root/Desktop/node/create_sql/mds'
 let g:netrw_dirhist_5='/root/Desktop/projects/datatypes/components/select'
 let g:netrw_dirhist_6='/root/Desktop/naahzg/server/routes'
 let g:netrw_dirhist_7='/root/.vim'
+let g:netrw_dirhist_8='/usr/local/share/vim/vim74/doc'

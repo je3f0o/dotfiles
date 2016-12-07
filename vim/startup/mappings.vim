@@ -13,13 +13,16 @@ vno <up> <Nop>
 vno <left> <Nop>
 vno <right> <Nop>
 
+no Q <Nop>
+vno Q <Nop>
+
 " Exit insert or visual mode
 inoremap jj <C-c>
 vnoremap ii <C-c>
 
 " Save file
 nnoremap <C-s> :update<CR>:echo "Saved"<CR>
-inoremap <C-s> <C-c>:update<CR>:echo "Saved"<CR>a
+inoremap <C-s> <ESC>:update<CR>:echo "Saved"<CR>a
 vnoremap <C-s> <C-c>:update<CR>:echo "Saved"<CR>gv
 
 " Toggle NERDTree
@@ -27,13 +30,13 @@ nnoremap <F5> :NERDTreeToggle<CR>
 inoremap <F5> <C-c>:NERDTreeToggle<CR>
 vnoremap <F5> <C-c>:NERDTreeToggle<CR>
 
+" Toggle Gundo
+nnoremap <F6> :GundoToggle<CR>
+
 " Toggle search highlight
 nmap <leadar>h :set hlsearch!<CR>
 imap <leadar>h <C-c>:set hlsearch!<CR>a
 vmap <leadar>h <C-c>:set hlsearch!<CR>gv
-
-" add comment
-nmap <C-_> ^i// <C-c>
 
 " Bubble lines
 nnoremap <C-Up> [e
@@ -150,7 +153,6 @@ nnoremap <leader>t] :Tabularize /\]<CR>
 vnoremap <leader>t] :Tabularize /\]<CR>
 
 
-
 if !exists("*HTMLEmmetMapping")
 	function HTMLEmmetMapping()
 		nmap <buffer> <Tab> <C-y>,
@@ -162,5 +164,4 @@ if has("autocmd")
 	" Emmet - remap
 	autocmd BufNewFile,BufRead *.html :call HTMLEmmetMapping()
 	autocmd BufNewFile,BufRead *.md set filetype=markdown
-	autocmd BufNewFile *.js :call PreHeaderJavascript()
 endif

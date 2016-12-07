@@ -12,3 +12,4 @@ else
 	alias ll='ls -lh --color=auto'
 	alias lla='ls -lah --color=auto'
 fi
+

@@ -3,17 +3,7 @@ if ! exists("*JsBeautify")
 	function s:JsBeautify() range
 		let type = (&filetype ==# 'javascript') ? 'js' : &filetype
 
-		let cmd = [
-			\ '!js-beautify',
-			\ '-f -',
-			\ '--type ' . type,
-			\ ]
-
-		if &expandtab
-			let cmd = add(cmd, '--indent-size ' . shiftwidth())
-		else
-			let cmd = add(cmd, '--indent-with-tabs')
-		endif
+		let cmd = ['!uglifyjs -b']
 
 		execute a:firstline . ',' . a:lastline . join(cmd)
 	endfunction

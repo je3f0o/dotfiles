@@ -21,10 +21,9 @@ snippet ex
 endsnippet
 
 # @mixin - Define a mixin
-snippet mix
-@mixin ${1:name} {
+snippet fn
+=${1:name} (${2:args})
 	$0
-}
 endsnippet
 
 # +- Use a mixin
@@ -55,10 +54,6 @@ endsnippet
 
 snippet fr
 float: right$0
-endsnippet
-
-snippet fn
-float: none$0
 endsnippet
 
 snippet cll
@@ -418,7 +413,7 @@ snippet op
 endsnippet
 
 snippet bc
-border-color: (${1:black})$0
+border-color: ${1:black}$0
 endsnippet
 
 snippet br
@@ -470,6 +465,10 @@ endsnippet
 
 snippet bgc
 background-color: ${1:#fff}$0
+endsnippet
+
+snippet bgs
+background-size: ${1:100%} ${2:100%}$0
 endsnippet
 
 snippet bgcl

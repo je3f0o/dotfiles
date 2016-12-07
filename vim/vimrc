@@ -1,13 +1,26 @@
 " Of course
 set nocompatible
 
-source ~/.vim/plugins.vim
+if exists('cliclick')
+	source ~/.vim/robot_plugins.vim
+else
+	source ~/.vim/plugins.vim
+endif
+
+command! -nargs=+ Silent execute 'silent <args>' | redraw!
 
 syntax on
 syntax enable
 
+" Book mode
+function BookMode()
+	set formatoptions+=w
+	set colorcolumn=80
+	set textwidth=80
+	hi ColorColumn ctermfg=123 ctermbg=234
+endfunction
+
 " General settings
-set nocompatible
 scriptencoding utf8
 set encoding=utf8
 set showmatch
@@ -23,6 +36,7 @@ set nowrap
 
 set cursorline
 set cursorcolumn
+"set colorcolumn=81
 
 set hlsearch
 set smartcase
@@ -68,9 +82,11 @@ let g:airline_powerline_fonts = 1
 " Load custom settings
 source ~/.vim/variables.vim
 source ~/.vim/functions.vim
+source ~/.vim/startup/autocmd.vim
 source ~/.vim/startup/mappings.vim
 source ~/.vim/startup/color.vim
 
+" filetype on after load startup
 if has("autocmd")
 	" Enable filetype detection
 	filetype plugin on
@@ -95,12 +111,25 @@ iabbr ture true
 iabbr flase false
 iabbr fasle false
 iabbr recieve receive
+iabbr cleant client
 
 if has("gui_running")
 	source ~/.vim/gvimrc
 endif
 
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:ycm_key_invoke_completion = '<C-Space>'
+
+"let g:clang_use_library = 1
+"let g:clang_library_path = '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libclang.dylib'
+"let g:clang_complete_auto = 1
+"let g:clang_snippets = 1
+"let g:clang_snippets_engine = 'ultisnips'
+"let g:clang_complete_macros = 1
+"let g:clang_user_options = ' -DCLANG_COMPLETE_ONLY'
+
 " If you prefer the Omni-Completion tip window to close when a selection is
 " made, these lines close it on movement in insert mode or when leaving
 " insert mode
@@ -115,7 +144,5 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:SuperTabDefaultCompletionType = '<C-n>'
 

@@ -17,14 +17,19 @@
     "prototypejs"   : false,
     "mootools"      : false,
     "dojo"          : false,
+
+	"esnext": true,
  
     "predef"        : [  // Custom globals.
 		"angular",
 		"define",
 		"describe",
+		"fdescribe",
+		"xdescribe",
 		"beforeEach",
 		"it",
-		"expect",
+		"fit",
+		"xit",
 		"inject"
     ],
  
@@ -75,5 +80,5 @@
     "white"         : false,  // Check against strict whitespace and indentation rules.
     "indent"        : 4,      // Specify indentation spacing
 	"unused"        : true,   // Unused ....
-	"quotmark"      : true
+	"quotmark"      : false
 }

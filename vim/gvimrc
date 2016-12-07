@@ -1,4 +1,5 @@
 
 " I like to be font size bigger :)
-set guifont=Monaco\ 15
-
+"set guifont=Meslo\ LG\ S\ for\ Powerline
+"set guifont=Monaco:h16
+set guifont=Meslo\ LG\ L\ Regular\ for\ Powerline:h16

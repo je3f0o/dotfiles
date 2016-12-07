@@ -1,51 +1,63 @@
 
 " Required Vundle setup
-filetype off
-set runtimepath+=~/.vim/bundle/vundle
-call vundle#rc()
+filetype off " required
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+" call vundle#begin('~/some/path/here')
 
-" Vundle itself
-Bundle 'gmarik/vundle'
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
 " NERD_tree
-Bundle 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree'
+" Graphical undo tree
+Plugin 'sjl/gundo.vim'
 " YouCompleteMe
-Bundle 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
+" Neo Complete
+"Plugin 'Shougo/neocomplete.vim'
+" clang_complete
+"Plugin 'Rip-Rip/clang_complete'
 " Tern JS autocompletor using YouCompleteMe
-Bundle 'ternjs/tern_for_vim'
+Plugin 'ternjs/tern_for_vim'
 " airline
-Bundle 'bling/vim-airline'
+Plugin 'bling/vim-airline'
 " ctrlp
-Bundle 'kien/ctrlp.vim'
+Plugin 'kien/ctrlp.vim'
 " easymotion
-Bundle 'Lokaltog/vim-easymotion'
+Plugin 'Lokaltog/vim-easymotion'
 " emmet
-Bundle 'mattn/emmet-vim'
+Plugin 'mattn/emmet-vim'
 " fugitive
-Bundle 'tpope/vim-fugitive'
+Plugin 'tpope/vim-fugitive'
 " jade
-Bundle 'digitaltoad/vim-jade'
+Plugin 'digitaltoad/vim-jade'
 " seti
-Bundle 'trusktr/seti.vim'
+Plugin 'trusktr/seti.vim'
 " simple-todo
-Bundle 'vitalk/vim-simple-todo'
+Plugin 'vitalk/vim-simple-todo'
 " supertab
-Bundle 'ervandew/supertab'
+Plugin 'ervandew/supertab'
 " syntastic
-Bundle 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
 " tabular
-Bundle 'godlygeek/tabular'
+Plugin 'godlygeek/tabular'
 " ultisnips
-Bundle 'SirVer/ultisnips'
+Plugin 'SirVer/ultisnips'
 " unimpaired
-Bundle 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-unimpaired'
 " vim-glsl
-Bundle 'tikhomirov/vim-glsl'
+Plugin 'tikhomirov/vim-glsl'
 " vim-repeat
-Bundle 'tpope/vim-repeat'
+Plugin 'tpope/vim-repeat'
 " Surround
-Bundle 'tpope/vim-surround'
+Plugin 'tpope/vim-surround'
 " All 256 xterm colors with their RGB equivalents, right in Vim!
-Bundle 'guns/xterm-color-table.vim'
+Plugin 'guns/xterm-color-table.vim'
 " Solarized
-Bundle 'altercation/vim-colors-solarized'
+Plugin 'altercation/vim-colors-solarized'
 
+call vundle#end() " required
+"filetype plugin indent on
