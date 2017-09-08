@@ -89,7 +89,7 @@ for (${2:var }${3:i} = 0, $3_length = ${1:things}.length; $3 < $3_length; ++$3) 
 endsnippet
 
 snippet eachr
-for (${4:var }${2:i} = ${1:items}.length, ${3:item}; ($3 = $1[--$2]);) {
+for (${3:var }${2:i} = ${1:items}.length - 1; $2 >= 0; --$2) {
 	$0
 }
 endsnippet
@@ -156,27 +156,19 @@ $0angular.isArray(${1:thing})
 endsnippet
 
 snippet water
-async.waterfall([
+waterfall([
 	cb => {
 		$0
 	}
-], err => {
-	
-});
+], ${3:${1:err} => {
+	$2
+}});
 endsnippet
 
 snippet while
-async.whilst(
-	function () {
-		return ${1:condition};
-	},
-	function (cb) {
-		${2}
-	},
-	function (err) {
-		
-	}
-);
+async.whilst(() => ${1:i < len}, cb => {
+	${0}
+}, ${2:callback});
 endsnippet
 
 snippet switch
@@ -188,25 +180,25 @@ switch (${1:value}) {
 endsnippet
 
 snippet des
-describe("${1:description}", function () {
+describe("${1:description}", () => {
 	$0
 });
 endsnippet
 
 snippet it
-it("Should $1", function (${2:done}) {
+it("Should $1", (${2:done}) => {
 	$0
 });
 endsnippet
 
 snippet bef
-beforeEach(function () {
+beforeEach(() => {
 	$0
 });
 endsnippet
 
 snippet aft
-afterEach(function () {
+afterEach(() => {
 	$0
 });
 endsnippet

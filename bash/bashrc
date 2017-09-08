@@ -45,3 +45,6 @@ fi
 # Start bootstrap
 source ~/.bash/bootstrap.sh
 
+
+export NVM_DIR="/Users/jeefo/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

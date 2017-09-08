@@ -1,0 +1,4 @@
+
+
+MY_COWSAY_START=true
+

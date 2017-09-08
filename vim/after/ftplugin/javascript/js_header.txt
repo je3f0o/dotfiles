@@ -7,14 +7,12 @@
 * Purpose     :
 * Description :
 _._._._._._._._._._._._._._._._._._._._._.*/
-//ignore:start
-"use strict";
+// ignore:start
 
-/* global */
-/* exported */
+/* globals */
 /* exported */
 
-//ignore:end
+// ignore:end
 
 
 .

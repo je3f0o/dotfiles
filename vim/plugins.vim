@@ -24,8 +24,8 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'ternjs/tern_for_vim'
 " airline
 Plugin 'bling/vim-airline'
-" ctrlp
-Plugin 'kien/ctrlp.vim'
+" ctrlp (fuzzy finder)
+" Plugin 'kien/ctrlp.vim'
 " easymotion
 Plugin 'Lokaltog/vim-easymotion'
 " emmet
@@ -58,6 +58,37 @@ Plugin 'tpope/vim-surround'
 Plugin 'guns/xterm-color-table.vim'
 " Solarized
 Plugin 'altercation/vim-colors-solarized'
+" Conque Shell
+"Plugin 'vim-scripts/Conque-Shell'
+" Markdown syntax highlight
+Plugin 'plasticboy/vim-markdown'
+" Pandoc
+" Plugin 'vim-pandoc/vim-pandoc'
+" Typescript
+Plugin 'leafgarland/typescript-vim'
+" TypeScript auto complate
+Plugin 'Quramy/tsuquyomi'
+
+"Plugin 'Shougo/vimproc.vim'
+
+" Kontakt Scripting Processor
+Plugin 'nojanath/vim-ksp'
+
+" Exchange
+Plugin 'tommcdo/vim-exchange'
+
+" Flow type
+"Plugin 'flowtype/vim-flow'
+
+" Hex colors
+Plugin 'je3f0o/vim-css-color'
+
+" Multiple cursors
+Plugin 'terryma/vim-multiple-cursors'
+
+"Plugin 'felixge/vim-nodejs-errorformat'
+
+"Plugin 'isRuslan/vim-es6'
 
 call vundle#end() " required
 "filetype plugin indent on

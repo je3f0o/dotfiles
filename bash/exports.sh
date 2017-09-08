@@ -16,6 +16,9 @@ fi
 ### MySQL
 export PATH="/usr/local/mysql/bin:$PATH"
 
+# BasicTex
+export PATH="/usr/local/texlive/2016basic/bin/universal-darwin:$PATH"
+
 # Needed for some older server platforms
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8

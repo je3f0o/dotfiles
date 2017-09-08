@@ -21,6 +21,18 @@
 	"esnext": true,
  
     "predef"        : [  // Custom globals.
+		"PP",
+		"IS_FUNCTION",
+		"IS_UNDEFINED",
+		"IS_DEFINED",
+		"IS_NULL",
+		"IS_BOOLEAN",
+		"IS_STRING",
+		"IS_NUMBER",
+		"IS_OBJECT",
+		"__MY_MODULE__",
+		"JT_PRE",
+		"TRIM_LINES",
 		"angular",
 		"define",
 		"describe",
@@ -41,12 +53,12 @@
  
     // ECMAScript 5.
     "es5"           : true,   // Allow ECMAScript 5 syntax.
-    "strict"        : true,  // Require `use strict` pragma  in every file.
+    "strict"        : false,  // Require `use strict` pragma  in every file.
     "globalstrict"  : true,  // Allow global "use strict" (also enables 'strict').
  
  
     // The Good Parts.
-    "asi"           : true,  // Tolerate Automatic Semicolon Insertion (no semicolons).
+    "asi"           : false,  // Tolerate Automatic Semicolon Insertion (no semicolons).
     "laxbreak"      : true,   // Tolerate unsafe line breaks e.g. `return [\n] x` without semicolons.
     "bitwise"       : false,  // Prohibit bitwise operators (&, |, ^, etc.).
     "boss"          : false,  // Tolerate assignments inside if, for & while. Usually conditions & loops are for comparison, not assignments.

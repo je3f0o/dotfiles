@@ -22,8 +22,8 @@ syn case ignore
 syn cluster sqlALL          contains=TOP
 
 " Various error conditions.
-syn match   sqlError        "\<\w\+("           " Not a known function.
-syn match   sqlError        ")"                 " Lonely closing paren.
+" syn match   sqlError        "\<\w\+("           " Not a known function.
+" syn match   sqlError        ")"                 " Lonely closing paren.
 syn match   sqlError        ",\(\_\s*[;)]\)\@=" " Comma before a paren or semicolon.
 syn match   sqlError        " $"                " Space at the end of a line.
 " Comma before certain words.
@@ -110,7 +110,7 @@ syn match   sqlFunction     "^\.\w\+"
 syn keyword sqlStatement    alter analyze audit begin comment commit delete
 syn keyword sqlStatement    drop execute explain grant insert lock noaudit
 syn keyword sqlStatement    rename revoke rollback savepoint
-syn keyword sqlStatement    truncate update vacuum
+syn keyword sqlStatement    truncate update vacuum limit
 syn keyword sqlStatement    select from where call
 syn match   sqlStatement    "\<\(replace\|create\)\>"
 

@@ -34,9 +34,9 @@ vnoremap <F5> <C-c>:NERDTreeToggle<CR>
 nnoremap <F6> :GundoToggle<CR>
 
 " Toggle search highlight
-nmap <leadar>h :set hlsearch!<CR>
-imap <leadar>h <C-c>:set hlsearch!<CR>a
-vmap <leadar>h <C-c>:set hlsearch!<CR>gv
+nnoremap <leader>h :set hlsearch!<CR>
+inoremap <leader>h <C-c>:set hlsearch!<CR>a
+vnoremap <leader>h <C-c>:set hlsearch!<CR>gv
 
 " Bubble lines
 nnoremap <C-Up> [e
@@ -61,14 +61,17 @@ vnoremap <C-w> <C-c><C-w>
 
 " Toggle folds
 nnoremap <Space> za
+" Fold marker
+inoremap <leader>[ <ESC>:call MakeFoldMarker()<CR>a
+inoremap <leader>] }}}
 
 " Copy to clipboard
 nnoremap <C-y> "+y
 vnoremap <C-y> "+y
 " Paste from clipboard
-nnoremap <F2> "+gP
-inoremap <F2> <C-c>"+gPi
-vnoremap <F2> "+gP
+nnoremap <F2> "+gp
+inoremap <F2> <C-c>"+gpi
+vnoremap <F2> "+gp
 
 
 " ------------------ NORMAL MODE ------------------
@@ -78,6 +81,13 @@ nnoremap n nzz
 nnoremap N Nzz
 nnoremap } }zz
 nnoremap { {zz
+nnoremap [c [czz
+nnoremap ]c ]czz
+
+nnoremap <C-n> :cn<CR>
+nnoremap <C-p> :cp<CR>
+
+nmap <leader>- ;syn sync fromstart<CR>
 
 " Toggle list! command
 nnoremap <leader>l :set list!<CR>
@@ -101,12 +111,16 @@ nnoremap <S-CR> o<ESC>k " fucking not work :(
 " Cut line
 nnoremap <C-x> dd
 
-" Quickly edit/reload the vimrc file
+" Quick edit
+" vimrc
 nnoremap <silent> <leader>evr :e $MYVIMRC<CR>
-nnoremap <silent> <leader>vr :source $MYVIMRC<CR>:echo "vimrc reloaded."<CR>
-
-" Quickly edit vim mappings file
+" vim mappings
 nnoremap <silent> <leader>evm :exec ":e " . MYVIMMAP<CR>
+" vim plugins
+nnoremap <silent> <leader>evp :exec ":e " . MY_VIM_PLUGINS<CR>
+
+" reload vimrc
+nnoremap <silent> <leader>vr :source $MYVIMRC<CR>:echo "vimrc reloaded."<CR>
 
 " I don't want to SHIFT + semicolon anymore
 nnoremap ; :
@@ -119,6 +133,7 @@ nnoremap <C-t> :t.<left><left>
 nnoremap <leader>n :call CycleLineNumbers()<CR>
 
 nnoremap <C-a> ggVG
+
 
 " ------------------ INSERT MODE ------------------
 " Move cursor 
@@ -152,6 +167,12 @@ vnoremap <leader>t[ :Tabularize /[<CR>
 nnoremap <leader>t] :Tabularize /\]<CR>
 vnoremap <leader>t] :Tabularize /\]<CR>
 
+" Conque Term
+" nnoremap <C-m> :ConqueTerm bash --login<CR>
+
+" YouCompleteMe
+nnoremap <leader>d :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>f :YcmCompleter GoToDefinition<CR>
 
 if !exists("*HTMLEmmetMapping")
 	function HTMLEmmetMapping()

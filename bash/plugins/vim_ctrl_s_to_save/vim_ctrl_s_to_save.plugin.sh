@@ -4,17 +4,22 @@
 
 function vim_mac {
 	# osx users, use stty -g
-	local STTYOPTS="$(stty -g)"
-	stty stop '' -ixoff
+	#local STTYOPTS="$(stty -g)"
+	#stty stop '' -ixoff
+	stty stop undef
 	command vim $@
-	stty "$STTYOPTS"
+	stty start undef
+	#stty "$STTYOPTS"
 }
 
 function vim_linux {
-	local STTYOPTS="$(stty --save)"
-	stty stop '' -ixoff
+	# linux users, use stty --save
+	#local STTYOPTS="$(stty --save)"
+	#stty stop '' -ixoff
+	stty stop undef
 	command vim $@
-	stty "$STTYOPTS"
+	stty start undef
+	#stty "$STTYOPTS"
 }
 
 function vim_cliclick {

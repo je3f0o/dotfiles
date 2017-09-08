@@ -18,8 +18,7 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
 # Git
-alias g=git
-alias gmv='git mv'
+alias gd='git d'
 
 # Remove all files including hidden files
 alias rmall='rm -rf .[^.] .??* *'
@@ -36,6 +35,32 @@ alias catc='pygmentize'
 
 # Shutdown
 alias shutdown='shutdown -h now'
+
+# -nw, --no-window-system
+alias emacs="emacs -nw $@"
+
+function nasa_email {
+	curl "https://gcn.gsfc.nasa.gov/gcn3/${1}.gcn3"
+}
+
+function redir_command_on {
+	redir_command_on = "echo 'rdr pass on %iface inet proto tcp from any to any port %port -> localhost port %rport'"
+	return
+	if [ -a "/tmp/osx_ipfw_rules" ]; then
+		ipfw -q add `head -n 1 osx_ipfw_rules` fwd 127.0.0.1,$1 tcp from any to any $2 in via $3 
+	else
+		ipfw add fwd 127.0.0.1,$1 tcp from any to any $2 in via $3 | cut -d " " -f 1 >> /tmp/osx_ipfw_rules
+	fi
+}
+
+function redir_command_off {
+	redir_command_off = "pfctl -F all -f /etc/pf.conf"
+	return
+	if [ -a "/tmp/osx_ipfw_rules" ]; then
+		ipfw -q delete `head -n 1 /tmp/osx_ipfw_rules`
+		rm -f /tmp/osx_ipfw_rules
+	fi
+}
 
 # Copy git post-commit to current git project
 #alias gpost="cp ~/.git/hooks/post-commit .git/hooks"

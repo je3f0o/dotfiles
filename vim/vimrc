@@ -1,6 +1,9 @@
 " Of course
 set nocompatible
 
+" Append +=
+" Ask variable's value -> set variable?
+
 if exists('cliclick')
 	source ~/.vim/robot_plugins.vim
 else
@@ -13,12 +16,14 @@ syntax on
 syntax enable
 
 " Book mode
-function BookMode()
-	set formatoptions+=w
-	set colorcolumn=80
-	set textwidth=80
-	hi ColorColumn ctermfg=123 ctermbg=234
-endfunction
+if !exists("*BookMode")
+	function BookMode()
+		set formatoptions+=w
+		set colorcolumn=80
+		set textwidth=80
+		hi ColorColumn ctermfg=123 ctermbg=234
+	endfunction
+endif
 
 " General settings
 scriptencoding utf8
@@ -28,12 +33,16 @@ set visualbell
 set backspace=indent,eol,start
 set mouse=a
 
-set nofoldenable    " disable folding
+"set nofoldenable    " disable folding
+set foldmethod=marker
+"set foldlevel=1
 
 " Automaticaly word wrap and insert new line
 set textwidth=0
 set nowrap
 
+set number
+set relativenumber
 set cursorline
 set cursorcolumn
 "set colorcolumn=81
@@ -51,8 +60,18 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 
+" Search down into subfolders
+" Provides tab-completion for all file-related tasks
+set path=*,**
+
+" Display all matching files when we tab complete
+set wildmenu
+
 " Syntastic
 let g:syntastic_cpp_compiler_options = ' -std=c++11'
+
+" Conque Terminal
+" let g:ConqueTerm_CloseOnEnd = 1
 
 " Some settings
 "set list extends:>,precedes:<
@@ -63,7 +82,7 @@ set listchars=tab:▸\ ,eol:⏎
 set showbreak=…
 
 " let configs
-"let mapleader=","
+let mapleader = "\\"
 
 " Airline
 set t_Co=256
@@ -78,6 +97,9 @@ let g:airline_powerline_fonts = 1
 "let g:airline#extensions#tabline#left_sep=' '
 "let g:airline#extensions#tabline#left_alt_sep='|'
 
+" Syntastic
+"let g:syntastic_error_symbol = "✗"
+"let g:syntastic_warning_symbol = "⚠"
 
 " Load custom settings
 source ~/.vim/variables.vim
@@ -85,6 +107,7 @@ source ~/.vim/functions.vim
 source ~/.vim/startup/autocmd.vim
 source ~/.vim/startup/mappings.vim
 source ~/.vim/startup/color.vim
+source ~/.vim/syntax.vim
 
 " filetype on after load startup
 if has("autocmd")
@@ -113,6 +136,20 @@ iabbr fasle false
 iabbr recieve receive
 iabbr cleant client
 
+" Dictionary words
+set dictionary+=/usr/share/dict/words
+
+" Cursor
+if exists('$ITERM_PROFILE')
+  if exists('$TMUX')
+    let &t_SI = "\<Esc>[5 q"
+    let &t_EI = "\<Esc>[0 q"
+  else
+    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+  endif
+end
+
 if has("gui_running")
 	source ~/.vim/gvimrc
 endif
@@ -121,6 +158,8 @@ let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:ycm_key_invoke_completion = '<C-Space>'
+let g:ycm_cache_omnifunc = 0
+let g:ycm_seed_identifiers_with_syntax = 1
 
 "let g:clang_use_library = 1
 "let g:clang_library_path = '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libclang.dylib'
@@ -146,3 +185,23 @@ let g:UltiSnipsEditSplit="vertical"
 
 let g:SuperTabDefaultCompletionType = '<C-n>'
 
+" ES lint
+"let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_loc_list_height = 5
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+
+" HTML Lint
+let g:syntastic_html_checkers = []
+
+" Flow
+" let g:syntastic_javascript_checkers = ['eslint', 'flow']
+" let g:syntastic_javascript_flow_exe = 'flow'
+
+" Vim flow
+let g:flow#enable = 0
+
+" Test external command
+let g:potion_command = "~/.vim/bundle/potion"

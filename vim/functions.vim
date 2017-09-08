@@ -12,6 +12,25 @@
 "	endif
 "endfunction
 
+" Automatically close brackets
+if !exists("*EnableAutoCloseCurlyBrackets")
+	function EnableAutoCloseCurlyBrackets()
+		inoremap <buffer> { {<CR>}<C-c>O
+	endfunction
+endif
+if !exists("*DisableAutoCloseCurlyBrackets")
+	function DisableAutoCloseCurlyBrackets()
+		inoremap <buffer> { {
+	endfunction
+endif
+
+if !exists("*MakeFoldMarker")
+	function MakeFoldMarker()
+		call DisableAutoCloseCurlyBrackets()
+		normal a{{{
+		call EnableAutoCloseCurlyBrackets()
+	endfunction
+endif
 
 " Automatically close brackets
 if !exists("*AutoCloseBrackets")
@@ -21,17 +40,14 @@ if !exists("*AutoCloseBrackets")
 	function AutoCloseBrackets()
 		inoremap <buffer> ' ''<ESC>i
 		inoremap <buffer> " ""<ESC>i
-		inoremap <buffer> { {<CR>}<C-c>O
 		inoremap <buffer> ( ()<left>
 		inoremap <buffer> [ []<left>
+		call EnableAutoCloseCurlyBrackets()
 	endfunction
 endif
 
 if !exists("*CycleLineNumbers")
 	let s:state = 2
-	set number
-	set relativenumber
-
 	function CycleLineNumbers()
 		if (s:state == 1)
 			set nu

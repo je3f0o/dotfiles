@@ -9,3 +9,7 @@ function total_files {
 function total_lines {
 	find . -name "$1" | xargs wc -l
 }
+
+function total_size {
+	du -sh ${1-.}
+}

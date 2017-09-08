@@ -16,7 +16,7 @@ source ~/.bash/autoloader.sh
 
 # Load ~/.bash
 # ~/.extra can be used for settings you don’t want to commit
-for file in ~/.bash/{colors,exports,aliases,functions}.sh; do
+for file in ~/.bash/{configs,colors,exports,aliases,functions}.sh; do
 	[ -r "$file" ] && source "$file"
 done
 unset file

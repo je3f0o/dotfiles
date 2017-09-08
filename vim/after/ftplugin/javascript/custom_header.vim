@@ -10,17 +10,20 @@ if !exists("*PreHeaderJavascript")
 	endfunction
 endif
 
-" TODO: if you can clear last 2 jump lists
 if !exists("*UpdateHeaderJavascript")
 	function! s:edit_header()
-		normal ma
 		silent! exec "2g/File Name\\s*:.*/s//File Name   : " . expand("%:t")
 		silent! exec "4g/Updated at\\s*:.*/s//Updated at  : " . strftime("%Y-%m-%d")
-		normal `azz
 	endfunction
 
 	function! UpdateHeaderJavascript()
+		" Save window and cursor location:
+		let l:winview = winsaveview()
+
 		silent! undojoin | call s:edit_header()
+
+		" Restore window and cursor location:
+		call winrestview(l:winview)
 	endfunction
 endif
 
