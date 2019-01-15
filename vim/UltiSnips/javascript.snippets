@@ -19,6 +19,17 @@ snippet req
 require("$1")$0
 endsnippet
 
+# if main
+snippet if_main
+// ignore:start
+
+if (require.main === module) {
+	$0
+}
+
+// ignore:end
+endsnippet
+
 # console.log
 snippet log
 console.log($1);$0
@@ -48,16 +59,35 @@ endsnippet
 
 # function
 snippet fn
-var ${1:function_name} = function ($2) {
+function ${1:function_name} ($2) {
+	$0
+}$3
+endsnippet
+
+# function
+snippet ex
+module.exports = ${1:thing};$0
+endsnippet
+
+# function
+snippet exfn
+module.exports = function ${1:function_name} ($2) {
 	$0
 };
 endsnippet
+
+# function
+#snippet fna
+#var ${1:function_name} = function ($2) {
+	#$0
+#};
+#endsnippet
 
 # Anonymous function
 snippet fna
 function ($1) {
 	$0
-}
+}$2
 endsnippet
 
 # Anonymous function ends with semicolon
@@ -83,7 +113,7 @@ endsnippet
 
 # for each loop
 snippet each
-for (${2:var }${3:i} = 0, $3_length = ${1:things}.length; $3 < $3_length; ++$3) {
+for (${2:var }${3:i} = ${4:0}; $3 < ${1:things}.length; ++$3) {
 	$0
 }
 endsnippet
@@ -203,8 +233,29 @@ afterEach(() => {
 });
 endsnippet
 
-snippet ex
+snippet try
+try {
+	$1
+} catch (e) {$0}
+endsnippet
+
+snippet expect
 expect(${1:value}).toBe(${2:expectation});$0
 endsnippet
 
+snippet strict
+"use strict";$0
+endsnippet
 
+snippet ctr
+constructor : function ($1) {
+	$0
+}
+endsnippet
+snippet jeefo_class
+jeefo_class.create("${1:NewClassName}", ${2:BaseClass}, {
+	constructor : function ($3) {
+		$0
+	}
+});
+endsnippet

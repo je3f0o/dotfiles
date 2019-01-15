@@ -38,6 +38,8 @@ if ! shopt -oq posix; then
 	. /usr/share/bash-completion/bash_completion
   elif [ -f /etc/bash_completion ]; then
 	. /etc/bash_completion
+  elif [ -f $(brew --prefix)/etc/bash_completion ]; then
+	. $(brew --prefix)/etc/bash_completion
   fi
 fi
 
@@ -45,6 +47,8 @@ fi
 # Start bootstrap
 source ~/.bash/bootstrap.sh
 
-
 export NVM_DIR="/Users/jeefo/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# jeefo_command auto-completion
+source ~/.bash/jeefo_command/jeefo_commands.sh

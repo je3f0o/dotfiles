@@ -26,9 +26,13 @@ function vim_cliclick {
 	/usr/local/bin/vim --cmd 'let cliclick=1' $@
 }
 
+function vim_weak {
+	/usr/local/bin/vim --cmd 'let weak_mode=1' $@
+}
+alias weakvim=vim_weak
+
 if is_true $__IS_MAC; then
 	alias vim=vim_mac
-	alias weakvim=vim_cliclick
 else
 	alias vim=vim_linux
 fi

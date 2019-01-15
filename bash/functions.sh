@@ -1,12 +1,28 @@
 
 # Create a new directory and enter it
 function md {
-	mkdir -p "$@" && cd "$@"
+	mkdir -p "$1" && cd "$1"
 }
 
 # Find shorthand
 function f {
 	find . -name "$1"
+}
+
+function rm {
+	local i=1
+	local path
+
+	for ((; i <= $#; i++)); do
+		eval path='$'$i
+
+		if [[ $path == ~ ]]; then
+			echo "Cannot delete HOME folder. It canceled."
+			return 1;
+		fi
+	done
+
+	/bin/rm -rf $@
 }
 
 # Copy w/ progress
@@ -29,7 +45,7 @@ function auto-rename-tmux-window {
 		tmux rename-window ${PWD//*\//}
 	fi
 }
-export PROMPT_COMMAND=auto-rename-tmux-window
+#export PROMPT_COMMAND=auto-rename-tmux-window
 
 # Let's toss an image onto my server and pbcopy that bitch.
 function myscp {

@@ -9,11 +9,12 @@
 	path = /Users/jeefo/.bash/git_diff_wrapper.sh
 	#trustExitCode = true
 [alias]
-	d  = difftool
-	c  = commit -am
-	up = pull
-	p  = push
-	s  = status -s
+	d   = difftool
+	c   = commit -am
+	up  = pull
+	p   = push
+	s   = status -s
+	lol = log --graph --oneline --decorate
 [url "https://"]
 	insteadOf = git://
 [push]

@@ -62,6 +62,10 @@ Plugin 'altercation/vim-colors-solarized'
 "Plugin 'vim-scripts/Conque-Shell'
 " Markdown syntax highlight
 Plugin 'plasticboy/vim-markdown'
+
+" Vim do
+"Plugin 'joonty/vim-do'
+
 " Pandoc
 " Plugin 'vim-pandoc/vim-pandoc'
 " Typescript

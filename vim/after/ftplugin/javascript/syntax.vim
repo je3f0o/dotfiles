@@ -10,7 +10,7 @@ syn keyword javaScriptGlobal		   self window instance
 
 syn keyword javaScriptType		       JeefoObject
 
-syn match   javaScriptGLOBALS	       "\<[A-Z_][A-Z_0-9]\+\>"
+syn match   javaScriptGLOBALS	       "\<[A-Z_][A-Z_0-9]*\>"
 
 syn match   javaScriptDot	           +\.+
 syn match   javaScriptComma	           +,+
@@ -33,7 +33,7 @@ hi javaScriptTemplateDelim ctermfg=40 ctermbg=NONE cterm=NONE guifg=#3387cc guib
 hi JavascriptTemplateVar   ctermfg=4  ctermbg=NONE cterm=NONE guifg=#3387cc guibg=NONE gui=NONE
 hi link javaScriptTemplateString String
 
-syn region javaScriptTemplateString   start=+`+  skip=+\\\\\|\\`+ end=+`+  contains=JavascriptTemplateVar,javaScriptLineComment  keepend
+syn region javaScriptTemplateString   start=+`+  skip=+\\\\\|\\`+ end=+`+  contains=JavascriptTemplateVar  keepend
 
 call css_color#init('hex', 'hex', 'JavaScriptStringS,JavaScriptStringD,JavaScriptComment')
 

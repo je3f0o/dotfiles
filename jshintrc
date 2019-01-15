@@ -53,7 +53,7 @@
  
     // ECMAScript 5.
     "es5"           : true,   // Allow ECMAScript 5 syntax.
-    "strict"        : false,  // Require `use strict` pragma  in every file.
+    "strict"        : true,  // Require `use strict` pragma  in every file.
     "globalstrict"  : true,  // Allow global "use strict" (also enables 'strict').
  
  

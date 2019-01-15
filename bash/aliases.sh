@@ -4,9 +4,10 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
+alias jeefo_importer=~/projects/api/bin/jeefo_importer
+
 # copy and remove with folders
 alias cp='cp -R'
-alias rm='rm -rf'
 
 # Be nice :)
 alias pls=sudo

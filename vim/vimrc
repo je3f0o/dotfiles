@@ -6,24 +6,23 @@ set nocompatible
 
 if exists('cliclick')
 	source ~/.vim/robot_plugins.vim
+elseif exists('weak_mode')
+	source ~/.vim/modes/weak_mode.vim
+elseif exists('book')
+	source ~/.vim/modes/book.vim
+elseif exists('facebook')
+	source ~/.vim/modes/facebook.vim
 else
 	source ~/.vim/plugins.vim
 endif
 
 command! -nargs=+ Silent execute 'silent <args>' | redraw!
 
+" Might be useful when u have some stupid highlight won't go away
+" :call clearmatches()
+
 syntax on
 syntax enable
-
-" Book mode
-if !exists("*BookMode")
-	function BookMode()
-		set formatoptions+=w
-		set colorcolumn=80
-		set textwidth=80
-		hi ColorColumn ctermfg=123 ctermbg=234
-	endfunction
-endif
 
 " General settings
 scriptencoding utf8
@@ -119,7 +118,7 @@ if has("autocmd")
 	"autocmd BufWritePost .vimrc tabe $MYVIMRC
 endif
 
-" My settings
+" Change buffer without saved
 set hidden
 
 " Vertical window split on right side
@@ -137,7 +136,7 @@ iabbr recieve receive
 iabbr cleant client
 
 " Dictionary words
-set dictionary+=/usr/share/dict/words
+" set dictionary+=/usr/share/dict/words
 
 " Cursor
 if exists('$ITERM_PROFILE')
@@ -205,3 +204,6 @@ let g:flow#enable = 0
 
 " Test external command
 let g:potion_command = "~/.vim/bundle/potion"
+
+" init modes
+source ~/.vim/modes/modes.vim
