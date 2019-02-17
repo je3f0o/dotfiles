@@ -1,3 +1,8 @@
+# jeefo_command auto-completion
+# -----------------------------
+# This file will be automatically generated when user execute `jeefo_command install --force`
+# So please do not modify this file.
+# You will be lost everything inside this file!
 
 function _assign_last_jeefo_command () {
 	local commands_list=$1
@@ -76,6 +81,9 @@ function _jeefo_command_auto_completion () {
 						;;
 					FilePath)
 						COMPREPLY=(`compgen -f -- "$current_argument"`)
+						for ((i=0; i < ${#COMPREPLY[@]}; ++i)); do
+							[ -d "${COMPREPLY[$i]}" ] && COMPREPLY[$i]="${COMPREPLY[$i]}/"
+						done
 						;;
 					DirectoryPath)
 						COMPREPLY=(`compgen -d -- "$current_argument"`)
@@ -87,7 +95,7 @@ function _jeefo_command_auto_completion () {
 			fi
 		fi
 	else
-		available_options=`jeefo-dev print --available-commands true`
+		available_options=`"$executable_command_name" print --available-commands true`
 		COMPREPLY=(`compgen -W "$available_options" -- "$current_argument"`)
 	fi
 

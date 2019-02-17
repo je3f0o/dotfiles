@@ -1,11 +1,11 @@
 
 # stringify
-snippet str
+snippet jstr
 JSON.stringify($1);$0
 endsnippet
 
 # parse
-snippet parse
+snippet jparse
 JSON.parse($1);$0
 endsnippet
 
@@ -77,6 +77,13 @@ module.exports = function ${1:function_name} ($2) {
 endsnippet
 
 # function
+snippet exfna
+module.exports = ${1:params} => {
+	$0
+};
+endsnippet
+
+# function
 #snippet fna
 #var ${1:function_name} = function ($2) {
 	#$0
@@ -85,9 +92,7 @@ endsnippet
 
 # Anonymous function
 snippet fna
-function ($1) {
-	$0
-}$2
+${1:params} => $2$0
 endsnippet
 
 # Anonymous function ends with semicolon
@@ -95,6 +100,22 @@ snippet fnae
 function ($1) {
 	$0
 };
+endsnippet
+
+# Class
+snippet class
+class ${1:ConstructorName} {
+	${3:method} (${4:params}) {
+		$0
+	}
+}$2
+endsnippet
+
+# Class
+snippet met
+${1:method} (${2:params}) {
+	$0
+}
 endsnippet
 
 # if condition
@@ -125,9 +146,7 @@ for (${3:var }${2:i} = ${1:items}.length - 1; $2 >= 0; --$2) {
 endsnippet
 
 snippet fe
-${1:things}.forEach(function (${2:thing}) {
-	$0
-});
+${1:array}.forEach(${2:params} => $0);
 endsnippet
 
 snippet obj
@@ -135,28 +154,25 @@ Object.create(null);$0
 endsnippet
 
 snippet ofe
-Object.keys(${1:things}).forEach(function (${2:thing}) {
+Object.keys(${1:things}).forEach(${2:params} => {
 	$0
 });
 endsnippet
 
 snippet reduce
-${1:things}.reduce(function (${2:result}, ${3:thing}) {
-	$0
-	return $2;
-});
+${1:array}.reduce((${3:result}, ${4:element}) => {
+	return ${5:result};
+}, ${2:default});
 endsnippet
 
 snippet fil
-${1:things}.filter(function (${2:thing}) {
+${1:array}.filter(${2:params} => {
 	$0
 });
 endsnippet
 
 snippet map
-${1:things}.map(function (${2:thing}) {
-	$0
-});
+${1:array}.map(${2:params} => $0);
 endsnippet
 
 snippet ev
@@ -216,7 +232,7 @@ describe("${1:description}", () => {
 endsnippet
 
 snippet it
-it("Should $1", (${2:done}) => {
+it("should $1", (${2:done}) => {
 	$0
 });
 endsnippet
@@ -240,7 +256,7 @@ try {
 endsnippet
 
 snippet expect
-expect(${1:value}).toBe(${2:expectation});$0
+expect(${1:value}).to.be(${2:expectation});$0
 endsnippet
 
 snippet strict

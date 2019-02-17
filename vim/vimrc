@@ -51,13 +51,16 @@ set smartcase
 set ignorecase
 set incsearch
 
+" Tab configs
 set autoindent
-set noexpandtab
 set smarttab
 set smartindent
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
+" On pressing tab, insert spaces or tab (noexpandtab = tab, expandtab = spaces)
+" after change the config use `:retab` to replace tabs
+set expandtab
 
 " Search down into subfolders
 " Provides tab-completion for all file-related tasks
