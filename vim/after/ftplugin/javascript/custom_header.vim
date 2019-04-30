@@ -28,6 +28,10 @@ if !exists("*UpdateHeaderJavascript")
 endif
 
 if has("autocmd")
+    " Automatically removing all trailing whitespace
+    autocmd BufWritePre * %s/\s\+$//e
+
+    " Update header
 	autocmd BufWritePre,FileWritePre *.js call UpdateHeaderJavascript()
 endif
 

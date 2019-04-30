@@ -21,6 +21,10 @@ syn region  javaScriptComment	       start="/\*"  end="\*/" contains=@Spell,java
 syn region  javaScriptStringD	       start=+"+  skip=+\\\\\|\\"+  end=+"\|$+	extend
 syn region  javaScriptStringS	       start=+'+  skip=+\\\\\|\\'+  end=+'\|$+	extend
 
+" ES8 keywords
+syntax keyword jsAsyncKeyword async await yield
+hi link jsAsyncKeyword Keyword
+
 hi link javaScriptStringS        String
 hi link javaScriptStringD        String
 

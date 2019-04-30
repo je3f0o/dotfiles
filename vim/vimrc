@@ -33,8 +33,10 @@ set backspace=indent,eol,start
 set mouse=a
 
 "set nofoldenable    " disable folding
-set foldmethod=marker
+set foldmethod=manual
+"set foldmethod=marker
 "set foldlevel=1
+set viewdir=~/.vimview
 
 " Automaticaly word wrap and insert new line
 set textwidth=0
