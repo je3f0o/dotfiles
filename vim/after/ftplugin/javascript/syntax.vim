@@ -59,4 +59,12 @@ syn include @JavascriptJT syntax/jt.vim
 syn region JavascriptEmbededJT  start="{\s*JT\s*}"  end=+{\s*JT\s*}+ keepend contains=@JavascriptJT,JavascriptTemplateVar  containedin=javaScriptTemplateString
 syn region JavascriptEmbededJT  start="JT_PRE`"  end="`" keepend contains=@JavascriptJT,JavascriptTemplateVar  containedin=javaScriptTemplateString
 
+unlet b:current_syntax
+syn include @JavascriptHTML syntax/html.vim
+syn region JavascriptEmbededHTML  start="<!--\s*HTML\s*-->"  end=+<!--\s*HTML\s*-->+ keepend contains=@JavascriptHTML,JavascriptTemplateVar  containedin=javaScriptTemplateString
+"syn region JavascriptEmbededHTML  start="JT_PRE`"  end="`" keepend contains=@JavascriptJT,JavascriptTemplateVar  containedin=javaScriptTemplateString
+
+if $TERM == "xterm-256color-italic"
+    hi Comment cterm=italic ctermfg=9
+endif
 

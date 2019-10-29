@@ -19,19 +19,19 @@ hi Comment cterm=NONE
 
 function! ToggleImap(name)
 	if a:name == "en"
-		imap = =
-		imap ] ]
-		imap [ [
-		imap + +
-		imap Ю Ю
-		imap Ъ Ъ
+		iunmap =
+		iunmap Й
+		iunmap йй
+		iunmap +
+		iunmap Ю
+		iunmap юю
 	else
-		imap Ю /
-		imap ] э
-		imap [ Э
 		imap = ы
+		imap Й э
+		imap йй е
 		imap + '
-		imap Ъ ё
+		imap Ю /
+		imap юю Э
 	endif
 endfunction
 

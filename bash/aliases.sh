@@ -40,6 +40,18 @@ alias shutdown='shutdown -h now'
 # -nw, --no-window-system
 alias emacs="emacs -nw $@"
 
+# tmux local socket
+alias tmux_local="tmux -L $TERM"
+
+# tmux local socket
+alias ffmpeg="ffmpeg -hide_banner"
+
+function connect_fix_server {
+    local user_name="${1-adminf}"
+    local server_id="${2-fix_server}"
+    ssh "$user_name"@"$server_id"
+}
+
 function nasa_email {
 	curl "https://gcn.gsfc.nasa.gov/gcn3/${1}.gcn3"
 }
@@ -48,7 +60,7 @@ function redir_command_on {
 	redir_command_on = "echo 'rdr pass on %iface inet proto tcp from any to any port %port -> localhost port %rport'"
 	return
 	if [ -a "/tmp/osx_ipfw_rules" ]; then
-		ipfw -q add `head -n 1 osx_ipfw_rules` fwd 127.0.0.1,$1 tcp from any to any $2 in via $3 
+		ipfw -q add `head -n 1 osx_ipfw_rules` fwd 127.0.0.1,$1 tcp from any to any $2 in via $3
 	else
 		ipfw add fwd 127.0.0.1,$1 tcp from any to any $2 in via $3 | cut -d " " -f 1 >> /tmp/osx_ipfw_rules
 	fi

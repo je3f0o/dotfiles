@@ -71,6 +71,9 @@ set path=*,**
 " Display all matching files when we tab complete
 set wildmenu
 
+" Toggle paste
+set pastetoggle=<F3>
+
 " Syntastic
 let g:syntastic_cpp_compiler_options = ' -std=c++11'
 
@@ -108,20 +111,10 @@ let g:airline_powerline_fonts = 1
 " Load custom settings
 source ~/.vim/variables.vim
 source ~/.vim/functions.vim
-source ~/.vim/startup/autocmd.vim
 source ~/.vim/startup/mappings.vim
 source ~/.vim/startup/color.vim
+source ~/.vim/autocmd.vim
 source ~/.vim/syntax.vim
-
-" filetype on after load startup
-if has("autocmd")
-	" Enable filetype detection
-	filetype plugin on
-	"filetype plugin indent on
-
-	" Automatically apply any changes in vimrc
-	"autocmd BufWritePost .vimrc tabe $MYVIMRC
-endif
 
 " Change buffer without saved
 set hidden
@@ -149,8 +142,10 @@ if exists('$ITERM_PROFILE')
     let &t_SI = "\<Esc>[5 q"
     let &t_EI = "\<Esc>[0 q"
   else
-    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+    let &t_SI = "\e[6 q"
+    let &t_EI = "\e[2 q"
+    "let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+    "let &t_EI = "\<Esc>]50;CursorShape=0\x7"
   endif
 end
 
@@ -158,12 +153,14 @@ if has("gui_running")
 	source ~/.vim/gvimrc
 endif
 
+" You complete me
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:ycm_key_invoke_completion = '<C-Space>'
 let g:ycm_cache_omnifunc = 0
 let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_complete_in_comments = 1
 
 "let g:clang_use_library = 1
 "let g:clang_library_path = '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libclang.dylib'

@@ -45,7 +45,6 @@ syn region  JeefoTemplateAttributes    start="\["  end="]"  keepend  contains=Je
 syn region  JeefoTemplateStyleAttribute	 start=+style\s*=\s*'+  end=+'+  keepend  contained  contains=css.*Prop,cssValue.*
 syn region  JeefoTemplateStyleAttribute	 start=+style\s*=\s*"+  end=+"+  keepend  contained  contains=css.*Prop,cssValue.*
 
-
 hi def link JeefoTemplateComment   Comment
 hi def link JeefoTemplateString    String
 
@@ -60,6 +59,7 @@ hi JeefoTemplateOperator              ctermfg=209
 hi JeefoTemplateAttributesParens      ctermfg=40
 hi JeefoTemplateAttributeAssignment   ctermfg=4
 hi JeefoTemplateAttributeDelimiter    ctermfg=1
+hi JeefoTemplateStyleAttribute        ctermfg=167
 
 
 

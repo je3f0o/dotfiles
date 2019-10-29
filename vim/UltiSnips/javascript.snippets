@@ -64,9 +64,36 @@ function ${1:function_name} ($2) {
 }$3
 endsnippet
 
-# function
-snippet ex
+# async function
+snippet afn
+async function ${1:function_name} ($2) {
+	$0
+}$3
+endsnippet
+
+# Exports
+snippet ex "export common js pattern"
 module.exports = ${1:thing};$0
+endsnippet
+
+snippet exc "export class"
+class ${1:ClassName} {
+	${2:constructor} (${3:params}) {
+		$0
+	}
+}
+
+module.exports = $1;
+endsnippet
+
+snippet exs "export service"
+class ${1:ClassName}Service {
+	${2:constructor} (${3:params}) {
+		$0
+	}
+}
+
+module.exports = new $1Service();
 endsnippet
 
 # function
@@ -74,6 +101,23 @@ snippet exfn
 module.exports = function ${1:function_name} ($2) {
 	$0
 };
+endsnippet
+
+# function
+snippet comp
+exports.selector = "$1";
+
+exports.style = \`
+    /* css */
+\`;
+
+exports.template = \`
+    { jt }
+\`;
+
+exports.bindings = {};
+
+exports.controller = {};
 endsnippet
 
 # function
@@ -176,9 +220,7 @@ ${1:array}.map(${2:params} => $0);
 endsnippet
 
 snippet ev
-${1:things}.every(function (${2:thing}) {
-	$0
-});
+${1:array}.every(${2:params} => $0);
 endsnippet
 
 snippet some
@@ -251,8 +293,8 @@ endsnippet
 
 snippet try
 try {
-	$1
-} catch (e) {$0}
+	$0
+} catch (e) {$1}
 endsnippet
 
 snippet expect
@@ -268,10 +310,29 @@ constructor : function ($1) {
 	$0
 }
 endsnippet
+
 snippet jeefo_class
 jeefo_class.create("${1:NewClassName}", ${2:BaseClass}, {
 	constructor : function ($3) {
 		$0
 	}
 });
+endsnippet
+
+snippet @ret
+@returns {${1:type}} - ${2:description}
+endsnippet
+
+snippet @par
+@param ${1:param_name} {${2:type}} - ${3:description}
+endsnippet
+
+snippet doc
+/**
+ * $0
+ */
+endsnippet
+
+snippet indxdb "indexedDB new feature on browser"
+indexedDB
 endsnippet

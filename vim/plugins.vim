@@ -29,7 +29,7 @@ Plugin 'bling/vim-airline'
 " easymotion
 Plugin 'Lokaltog/vim-easymotion'
 " emmet
-Plugin 'mattn/emmet-vim'
+"Plugin 'mattn/emmet-vim'
 " fugitive
 Plugin 'tpope/vim-fugitive'
 " jade

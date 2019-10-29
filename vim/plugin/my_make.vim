@@ -4,6 +4,8 @@ if !exists("g:potion_command")
     let g:potion_command = "potion"
 endif
 
+" Maybe I should use `set makeprg=...` build in method
+
 function! MyMake ()
 	" Get the output
 	if filereadable("Makefile")

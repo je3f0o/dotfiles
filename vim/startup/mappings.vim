@@ -20,6 +20,23 @@ vno Q <Nop>
 inoremap jj <C-c>
 vnoremap ii <C-c>
 
+" These are to cancel the default behavior of d, D, c, C
+" to put the text they delete in the default register.
+" Note that this means e.g. "ad won't copy the text into
+" register a anymore.  You have to explicitly yank it.
+"nnoremap d "_d
+"vnoremap d "_d
+nnoremap D "_D
+vnoremap D "_D
+nnoremap c "_c
+vnoremap c "_c
+nnoremap C "_C
+vnoremap C "_C
+
+" Paste without yank
+" Reference: https://stackoverflow.com/a/5093286/1352771
+xnoremap <expr> p 'pgv"'.v:register.'y`>'
+
 " Save file
 nnoremap <C-s> :update<CR>:echo "Saved"<CR>
 inoremap <C-s> <ESC>:update<CR>:echo "Saved"<CR>a
@@ -34,9 +51,9 @@ vnoremap <F5> <C-c>:NERDTreeToggle<CR>
 nnoremap <F6> :GundoToggle<CR>
 
 " Toggle search highlight
-nnoremap <leader>h :set hlsearch!<CR>
-inoremap <leader>h <C-c>:set hlsearch!<CR>a
-vnoremap <leader>h <C-c>:set hlsearch!<CR>gv
+nnoremap <leader>h :nohlsearch<CR>
+inoremap <leader>h <C-c>:nohlsearch<CR>a
+vnoremap <leader>h <C-c>:nohlsearch<CR>gv
 
 " Bubble lines
 nnoremap <C-Up> [e
@@ -72,7 +89,6 @@ vnoremap <C-y> "+y
 nnoremap <F2> "+gp
 inoremap <F2> <C-c>"+gpi
 vnoremap <F2> "+gp
-
 
 " ------------------ NORMAL MODE ------------------
 " I really hate that things don't auto-center
@@ -136,14 +152,14 @@ nnoremap <C-a> ggVG
 
 
 " ------------------ INSERT MODE ------------------
-" Move cursor 
+" Move cursor
 imap <C-h> <left>
 imap <C-j> <down>
 imap <C-k> <up>
 imap <C-l> <right>
 
 " Insert new line
-"inoremap <C-CR> 
+"inoremap <C-CR>
 
 " ------------------ VISUAL MODE ------------------
 
@@ -171,18 +187,5 @@ vnoremap <leader>t] :Tabularize /\]<CR>
 " nnoremap <C-m> :ConqueTerm bash --login<CR>
 
 " YouCompleteMe
-nnoremap <leader>d :YcmCompleter GoToDeclaration<CR>
-nnoremap <leader>f :YcmCompleter GoToDefinition<CR>
-
-if !exists("*HTMLEmmetMapping")
-	function HTMLEmmetMapping()
-		nmap <buffer> <Tab> <C-y>,
-		imap <buffer> <Tab> <C-c><C-y>,i
-	endfunction
-endif
-
-if has("autocmd")
-	" Emmet - remap
-	autocmd BufNewFile,BufRead *.html :call HTMLEmmetMapping()
-	autocmd BufNewFile,BufRead *.md set filetype=markdown
-endif
+nnoremap <C-g> :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>d :YcmCompleter GoToDefinition<CR>

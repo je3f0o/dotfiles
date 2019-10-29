@@ -13,38 +13,12 @@
     "wsh"           : true,   // Windows Scripting Host.
 
     "jquery"        : true,
-    "ender"         : true,
+    "ender"         : false,
     "prototypejs"   : false,
     "mootools"      : false,
     "dojo"          : false,
 
 	//"esnext": true,
-
-    "predef"        : [  // Custom globals.
-		"PP",
-		"IS_FUNCTION",
-		"IS_UNDEFINED",
-		"IS_DEFINED",
-		"IS_NULL",
-		"IS_BOOLEAN",
-		"IS_STRING",
-		"IS_NUMBER",
-		"IS_OBJECT",
-		"__MY_MODULE__",
-		"JT_PRE",
-		"TRIM_LINES",
-		"angular",
-		"define",
-		"describe",
-		"fdescribe",
-		"xdescribe",
-		"beforeEach",
-		"it",
-		"fit",
-		"xit",
-		"inject"
-    ],
-
 
     // Development.
     "debug"         : false,  // Allow debugger statements e.g. browser breakpoints.
@@ -93,6 +67,37 @@
     "indent"        : 4,      // Specify indentation spacing
 	"unused"        : true,   // Unused ....
 	"quotmark"      : false,
+
+    "globals" : {
+        "name" : false
+    },
+
+    "predef"        : [  // Custom globals.
+		"PP",
+		"IS_FUNCTION",
+		"IS_UNDEFINED",
+		"IS_DEFINED",
+		"IS_NULL",
+		"IS_BOOLEAN",
+		"IS_STRING",
+		"IS_NUMBER",
+		"IS_OBJECT",
+		"__MY_MODULE__",
+		"indexedDB",
+		"JT_PRE",
+		"TRIM_LINES",
+		"angular",
+		"define",
+		"describe",
+		"fdescribe",
+		"xdescribe",
+		"beforeEach",
+		"it",
+		"fit",
+		"xit",
+		"inject",
+        "-name"
+    ],
 
     "esversion": 8
 }

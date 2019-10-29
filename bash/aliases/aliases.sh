@@ -1,8 +1,8 @@
 
 # GNU sed
-if __is_command_exists gsed; then
-	alias sed=gsed
-fi
+#if __is_command_exists gsed; then
+	#alias sed=gsed
+#fi
 
 # List files
 if is_true $__IS_MAC; then
