@@ -9,7 +9,7 @@ function copy_tmux_to_host {
 
 	local TMUX_DIR=/tmp/.tmux
 	mkdir -p "${TMUX_DIR}"
-	
+
 	pushd "${TMUX_DIR}" > /dev/null
 
 	infocmp xterm-256color-italic > xterm-256color-italic.terminfo

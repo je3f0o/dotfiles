@@ -1,14 +1,14 @@
 
 function __is_git {
-	git rev-parse --is-inside-work-tree -- > /dev/null 2>&1
-	__is_git=$?
-	return $__is_git
+    git symbolic-ref --quiet HEAD &> /dev/null
+    [ $? -ne 128 ]
 }
 
 function __get_current_git_branch_name {
-	git symbolic-ref --short HEAD -- 2>/dev/null
+	git symbolic-ref --short HEAD -- 2> /dev/null
 }
 
 function __is_git_changed {
-	! git diff --quiet --
+	local __status__=`git status --porcelain --ignore-submodules 2> /dev/null | tail -n1`
+    [ -n "$__status__" ]
 }

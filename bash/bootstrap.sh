@@ -1,5 +1,5 @@
 
-if [[ $OSTYPE == 'darwin'* ]]; then
+if [[ "$OSTYPE" == 'darwin'* ]]; then
 	__IS_MAC=true
 	__BASHRC='bash_profile'
 else

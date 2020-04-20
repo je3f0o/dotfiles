@@ -54,20 +54,20 @@ while getopts ":hfsdp:" OPTION; do
 done
 
 # This tells getopts to move on to the next argument
-shift $((OPTIND-1))  
+shift $((OPTIND-1))
 
 # Error checking ...
 if [ -z $1 ]; then
 	echo "ERROR : Function name required"
 	usage
-	exit 
+	exit
 fi
 
 function_name=`sed -e 's/^\([a-z]\)/\U\1/' <<< "${1}${TYPE}"`
 current_dir=`dirname $BASH_SOURCE`
 template_type="${TYPE_LOWERCASE}tmpl.js"
 
-template_path="${current_dir}/requirejs.${template_type}" 
+template_path="${current_dir}/requirejs.${template_type}"
 
 filename=`sed -e "s/\([A-Z]\)/_\L\1/g" -e "s/^_//" <<< $function_name`.js
 filepath="${TYPE_DIR}/${filename}"

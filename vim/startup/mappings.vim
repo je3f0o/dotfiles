@@ -26,8 +26,8 @@ vnoremap ii <C-c>
 " register a anymore.  You have to explicitly yank it.
 "nnoremap d "_d
 "vnoremap d "_d
-nnoremap D "_D
-vnoremap D "_D
+"nnoremap D "_D
+"vnoremap D "_D
 nnoremap c "_c
 vnoremap c "_c
 nnoremap C "_C

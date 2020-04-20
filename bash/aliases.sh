@@ -46,7 +46,30 @@ alias tmux_local="tmux -L $TERM"
 # tmux local socket
 alias ffmpeg="ffmpeg -hide_banner"
 
-function connect_fix_server {
+function upload_session {
+	if [ -z $1 ]; then
+		echo 'argv1 => session name.'
+		return 1
+	fi
+    local session_name="$1"
+    tar czf "$session_name.tar.gz" "$session_name"
+    scp "$session_name.tar.gz" jeefo@wmc1:~/sessions
+    rm "$session_name.tar.gz"
+
+    ssh wmc1 "
+        cd ~/sessions
+        tar xzf $session_name.tar.gz --warning=no-timestamp -m
+        rm $session_name.tar.gz
+    "
+}
+
+function login_wmc1 {
+    local user_name="${1-jeefo}"
+    local server_id="${2-wmc1}"
+    ssh "$user_name"@"$server_id" -t 'cd projects/wmc; exec $SHELL -l'
+}
+
+function login_fix_server {
     local user_name="${1-adminf}"
     local server_id="${2-fix_server}"
     ssh "$user_name"@"$server_id"

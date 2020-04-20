@@ -1,9 +1,9 @@
 
 function __git_branch {
-	if __is_git; then
+	if __is_git -eq 0; then
 		__parse_git_status
 
-		printf " ${txtrst}git (${bldgrn}%s${txtrst}) branch\n" $(__get_current_git_branch_name)
+		printf " ${txtrst}git (${bldgrn}%s${txtrst}) branch\n" `__get_current_git_branch_name`
 
 		if [ $__git_status_changed -eq 0 ]; then
 			local status='⚡ '
@@ -37,8 +37,8 @@ function print_pre_prompt {
 		PS1_PATH=$PWD
 	fi
 
-	if __is_git; then
-		PS1_GIT_STATUS=" git ($(__get_current_git_branch_name)) "
+	if __is_git -eq 0; then
+		PS1_GIT_STATUS=" git (`__get_current_git_branch_name`) "
 
 		if __is_git_changed; then
 			PS1_GIT_STATUS+="⚡"

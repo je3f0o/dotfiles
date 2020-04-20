@@ -30,8 +30,8 @@ hi Directory ctermfg=68 ctermbg=NONE cterm=NONE guifg=#3387cc guibg=NONE gui=NON
 hi LineNr cterm=NONE ctermbg=234 ctermfg=7 gui=NONE guibg=#191919 guifg=#7c7c7c
 
 " Fold line
-hi Folded ctermfg=249 ctermbg=0 cterm=NONE guifg=#aeaeae guibg=#000000 gui=NONE
-hi FoldColumn cterm=NONE ctermbg=234 ctermfg=249 gui=NONE guibg=#000000 guifg=#aeaeae
+hi Folded cterm=NONE ctermbg=NONE ctermfg=249 guifg=#aeaeae guibg=#000000 gui=NONE
+hi FoldColumn cterm=NONE ctermbg=NONE ctermfg=249 gui=NONE guibg=#000000 guifg=#aeaeae
 
 hi Normal cterm=NONE ctermbg=NONE ctermfg=255 gui=NONE guibg=#000000 guifg=#f8f8f8
 hi Boolean ctermfg=68 ctermbg=NONE cterm=NONE guifg=#3387cc guibg=NONE gui=NONE

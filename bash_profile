@@ -39,6 +39,9 @@ if ! shopt -oq posix; then
   elif [ -f /etc/bash_completion ]; then
 	. /etc/bash_completion
   elif [ -f $(brew --prefix)/etc/bash_completion ]; then
+    unset LC_CTYPE
+    unset LC_ALL
+    unset LANG
 	. $(brew --prefix)/etc/bash_completion
   fi
 fi

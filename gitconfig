@@ -23,3 +23,5 @@
 	ui = always
 [init]
 	#templatedir = ~/.git_snapshots
+[core]
+	editor = vim

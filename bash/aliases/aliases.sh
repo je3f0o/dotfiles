@@ -6,10 +6,10 @@
 
 # List files
 if is_true $__IS_MAC; then
-	alias ll='ls -lhG'
-	alias lla='ls -lahG'
+	alias ll='ls -lhGtr'
+	alias lla='ls -lhGtra'
 else
-	alias ll='ls -lh --color=auto'
-	alias lla='ls -lah --color=auto'
+	alias ll='ls -lhtr --color=auto'
+	alias lla='ls -lhtra --color=auto'
 fi
 
