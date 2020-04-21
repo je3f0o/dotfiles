@@ -81,7 +81,7 @@ function __jeefo_install_vim {
         pushd vim/bundle/YouCompleteMe
 
         [ "$JEEFO_ENV_OS_NAME" != "Darwin" ] && \
-            command -v python3-config &> /dev/null-eq 0 && \
+            command -v python3-config &> /dev/null -eq 0 && \
             sudo apt-get install python3-dev -y
 
         python3 install.py --clangd-completer && echo 1 > ~/.ycm_installed
