@@ -32,7 +32,7 @@ function __jeefo_install_cmake {
         if [ "$JEEFO_ENV_OS_NAME" == "Darwin" ]; then
             brew install cmake
         else
-            sudo apt-get install cmake
+            sudo apt-get install cmake -y
         fi
     fi
 }
@@ -79,6 +79,11 @@ function __jeefo_install_vim {
 
     if [ ! -f ~/.ycm_installed ] || [ `cat ~/.ycm_installed` != 1 ]; then
         pushd vim/bundle/YouCompleteMe
+
+        [ "$JEEFO_ENV_OS_NAME" != "Darwin" ] && \
+            command -v python3-config &> /dev/null-eq 0 && \
+            sudo apt-get install python3-dev -y
+
         python3 install.py --clangd-completer && echo 1 > ~/.ycm_installed
         popd
     fi
