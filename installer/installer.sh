@@ -126,5 +126,5 @@ function __jeefo_install {
     __jeefo_install_vim
 
     # Powerline fonts
-    __jeefo_install_powerline_fonts
+    [ "$JEEFO_ENV_OS_NAME" == "Darwin" ] && __jeefo_install_powerline_fonts
 }
