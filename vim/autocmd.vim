@@ -1,3 +1,7 @@
+
+" I'm using Bash syntax highlight not Posix
+let b:is_bash=1
+
 if has("autocmd")
 	" Enable filetype detection for after load startup
 	filetype plugin on
