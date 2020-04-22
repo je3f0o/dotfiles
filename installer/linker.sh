@@ -5,6 +5,8 @@ function __jeefo_link {
     local dotfiles=(bash bash_profile vim vimrc tmux tmux.conf gitconfig jshintrc)
     local backup_dir=~/.backup_dotfiles/`date +%F_%H-%M-%S`
 
+    echo -e "\x1b[36m[INFO]\x1b[0m Linking..."
+
     for file in ${dotfiles[@]}; do
         from=~/cloud/dotfiles/"$file"
         to_path=~/."$file"

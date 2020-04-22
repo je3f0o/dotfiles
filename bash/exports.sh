@@ -14,7 +14,7 @@ if [ $__IS_MAC ]; then
 fi
 
 ### MySQL
-export PATH="/usr/local/mysql/bin:$PATH"
+#export PATH="/usr/local/mysql/bin:$PATH"
 
 # BasicTex
 export PATH="/usr/local/texlive/2016basic/bin/universal-darwin:$PATH"
@@ -27,5 +27,11 @@ export LANG=en_US.UTF-8
 #export LC_ALL=C
 #export LANG=C
 
-export EDITOR=/usr/bin/nano
+export EDITOR=vim
 #export EDITOR="/usr/local/bin/vim --cmd let weak_mode=1"
+
+# NVM
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
