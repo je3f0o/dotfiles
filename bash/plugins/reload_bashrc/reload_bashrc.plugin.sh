@@ -1,4 +1,4 @@
 
 function reload_bashrc {
-	source ~/."$__BASHRC"
+	source ~/.bash_profile
 }

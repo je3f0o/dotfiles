@@ -9,6 +9,7 @@ if is_true $__IS_MAC; then
 	alias ll='ls -lhGtr'
 	alias lla='ls -lhGtra'
 else
+    alias ls='ls --color=auto'
 	alias ll='ls -lhtr --color=auto'
 	alias lla='ls -lhtra --color=auto'
 fi
