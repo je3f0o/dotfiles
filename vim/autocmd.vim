@@ -1,6 +1,9 @@
 
 " I'm using Bash syntax highlight not Posix
-let b:is_bash=1
+function s:SetBashFlag()
+    let b:is_bash=1
+    set filetype=sh
+endfunction
 
 if has("autocmd")
 	" Enable filetype detection for after load startup
@@ -22,4 +25,6 @@ if has("autocmd")
     " Vim cursor
     autocmd InsertEnter * set cul
     autocmd InsertLeave * set nocul
+
+    autocmd BufEnter,VimEnter *.sh call s:SetBashFlag()
 endif
