@@ -27,4 +27,7 @@ if has("autocmd")
     autocmd InsertLeave * set nocul
 
     autocmd BufEnter,VimEnter *.sh call s:SetBashFlag()
+
+    "autocmd VimLeavePre * bufdo diffoff
+    autocmd QuitPre * windo diffoff
 endif

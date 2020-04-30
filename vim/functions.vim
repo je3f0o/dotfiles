@@ -15,7 +15,7 @@
 " Automatically close brackets
 if !exists("*EnableAutoCloseCurlyBrackets")
 	function EnableAutoCloseCurlyBrackets()
-		inoremap <buffer> { {<CR>}<C-c>O
+		inoremap <buffer> { {}<C-c>i
 	endfunction
 endif
 if !exists("*DisableAutoCloseCurlyBrackets")
