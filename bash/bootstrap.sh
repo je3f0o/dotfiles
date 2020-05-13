@@ -23,3 +23,10 @@ unset file
 
 source ~/.bash/themes/jeefo.theme.sh
 source ~/.bash/paths.sh
+
+if [ -d ~/.bash_local ]; then
+    for __file in ~/.bash_local/*.sh; do
+        source "$__file"
+    done
+    unset __file
+fi

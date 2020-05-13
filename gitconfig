@@ -1,27 +1,29 @@
 [user]
-	name  = je3f0o
-	email = je3f0o@gmail.com
+    name  = je3f0o
+    email = je3f0o@gmail.com
 [diff]
-	tool = vimdiff
+    tool = vimdiff
 [difftool]
-	#prompt = false
+    #prompt = false
 [difftool "vimdiff"]
-	path = /Users/jeefo/.bash/git_diff_wrapper.sh
-	#trustExitCode = true
+    path = /Users/jeefo/.bash/git_diff_wrapper.sh
+    #trustExitCode = true
 [alias]
-	d   = difftool
-	c   = commit -am
-	up  = pull
-	p   = push
-	s   = status -s
-	lol = log --graph --oneline --decorate
+    d   = difftool
+    c   = commit -m
+    ca  = commit -am
+    up  = pull
+    p   = push
+    s   = status -s
+    lol = log --graph --oneline --decorate
+    pl  = log --pretty=format:'%Cred%h%Creset - %C(blue)%an%Creset, %C(magenta)%ar%Creset : %C(green)%s%Creset'
 [url "https://"]
-	insteadOf = git://
+    insteadOf = git://
 [push]
-	default = simple
+    default = simple
 [color]
-	ui = always
+    ui = always
 [init]
-	#templatedir = ~/.git_snapshots
+    #templatedir = ~/.git_snapshots
 [core]
-	editor = vim
+    editor = vim
