@@ -7,26 +7,36 @@ function __jeefo_info {
     echo -e "\x1b[36m[INFO]\x1b[0m Trying to install \x1b[32m$@\x1b[0m"
 }
 
+function __jeefo_install_curl {
+    __jeefo_info 'Curl'
+    curl --version &> /dev/null
+    if [ $? != 0 ]; then
+        if [ "$JEEFO_ENV_OS_NAME" != "Darwin" ]; then
+            sudo apt-get install curl -y
+        fi
+    fi
+}
+
 function __jeefo_install_brew {
-    __jeefo_info Homebrew
+    __jeefo_info 'Homebrew'
     brew --version &> /dev/null
     [ $? != 0 ] && /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 }
 
 function __jeefo_install_bash_completion {
-    __jeefo_info Bash auto-completion
+    __jeefo_info 'Bash auto-completion'
     [ ! -f `brew --prefix`/etc/bash_completion ] && \
         brew install bash-completion
 }
 
 function __jeefo_install_git_bash_completion {
-    __jeefo_info Git bash-completion
+    __jeefo_info 'Git bash-completion'
     [ ! -e /usr/local/etc/bash_completion.d/git-completion.bash ] && \
         brew install git bash-completion
 }
 
 function __jeefo_install_cmake {
-    __jeefo_info CMake
+    __jeefo_info 'CMake'
     cmake --version &> /dev/null
     if [ $? != 0 ]; then
         if [ "$JEEFO_ENV_OS_NAME" == "Darwin" ]; then
@@ -38,7 +48,7 @@ function __jeefo_install_cmake {
 }
 
 function __jeefo_install_nvm {
-    __jeefo_info NVM
+    __jeefo_info 'NVM'
     export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
@@ -47,26 +57,20 @@ function __jeefo_install_nvm {
 }
 
 function __jeefo_install_jshint {
-    __jeefo_info JSHint
+    __jeefo_info 'JSHint'
     jshint --version &> /dev/null
     [ $? != 0 ] && npm i jshint -g
 }
 
 function __jeefo_install_vim {
-    __jeefo_info Vim with plugins
-    local has_vim_with_python=1
+    __jeefo_info 'Vim with plugins'
 
     vim --version &> /dev/null
     if [ $? != 0 ] || [ `vim --version | grep -c '+python'` == 0 ]; then
-        $has_vim_with_python=0
-    fi
-
-    if [ $has_vim_with_python == 0 ]; then
         if [ "$JEEFO_ENV_OS_NAME" == "Darwin" ]; then
             brew install vim
         else
-            echo Please install Vim with python manually and try again...
-            exit 1
+            sudo apt-get install vim -y
         fi
     fi
 
@@ -80,17 +84,27 @@ function __jeefo_install_vim {
     if [ ! -f ~/.ycm_installed ] || [ `cat ~/.ycm_installed` != 1 ]; then
         pushd vim/bundle/YouCompleteMe
 
-        [ "$JEEFO_ENV_OS_NAME" != "Darwin" ] && \
-            command -v python3-config &> /dev/null -eq 0 && \
-            sudo apt-get install python3-dev -y
+        if [ "$JEEFO_ENV_OS_NAME" != "Darwin" ]; then
+            command -v python3-config &> /dev/null
+            if [ $? -ne 0 ]; then 
+                sudo apt-get install python3-dev -y
+            fi 
+        fi 
 
         python3 install.py --clangd-completer && echo 1 > ~/.ycm_installed
         popd
     fi
 }
 
+function __jeefo_install_xsel {
+    __jeefo_info 'XSel for Vim copy to clipboard'
+    xsel --version &> /dev/null
+    [ $? != 0 ] && sudo apt-get install xsel -y
+}
+
 function __jeefo_install_powerline_fonts {
-    __jeefo_info Powerline Fonts
+    __jeefo_info 'Powerline Fonts'
+
     if [ "$JEEFO_ENV_OS_NAME" == "Darwin" ]; then
         if [ ! -f ~/Library/Fonts/Inconsolata\ for\ Powerline.otf ]; then
             pushd /tmp
@@ -106,16 +120,24 @@ function __jeefo_install_powerline_fonts {
 
             popd
         fi
+    else
+        local __=`apt list --installed 2> /dev/null | grep -c fonts-powerline`
+        [ $__ == 0 ] && sudo apt-get install fonts-powerline -y
     fi
 }
 
 function __jeefo_install {
-    # MacOS
+    # Curl
+    __jeefo_install_curl
+
+    # Homebrew
     if [ "$JEEFO_ENV_OS_NAME" == "Darwin" ]; then
-        # Homebrew
         __jeefo_install_brew
         __jeefo_install_bash_completion
         __jeefo_install_git_bash_completion
+    else
+        local __=`apt list --installed 2> /dev/null | grep -c build-essential`
+        [ $__ == 0 ] && sudo apt-get install build-essential -y
     fi
 
     # CMake
@@ -130,6 +152,9 @@ function __jeefo_install {
     # Vim
     __jeefo_install_vim
 
+    # XSel
+    [ "$JEEFO_ENV_OS_NAME" != "Darwin" ] && __jeefo_install_xsel
+
     # Powerline fonts
-    [ "$JEEFO_ENV_OS_NAME" == "Darwin" ] && __jeefo_install_powerline_fonts
+    __jeefo_install_powerline_fonts
 }

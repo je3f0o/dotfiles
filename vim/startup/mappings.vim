@@ -83,8 +83,33 @@ inoremap <leader>[ <ESC>:call MakeFoldMarker()<CR>a
 inoremap <leader>] }}}
 
 " Copy to clipboard
-nnoremap <C-y> "+y
-vnoremap <C-y> "+y
+let s:uname = substitute(system('uname'), '\n', '', '')
+if s:uname == 'Linux'
+    " Ubuntu 18 - vim 8 has problem with clipboard
+
+    if !exists('*CopyUnderCursor')
+        function CopyUnderCursor()
+            let l:char = matchstr(getline('.'), '\%' . col('.') . 'c.')
+            call system('xsel -i -b', l:char)
+        endfunction 
+
+        nnoremap <silent> <C-y> :call CopyUnderCursor()<CR>
+    endif
+
+    if !exists('*CopyVisualSelection')
+        function CopyVisualSelection() range
+            let n = @n
+            silent! normal gv"ny
+            call system('xsel -i -b', @n)
+            let @n = n
+        endfunction 
+
+        vnoremap <silent> <C-y> :call CopyVisualSelection()<CR>
+    endif
+else
+    nnoremap <C-y> "+y
+    vnoremap <C-y> "+y
+endif
 " Paste from clipboard
 nnoremap <F2> "+gp
 inoremap <F2> <C-c>"+gpi

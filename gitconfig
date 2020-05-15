@@ -6,7 +6,8 @@
 [difftool]
     #prompt = false
 [difftool "vimdiff"]
-    path = /Users/jeefo/.bash/git_diff_wrapper.sh
+    cmd = vimdiff "$REMOTE" "$LOCAL"
+    #path = ~/.bash/git_diff_wrapper.sh
     #trustExitCode = true
 [alias]
     d   = difftool
