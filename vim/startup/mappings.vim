@@ -91,7 +91,7 @@ if s:uname == 'Linux'
         function CopyUnderCursor()
             let l:char = matchstr(getline('.'), '\%' . col('.') . 'c.')
             call system('xsel -i -b', l:char)
-        endfunction 
+        endfunction
 
         nnoremap <silent> <C-y> :call CopyUnderCursor()<CR>
     endif
@@ -102,7 +102,7 @@ if s:uname == 'Linux'
             silent! normal gv"ny
             call system('xsel -i -b', @n)
             let @n = n
-        endfunction 
+        endfunction
 
         vnoremap <silent> <C-y> :call CopyVisualSelection()<CR>
     endif

@@ -20,7 +20,8 @@ if has("autocmd")
 
     " Cache views
     function! s:MakeView()
-        if filereadable(expand('%:p'))
+        let l:filepath = expand('%:p')
+        if filereadable(l:filepath) && stridx(l:filepath, '/tmp/') != 0
             mkview
         endif
     endfunction
