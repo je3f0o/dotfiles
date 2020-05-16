@@ -1,4 +1,9 @@
 
+function __jeefo_ensure_dir {
+    local dir=`dirname "$1"`
+    [ ! -d "$dir" ] && mkdir -p "$dir"
+}
+
 function __jeefo_symlink {
     local from="$1"
     local to_path="$2"
@@ -9,12 +14,11 @@ function __jeefo_symlink {
 
     # Backup if older version file or directory
     if [ -e "$to_path" ]; then
-        # Create backup directory if doesn't exists
-        local backup_dir=`dirname "$backup_path"`
-        [ ! -d "$backup_dir" ] && mkdir -p "$backup_dir"
-
+        __jeefo_ensure_dir "$backup_path"
         mv "$to_path" "$backup_path"
     fi
+
+    __jeefo_ensure_dir "$to_path"
 
     # Linking symbolic links
     ln -s "$from" "$to_path"
