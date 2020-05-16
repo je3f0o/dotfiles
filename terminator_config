@@ -1,0 +1,35 @@
+[global_config]
+[keybindings]
+  go_left = None
+  go_next = None
+  go_right = None
+  insert_number = None
+  layout_launcher = None
+  move_tab_left = None
+  move_tab_right = None
+  new_tab = <Super>t
+  next_tab = <Alt>Right
+  paste = <Super>v
+  prev_tab = <Alt>Left
+  switch_to_tab_1 = <Super>1
+  switch_to_tab_2 = <Super>2
+  switch_to_tab_3 = <Super>3
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    copy_on_selection = True
+    cursor_blink = False
+    cursor_color = "#aaaaaa"
+    font = Monospace 14
+    foreground_color = "#ffffff"
+    scrollbar_position = hidden
+    show_titlebar = False
+    use_system_font = False

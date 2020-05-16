@@ -3,6 +3,10 @@
 # Not necessary in this case. But useful trick to know.
 base_dir=`dirname "$0"`
 
+# There is a builtin variable called OSTYPE
+# if [[ $OSTYPE == 'darwin'* ]]; then...
+JEEFO_ENV_OS_NAME=`uname`
+
 source "$base_dir/installer/installer.sh"
 source "$base_dir/installer/linker.sh"
 

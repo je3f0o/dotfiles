@@ -18,8 +18,13 @@ if has("autocmd")
     " Javasciprt header
 	autocmd BufNewFile *.js :call PreHeaderJavascript()
 
-    " Forks
-	autocmd BufWinLeave ?* mkview
+    " Cache views
+    function! s:MakeView()
+        if filereadable(expand('%:p'))
+            mkview
+        endif
+    endfunction
+    autocmd BufWinLeave ?* silent call s:MakeView()
 	autocmd BufWinEnter ?* silent loadview
 
     " Vim cursor
