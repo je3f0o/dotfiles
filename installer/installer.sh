@@ -59,13 +59,30 @@ function __jeefo_install_jshint {
 }
 
 function __jeefo_install_vim {
+    local has_vim=0
+    local has_python=0
+    local has_clipboard=0
     __jeefo_info 'Vim with plugins'
 
     vim --version &> /dev/null
-    if [ $? != 0 ] || [ `vim --version | grep -c '+python'` == 0 ]; then
-        if [ "$JEEFO_ENV_OS_NAME" == "Darwin" ]; then
+    if [ $? == 0 ]; then
+        has_vim=1
+        if [ `vim --version | grep -c '+python'` == 0 ]; then
+            has_python=1
+        fi
+        if [ `vim --version | grep -c '+clipboard'` == 0 ]; then
+            has_clipboard=1
+        fi
+    fi
+
+    if [ "$JEEFO_ENV_OS_NAME" == "Darwin" ]; then
+        if [ $has_vim == 0 ] || [ $has_python == 0 ]; then
             brew install vim
-        else
+        fi
+    else
+        if [ $has_clipboard == 0 ]; then
+            sudo apt-get install vim-gnome -y
+        elif [ $has_vim == 0 ] || [ $has_python == 0 ]; then
             sudo apt-get install vim -y
         fi
     fi
