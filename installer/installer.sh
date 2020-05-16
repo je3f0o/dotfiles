@@ -67,10 +67,10 @@ function __jeefo_install_vim {
     vim --version &> /dev/null
     if [ $? == 0 ]; then
         has_vim=1
-        if [ `vim --version | grep -c '+python'` == 0 ]; then
+        if [ `vim --version | grep -c '+python'` != 0 ]; then
             has_python=1
         fi
-        if [ `vim --version | grep -c '+clipboard'` == 0 ]; then
+        if [ `vim --version | grep -c '+clipboard'` != 0 ]; then
             has_clipboard=1
         fi
     fi
