@@ -3,6 +3,49 @@ function __jeefo_info {
     echo -e "\x1b[36m[INFO]\x1b[0m Trying to install \x1b[32m$@\x1b[0m"
 }
 
+function __jeefo_install_monaco {
+    __jeefo_info 'Monaco Bold font'
+
+    [ -f ~/.fonts/MonacoB-Bold.ttf ] && return 0
+
+    curl --version &> /dev/null
+    if [ $? != 0 ]; then
+        sudo apt-get install fontforge -y
+    fi
+
+    mkdir -p ~/.fonts && pushd ~/.fonts
+    if [ $? == 0 ]; then
+        git clone https://github.com/vjpr/monaco-bold
+        if [ $? != 0 ]; then
+            return 1;
+        fi
+    fi
+
+    fontforge -lang=ff -c 'Open($1); Generate($2)' \
+        monaco-bold/Monaco.dfont Monaco.ttf
+
+    fontforge -lang=ff -c 'Open($1); Generate($2)' \
+        monaco-bold/MonacoB/MonacoB.otf MonacoB.ttf
+    fontforge -lang=ff -c 'Open($1); Generate($2)' \
+        monaco-bold/MonacoB/MonacoB-Bold.otf MonacoB-Bold.ttf
+
+    fontforge -lang=ff -c 'Open($1); Generate($2)' \
+        monaco-bold/MonacoBSemi/Monaco-Bold.otf MonacoBSemi.ttf
+
+    fontforge -lang=ff -c 'Open($1); Generate($2)' \
+        monaco-bold/MonacoB2/MonacoB2.otf MonacoB2.ttf
+    fontforge -lang=ff -c 'Open($1); Generate($2)' \
+        monaco-bold/MonacoB2/MonacoB2-Bold.otf MonacoB2-Bold.ttf
+
+    fontforge -lang=ff -c 'Open($1); Generate($2)' \
+        monaco-bold/MonacoB-With-Italic/MonacoB-Bold-Italic.otf \
+        MonacoB-Bold-Italic.ttf
+
+    rm -rf monaco-bold
+
+    popd
+}
+
 function __jeefo_install_curl {
     __jeefo_info 'Curl'
     curl --version &> /dev/null
@@ -170,4 +213,7 @@ function __jeefo_install {
 
     # Powerline fonts
     __jeefo_install_powerline_fonts
+
+    # Monaco bold font
+    [ "$JEEFO_ENV_OS_NAME" != "Darwin" ] && __jeefo_install_monaco
 }
