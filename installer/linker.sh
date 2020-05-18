@@ -28,7 +28,9 @@ function __jeefo_link {
     local file
     local from
     local to_path
-    local dotfiles=(bash bash_profile vim vimrc tmux tmux.conf gitconfig jshintrc)
+    local dotfiles=(\
+        bash bash_profile vim vimrc tmux tmux.conf gitconfig jshintrc gdbinit \
+    )
     local backup_dir=~/.backup_dotfiles/`date +%F_%H-%M-%S`
 
     echo -e "\x1b[36m[INFO]\x1b[0m Linking..."

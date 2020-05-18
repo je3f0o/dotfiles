@@ -28,7 +28,7 @@
     copy_on_selection = True
     cursor_blink = False
     cursor_color = "#aaaaaa"
-    font = Monospace 14
+    font = MonacoB Bold 14
     foreground_color = "#ffffff"
     scrollbar_position = hidden
     show_titlebar = False
