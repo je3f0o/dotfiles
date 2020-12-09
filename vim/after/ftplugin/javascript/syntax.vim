@@ -31,38 +31,36 @@ hi link javaScriptStringD        String
 " ES6 template string
 syn match  javascriptEndTemplateString  +`+
 syn match  javaScriptTemplateDelim      "\${\|}" contained
-syn region JavascriptTemplateVar        start=+${+ end=+}+  contains=javaScriptTemplateDelim keepend
+syn region jsTemplateExpression matchgroup=jsTemplateExpressionBraces  start=+${+ end=+}+  contains=@js  keepend
+syn region javaScriptTemplateString   start=+`+  skip=+\\\\\|\\`+ end=+`+ contains=jsTemplateExpression   keepend
 
-hi javaScriptTemplateDelim ctermfg=40 ctermbg=NONE cterm=NONE guifg=#3387cc guibg=NONE gui=NONE
-hi JavascriptTemplateVar   ctermfg=4  ctermbg=NONE cterm=NONE guifg=#3387cc guibg=NONE gui=NONE
-hi link javaScriptTemplateString String
-
-syn region javaScriptTemplateString   start=+`+  skip=+\\\\\|\\`+ end=+`+  contains=JavascriptTemplateVar  keepend
 
 call css_color#init('hex', 'hex', 'JavaScriptStringS,JavaScriptStringD,JavaScriptComment')
 
 " Custom string embeded language syntax
 unlet b:current_syntax
-syn include @JavascriptHTML syntax/html.vim
-syn region JavascriptEmbededHTML  start="TRIM_LINES_HTML`" end="`" contains=@JavascriptHTML  containedin=javaScriptTemplateString  keepend
-
-unlet b:current_syntax
-syn include @JavascriptSQL syntax/sql.vim
-syn region JavascriptEmbededSQL  start="--\s\+SQL"  end="--\s\+SQL"  contains=@JavascriptSQL,JavascriptTemplateVar  containedin=javaScriptTemplateString  keepend
-
-unlet b:current_syntax
-syn include @JavascriptCSS syntax/css.vim
-syn region JavascriptEmbededCSS  start="/\*\s*CSS\s*\*/"  end="/\*\s*CSS\s*\*/"  contains=@JavascriptCSS,JavascriptTemplateVar  containedin=javaScriptTemplateString  keepend
-
+syn include @js syntax/javascript.vim
 unlet b:current_syntax
 syn include @JavascriptJT syntax/jt.vim
-syn region JavascriptEmbededJT  start="{\s*JT\s*}"  end=+{\s*JT\s*}+ keepend contains=@JavascriptJT,JavascriptTemplateVar  containedin=javaScriptTemplateString
-syn region JavascriptEmbededJT  start="JT_PRE`"  end="`" keepend contains=@JavascriptJT,JavascriptTemplateVar  containedin=javaScriptTemplateString
-
 unlet b:current_syntax
 syn include @JavascriptHTML syntax/html.vim
-syn region JavascriptEmbededHTML  start="<!--\s*HTML\s*-->"  end=+<!--\s*HTML\s*-->+ keepend contains=@JavascriptHTML,JavascriptTemplateVar  containedin=javaScriptTemplateString
-"syn region JavascriptEmbededHTML  start="JT_PRE`"  end="`" keepend contains=@JavascriptJT,JavascriptTemplateVar  containedin=javaScriptTemplateString
+unlet b:current_syntax
+syn include @JavascriptSQL syntax/sql.vim
+unlet b:current_syntax
+syn include @JavascriptCSS syntax/css.vim
+unlet b:current_syntax
+syn include @JavascriptSASS syntax/sass.vim
+
+syn region JavascriptEmbededHTML  start="<!--\s*HTML\s*-->" end=+<!--\s*HTML\s*-->+ contains=@JavascriptHTML  containedin=javaScriptTemplateString keepend
+syn region JavascriptEmbededSQL   start="--\s\+SQL"         end="--\s\+SQL"  contains=@JavascriptSQL,jsTemplateExpression  containedin=javaScriptTemplateString  keepend
+syn region JavascriptEmbededCSS   start="/\*\s*css\s*\*/"   end="/\*\s*css\s*\*/"  contains=@JavascriptCSS  containedin=javaScriptTemplateString  keepend
+syn region JavascriptEmbededSASS  start="/\*\s*sass\s*\*/"  end="/\*\s*sass\s*\*/"  contains=@JavascriptSASS  containedin=javaScriptTemplateString keepend
+syn region JavascriptEmbededJT    start=+{\s*JT\s*}+        end=+{\s*JT\s*}+ contains=@JavascriptJT  containedin=javaScriptTemplateString keepend
+
+let b:current_syntax = 'javascript'
+
+hi jsTemplateExpressionBraces ctermfg=4 ctermbg=NONE cterm=NONE guifg=#3387cc guibg=NONE gui=NONE
+hi link javaScriptTemplateString String
 
 if $TERM == "xterm-256color-italic"
     hi Comment cterm=italic ctermfg=9

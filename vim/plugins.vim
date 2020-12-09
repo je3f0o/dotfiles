@@ -10,6 +10,9 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
+" js highlight
+" Plugin 'pangloss/vim-javascript'
+
 " NERD_tree
 Plugin 'scrooloose/nerdtree'
 " Graphical undo tree

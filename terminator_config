@@ -14,6 +14,7 @@
   switch_to_tab_1 = <Super>1
   switch_to_tab_2 = <Super>2
   switch_to_tab_3 = <Super>3
+  switch_to_tab_4 = <Super>4
 [layouts]
   [[default]]
     [[[child1]]]

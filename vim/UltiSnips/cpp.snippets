@@ -71,3 +71,24 @@ snippet file_header
 _._._._._._._._._._._._._._._._._._._._._._.*/
 $0
 endsnippet
+
+# Class
+snippet class
+class ${1:ClassName} {
+	$1  () {}
+	~$1 () {}
+	$0
+}
+endsnippet
+
+# Struct
+snippet strct
+struct ${1:StructName} {
+	$0
+}
+endsnippet
+
+# Size variable
+snippet sz
+std::size_t     $0
+endsnippet

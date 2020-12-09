@@ -56,15 +56,23 @@ inoremap <leader>h <C-c>:nohlsearch<CR>a
 vnoremap <leader>h <C-c>:nohlsearch<CR>gv
 
 " Bubble lines
-nnoremap <C-Up> [e
-nnoremap <C-Down> ]e
-nnoremap <C-Left> <<
-nnoremap <C-Right> >>
+"nnoremap <C-Up> [e
+"nnoremap <C-Down> ]e
+"nnoremap <C-k> :m-2<cr>
+"nnoremap <C-j> :m+<cr>
+"nnoremap <C-h> <<
+"nnoremap <C-l> >>
 
-vnoremap <C-K> [egv " up
-vnoremap <C-J> ]egv " down
-vnoremap <C-H> <gv  " left
-vnoremap <C-L> >gv  " righ
+" move selected lines up
+"vnoremap <C-k> [egv
+vnoremap <S-k> :move '<-2<cr>gv
+" move selected lines down
+"vnoremap <C-j> ]egv
+vnoremap <S-j> :move '>+1<cr>gv
+" left
+vnoremap <S-h> <gv
+" righ
+vnoremap <S-l> >gv
 
 " Window keys
 nnoremap <leader>w <C-w>
@@ -134,9 +142,9 @@ nmap <leader>- ;syn sync fromstart<CR>
 nnoremap <leader>l :set list!<CR>
 
 " Move window
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
+nnoremap <C-j> <C-w>j
+nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
 " Swap characters

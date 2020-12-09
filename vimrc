@@ -88,6 +88,10 @@ set listchars=tab:▸\ ,eol:⏎
 "set showbreak=➤
 set showbreak=…
 
+" No new line end of file
+set noendofline
+set nofixendofline
+
 " let configs
 let mapleader = "\\"
 

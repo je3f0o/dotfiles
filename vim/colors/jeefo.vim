@@ -60,6 +60,12 @@ hi Special ctermfg=231 ctermbg=NONE cterm=NONE guifg=#f8f8f8 guibg=NONE gui=NONE
 hi Statement ctermfg=173 ctermbg=NONE cterm=NONE guifg=#e28964 guibg=NONE gui=NONE
 hi StorageClass ctermfg=113 ctermbg=NONE cterm=NONE guifg=#99cf50 guibg=NONE gui=NONE
 
+" Diff lines
+hi DiffChange  ctermbg = 232
+hi DiffAdd     ctermbg = 17
+hi DiffText    ctermbg = 234
+hi DiffDelete  ctermbg = 52
+
 " Datatype colors
 "hi String cterm=NONE ctermbg=NONE ctermfg=2 gui=NONE guibg=NONE guifg=#65b042
 hi String cterm=NONE ctermbg=NONE ctermfg=208 gui=NONE guibg=NONE guifg=#65b042

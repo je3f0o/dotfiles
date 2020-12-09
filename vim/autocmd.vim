@@ -1,9 +1,11 @@
 
 " I'm using Bash syntax highlight not Posix
-function s:SetBashFlag()
-    let b:is_bash=1
-    set filetype=sh
-endfunction
+if !exists('*s:SetBashFlag')
+    function s:SetBashFlag()
+        let b:is_bash=1
+        set filetype=sh
+    endfunction
+endif
 
 if has("autocmd")
 	" Enable filetype detection for after load startup
@@ -14,6 +16,9 @@ if has("autocmd")
 	"autocmd BufWritePost .vimrc tabe $MYVIMRC
 
 	autocmd BufNewFile,BufRead *.md set filetype=markdown
+
+    " Bindzone
+    autocmd BufNewFile,BufRead */bind/zone.*	setf bindzone
 
     " Javasciprt header
 	autocmd BufNewFile *.js :call PreHeaderJavascript()
