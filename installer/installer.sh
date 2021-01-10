@@ -93,12 +93,18 @@ function __jeefo_install_nvm {
 
     nvm --version &> /dev/null
     [ $? != 0 ] && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+
+    node --version &> /dev/null
+    [ $? != 0 ] && nvm install node
 }
 
 function __jeefo_install_jshint {
     __jeefo_info 'JSHint'
     jshint --version &> /dev/null
-    [ $? != 0 ] && npm i jshint -g
+    if [ $? != 0 ]; then
+        npm --version &> /dev/null
+        [ $? == 0 ] && npm i jshint -g
+    fi
 }
 
 function __jeefo_install_vim {
@@ -121,6 +127,7 @@ function __jeefo_install_vim {
     if [ "$JEEFO_ENV_OS_NAME" == "Darwin" ]; then
         if [ $has_vim == 0 ] || [ $has_python == 0 ]; then
             brew install vim
+            brew link vim
         fi
     else
         if [ $has_clipboard == 0 ]; then
@@ -182,6 +189,12 @@ function __jeefo_install_powerline_fonts {
     fi
 }
 
+function __jeefo_install_tmux {
+    __jeefo_info 'Tmux'
+    tmux -V &> /dev/null
+    [ $? != 0 ] && brew install tmux
+}
+
 function __jeefo_install {
     # Curl
     __jeefo_install_curl
@@ -207,6 +220,9 @@ function __jeefo_install {
 
     # Vim
     __jeefo_install_vim
+
+    # Tmux
+    __jeefo_install_tmux
 
     # XSel
     [ "$JEEFO_ENV_OS_NAME" != "Darwin" ] && __jeefo_install_xsel
