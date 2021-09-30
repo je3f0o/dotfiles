@@ -69,6 +69,27 @@ function ${1:function_name} ($2) {
 }$3
 endsnippet
 
+# async arrow function
+snippet aafn
+async (${1:}) => ${2:{
+	$3
+}}
+endsnippet
+
+# async arrow IIFE
+snippet aaII
+(async (${1:}) => {
+	$0
+})()${2:;}
+endsnippet
+
+# async IIFE
+snippet aII
+(async function ${1:function_name} (${2:}) {
+	$0
+})()${2:;}
+endsnippet
+
 # async function
 snippet afn
 async function ${1:function_name} ($2) {

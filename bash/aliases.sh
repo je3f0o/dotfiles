@@ -5,7 +5,7 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 
 # alias jeefo_importer=~/projects/api/bin/jeefo_importer
-alias batery_state="upower -i $(upower -e | grep BAT) | grep state | awk '{print \$2}'"
+# alias batery_state="upower -i $(upower -e | grep BAT) | grep state | awk '{print \$2}'"
 
 # copy and remove with folders
 alias cp='cp -R'

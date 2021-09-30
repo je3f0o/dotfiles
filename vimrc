@@ -213,3 +213,6 @@ let g:potion_command = "~/.vim/bundle/potion"
 
 " init modes
 source ~/.vim/modes/modes.vim
+
+
+let g:ycm_clangd_binary_path='clangd'

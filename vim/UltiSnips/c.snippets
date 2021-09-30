@@ -1,8 +1,22 @@
 
 
+# include
+snippet #inc
+#include $0
+endsnippet
+
 # if condition
 snippet if
 if (${1:condition}) {
 	$2
 }$0
+endsnippet
+
+# main
+snippet main
+int main () {
+	$0
+
+	return 0;
+}
 endsnippet

@@ -15,6 +15,9 @@ if has("autocmd")
 	" Automatically apply any changes in vimrc
 	"autocmd BufWritePost .vimrc tabe $MYVIMRC
 
+	autocmd BufNewFile,BufRead * set noendofline
+	autocmd BufNewFile,BufRead * set nofixendofline
+
 	autocmd BufNewFile,BufRead *.md set filetype=markdown
 
     " Bindzone
@@ -31,7 +34,7 @@ if has("autocmd")
         endif
     endfunction
     autocmd BufWinLeave ?* silent call s:MakeView()
-	autocmd BufWinEnter ?* silent loadview
+	autocmd BufWinEnter ?* silent! loadview
 
     " Vim cursor
     autocmd InsertEnter * set cul
