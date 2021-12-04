@@ -12,7 +12,7 @@ function __is_darwin {
     [ `uname` == "Darwin" ]
 }
 
-__is_darwin || apt-get update
+__is_darwin || sudo apt-get update
 
 git --version &> /dev/null
 if [ $? != 0 ]; then
