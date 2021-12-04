@@ -17,7 +17,7 @@ __is_darwin || apt-get update
 git --version &> /dev/null
 if [ $? != 0 ]; then
     __jeefo_info 'Git'
-    __is_darwin && brew install git || apt-get install git -y
+    __is_darwin && brew install git || sudo apt-get install git -y
     [ $? != 0 ] && exit 1
 fi
 
