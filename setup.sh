@@ -21,8 +21,7 @@ if [ $? != 0 ]; then
     [ $? != 0 ] && exit 1
 fi
 
-git clone https://github.com/je3f0o/dotfiles.git || exit 1
-cd dotfiles
+git clone https://github.com/je3f0o/dotfiles.git . || exit 1
 
 source "installer/installer.sh"
 source "installer/linker.sh"
