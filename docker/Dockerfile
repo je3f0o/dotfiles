@@ -26,6 +26,9 @@ ENV HOME /home/jeefo
 WORKDIR $HOME
 
 RUN mkdir -p .ssh & ssh-keygen -q -t rsa -N '' -f $HOME/.ssh/id_rsa
+COPY id_rsa.pub /tmp/id_rsa.pub
+RUN cat /tmp/id_rsa.pub >> $HOME/.ssh/authorized_keys && rm /tmp.id_rsa.pub
+
 RUN sudo apt-get install curl -y
 
 ARG url=https://raw.githubusercontent.com/je3f0o/dotfiles/master/setup.sh
