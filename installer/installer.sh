@@ -94,10 +94,10 @@ function __jeefo_install_jshint {
 }
 
 function __jeefo_install_vim {
+    __jeefo_info 'Vim with plugins'
     local has_vim=0
     local has_python=0
     local has_clipboard=0
-    __jeefo_info 'Vim with plugins'
 
     vim --version &> /dev/null
     if [ $? == 0 ]; then
@@ -125,21 +125,14 @@ function __jeefo_install_vim {
 
     # Vundle
     [ ! -d vim/bundle/Vundle.vim ] && mkdir -p vim/bundle && \
-        git clone https://github.com/VundleVim/Vundle.vim.git vim/bundle/Vundle.vim
+        git clone https://github.com/VundleVim/Vundle.vim.git \
+                  vim/bundle/Vundle.vim
 
     # Vim plugins
     vim +PluginInstall +qall
 
     if [ ! -f ~/.ycm_installed ] || [ `cat ~/.ycm_installed` != 1 ]; then
         pushd vim/bundle/YouCompleteMe
-
-        if [ "$JEEFO_ENV_OS_NAME" != "Darwin" ]; then
-            command -v python3-config &> /dev/null
-            if [ $? -ne 0 ]; then 
-                sudo apt-get install python3-dev -y
-            fi 
-        fi 
-
         python3 install.py --clangd-completer && echo 1 > ~/.ycm_installed
         popd
     fi
@@ -148,24 +141,19 @@ function __jeefo_install_vim {
 function __jeefo_install_powerline_fonts {
     __jeefo_info 'Powerline Fonts'
 
-    if [ "$JEEFO_ENV_OS_NAME" == "Darwin" ]; then
-        if [ ! -f ~/Library/Fonts/Inconsolata\ for\ Powerline.otf ]; then
-            pushd /tmp
+    if [ ! -f ~/Library/Fonts/Inconsolata\ for\ Powerline.otf ]; then
+        pushd /tmp
 
-            # Clone
-            git clone https://github.com/powerline/fonts.git --depth=1
-            # install
-            cd fonts
-            ./install.sh
-            # clean up
-            cd ..
-            rm -rf fonts
+        # Clone
+        git clone https://github.com/powerline/fonts.git --depth=1
+        # install
+        cd fonts
+        ./install.sh
+        # clean up
+        cd ..
+        rm -rf fonts
 
-            popd
-        fi
-    else
-        local __=`apt list --installed 2> /dev/null | grep -c fonts-powerline`
-        [ $__ == 0 ] && sudo apt-get install fonts-powerline -y
+        popd
     fi
 }
 
@@ -182,26 +170,28 @@ function __jeefo_install {
         __jeefo_install_bash_completion
         __jeefo_install_git_bash_completion
 
-        # Vim
-        __jeefo_install_vim
+        # Tmux MacOS
         __jeefo_install_tmux
+
+        # Powerline
+        __jeefo_install_powerline_fonts
     else
         sudo apt-get update && apt-get install -y \
              tmux \
              xsel \
              cmake \
-             vim-gtk3 \
              fontforge \
              python3-dev \
+             fonts-powerline \
              build-essential
 
         __jeefo_install_monaco
     fi
 
+    # Vim
+    __jeefo_install_vim
+
     # Node
     __jeefo_install_nvm
     __jeefo_install_jshint
-
-    # Powerline fonts
-    __jeefo_install_powerline_fonts
 }
