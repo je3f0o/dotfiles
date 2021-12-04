@@ -1,5 +1,9 @@
 
-if [[ "$OSTYPE" == 'darwin'* ]]; then
+function __is_darwin {
+    [ `uname` == "Darwin" ]
+}
+
+if __is_darwin; then
 	__IS_MAC=true
 	__BASHRC='bash_profile'
 else

@@ -46,11 +46,8 @@ if ! shopt -oq posix; then
   fi
 fi
 
-
 # Start bootstrap
 source ~/.bash/bootstrap.sh
-
-export PATH=$(brew --prefix openvpn)/sbin:$PATH
 
 # jeefo_command auto-completion
 source ~/.bash/jeefo_command/jeefo_commands.sh
