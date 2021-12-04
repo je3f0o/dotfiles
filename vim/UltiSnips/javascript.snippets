@@ -104,7 +104,7 @@ endsnippet
 
 snippet exc "export class"
 class ${1:ClassName} {
-	${2:constructor} (${3:params}) {
+	${2:constructor}(${3:params}) {
 		$0
 	}
 }
@@ -114,7 +114,7 @@ endsnippet
 
 snippet exs "export service"
 class ${1:ClassName}Service {
-	${2:constructor} (${3:params}) {
+	${2:constructor}(${3:params}) {
 		$0
 	}
 }
@@ -124,7 +124,7 @@ endsnippet
 
 # function
 snippet exfn
-module.exports = function ${1:function_name} ($2) {
+module.exports = function ${1:function_name}($2) {
 	$0
 };
 endsnippet
@@ -167,7 +167,7 @@ endsnippet
 
 # Anonymous function ends with semicolon
 snippet fnae
-function ($1) {
+function($1) {
 	$0
 };
 endsnippet
@@ -175,7 +175,7 @@ endsnippet
 # Class
 snippet class
 class ${1:ConstructorName} {
-	${3:method} (${4:params}) {
+	${3:constructor}(${4:params}) {
 		$0
 	}
 }$2
@@ -183,7 +183,7 @@ endsnippet
 
 # Class
 snippet met
-${1:method} (${2:params}) {
+${1:method}(${2:params}) {
 	$0
 }
 endsnippet
@@ -243,21 +243,21 @@ ${1:array}.reduce((${3:result}, ${4:element}) => {
 endsnippet
 
 snippet fil
-${1:array}.filter(${2:params} => {
+${1:array}.filter(${2:value} => {
 	$0
 });
 endsnippet
 
 snippet map
-${1:array}.map(${2:params} => $0);
+${1:array}.map(${2:value} => $0);
 endsnippet
 
 snippet ev
-${1:array}.every(${2:params} => $0);
+${1:array}.every(${2:value} => $0);
 endsnippet
 
 snippet some
-${1:things}.some(function (${2:thing}) {
+${1:array}.some(${2:value} => {
 	$0
 });
 endsnippet
@@ -267,7 +267,7 @@ angular.extend(${1:destination}, ${2:source...});$0
 endsnippet
 
 snippet ngeach
-angular.forEach(${1:things}, function (${2:thing}) {
+angular.forEach(${1:array}, function(${2:thing}) {
 	$0
 });
 endsnippet

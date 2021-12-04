@@ -85,8 +85,7 @@ let g:syntastic_cpp_compiler_options = ' -std=c++11'
 
 " Invisible character symbol
 set listchars=tab:▸\ ,eol:⏎
-"set showbreak=➤
-set showbreak=…
+set showbreak="\u21aa "
 
 " No new line end of file
 set noendofline

@@ -159,12 +159,6 @@ function __jeefo_install_vim {
     fi
 }
 
-function __jeefo_install_xsel {
-    __jeefo_info 'XSel for Vim copy to clipboard'
-    xsel --version &> /dev/null
-    [ $? != 0 ] && sudo apt-get install xsel -y
-}
-
 function __jeefo_install_powerline_fonts {
     __jeefo_info 'Powerline Fonts'
 
@@ -204,32 +198,29 @@ function __jeefo_install {
         __jeefo_install_brew
         __jeefo_install_bash_completion
         __jeefo_install_git_bash_completion
+
+        # Vim
+        __jeefo_install_vim
+        __jeefo_install_tmux
     else
-        local __=`apt list --installed 2> /dev/null | grep -c build-essential`
-        [ $__ == 0 ] && sudo apt-get install build-essential -y
+        sudo apt-get update && apt-get install -y \
+             git
+             curl \
+             tmux \
+             xsel \
+             cmake \
+             vim-gtk3 \
+             fontforge \
+             python3-dev \
+             build-essential
+
+        __jeefo_install_monaco
     fi
 
-    # CMake
-    __jeefo_install_cmake
-
-    # NVM
+    # Node
     __jeefo_install_nvm
-
-    # JSHint
     __jeefo_install_jshint
-
-    # Vim
-    __jeefo_install_vim
-
-    # Tmux
-    __jeefo_install_tmux
-
-    # XSel
-    [ "$JEEFO_ENV_OS_NAME" != "Darwin" ] && __jeefo_install_xsel
 
     # Powerline fonts
     __jeefo_install_powerline_fonts
-
-    # Monaco bold font
-    [ "$JEEFO_ENV_OS_NAME" != "Darwin" ] && __jeefo_install_monaco
 }
