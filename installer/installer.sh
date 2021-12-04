@@ -42,16 +42,6 @@ function __jeefo_install_monaco {
     popd
 }
 
-function __jeefo_install_curl {
-    __jeefo_info 'Curl'
-    curl --version &> /dev/null
-    if [ $? != 0 ]; then
-        if [ "$JEEFO_ENV_OS_NAME" != "Darwin" ]; then
-            sudo apt-get install curl -y
-        fi
-    fi
-}
-
 function __jeefo_install_brew {
     __jeefo_info 'Homebrew'
     brew --version &> /dev/null
@@ -186,11 +176,8 @@ function __jeefo_install_tmux {
 }
 
 function __jeefo_install {
-    # Curl
-    __jeefo_install_curl
-
-    # Homebrew
-    if [ "$JEEFO_ENV_OS_NAME" == "Darwin" ]; then
+    if __is_darwin; then
+        # Homebrew
         __jeefo_install_brew
         __jeefo_install_bash_completion
         __jeefo_install_git_bash_completion
