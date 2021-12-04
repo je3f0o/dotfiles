@@ -39,6 +39,7 @@ function __jeefo_link {
         from=~/cloud/dotfiles/"$file"
         to_path=~/."$file"
 
+        echo -e "\x1b[36m[INFO]\x1b[0m Linking $from -> $to_path"
         __jeefo_symlink "$from" "$to_path" "$backup_dir/$file"
     done
 
