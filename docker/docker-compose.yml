@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  server:
+    hostname: host
+    container_name: ubuntu
+    build: .
+    tty: true
+    ports:
+      - '3022:22'
+
+# vim: ts=2 sw=2 sts=2 et ai sr si
