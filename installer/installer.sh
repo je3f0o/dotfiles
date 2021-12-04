@@ -113,7 +113,7 @@ function __jeefo_install_vim {
         fi
     fi
 
-    if [ "$JEEFO_ENV_OS_NAME" == "Darwin" ]; then
+    if __is_darwin; then
         if [ $has_vim == 0 ] || [ $has_python == 0 ]; then
             brew install vim
             brew link vim
@@ -133,12 +133,14 @@ function __jeefo_install_vim {
                   vim/bundle/Vundle.vim
 
     # Vim plugins
-    vim -T dumb -n -i NONE -es -S <(echo -e "silent! PluginInstall\nqall")
+    if [ -z DOCKER_BUILD ]; then
+        vim +PluginInstall +qall
 
-    if [ ! -f ~/.ycm_installed ] || [ `cat ~/.ycm_installed` != 1 ]; then
-        pushd vim/bundle/YouCompleteMe
-        python3 install.py --clangd-completer && echo 1 > ~/.ycm_installed
-        popd
+        if [ ! -f ~/.ycm_installed ] || [ `cat ~/.ycm_installed` != 1 ]; then
+            pushd vim/bundle/YouCompleteMe
+            python3 install.py --clangd-completer && echo 1 > ~/.ycm_installed
+            popd
+        fi
     fi
 }
 
@@ -192,10 +194,10 @@ function __jeefo_install {
         __jeefo_install_monaco
     fi
 
-    if [ -z DOCKER_BUILD ]; then
-        # Vim
-        __jeefo_install_vim
+    # Vim
+    __jeefo_install_vim
 
+    if [ -z DOCKER_BUILD ]; then
         # Node
         __jeefo_install_nvm
         __jeefo_install_jshint
