@@ -192,10 +192,12 @@ function __jeefo_install {
         __jeefo_install_monaco
     fi
 
-    # Vim
-    [ -z DOCKER_BUILD ] && __jeefo_install_vim
+    if [ -z DOCKER_BUILD ]; then
+        # Vim
+        __jeefo_install_vim
 
-    # Node
-    __jeefo_install_nvm
-    __jeefo_install_jshint
+        # Node
+        __jeefo_install_nvm
+        __jeefo_install_jshint
+    fi
 }
