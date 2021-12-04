@@ -117,7 +117,8 @@ function __jeefo_install_vim {
         fi
     else
         if [ $has_clipboard == 0 ]; then
-            sudo apt-get install vim-gnome -y
+            #sudo apt-get install vim-gnome -y
+            sudo apt-get install vim-gtk3 -y
         elif [ $has_vim == 0 ] || [ $has_python == 0 ]; then
             sudo apt-get install vim -y
         fi
