@@ -74,11 +74,14 @@ function __jeefo_install_cmake {
 
 function __jeefo_install_nvm {
     __jeefo_info 'NVM'
-    export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+    export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && \
+        printf %s "${HOME}/.nvm" || \
+        printf %s "${XDG_CONFIG_HOME}/nvm")"
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
     nvm --version &> /dev/null
-    [ $? != 0 ] && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+    [ $? != 0 ] && curl -s -o- \
+        https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 
     node --version &> /dev/null
     [ $? != 0 ] && nvm install node
@@ -130,7 +133,7 @@ function __jeefo_install_vim {
                   vim/bundle/Vundle.vim
 
     # Vim plugins
-    vim +PluginInstall +qall
+    vim -T dumb -n -i NONE -es -S "+PluginInstall +qall"
 
     if [ ! -f ~/.ycm_installed ] || [ `cat ~/.ycm_installed` != 1 ]; then
         pushd vim/bundle/YouCompleteMe
