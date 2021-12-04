@@ -187,8 +187,6 @@ function __jeefo_install {
         __jeefo_install_tmux
     else
         sudo apt-get update && apt-get install -y \
-             git
-             curl \
              tmux \
              xsel \
              cmake \
