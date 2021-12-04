@@ -133,7 +133,7 @@ function __jeefo_install_vim {
                   vim/bundle/Vundle.vim
 
     # Vim plugins
-    vim -T dumb -n -i NONE -es -S "+PluginInstall +qall"
+    vim -T dumb -n -i NONE -es -S < $(echo -e "+PluginInstall +qall")
 
     if [ ! -f ~/.ycm_installed ] || [ `cat ~/.ycm_installed` != 1 ]; then
         pushd vim/bundle/YouCompleteMe
