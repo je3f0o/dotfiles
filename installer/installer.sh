@@ -193,7 +193,7 @@ function __jeefo_install {
     fi
 
     # Vim
-    __jeefo_install_vim
+    [ ! -v DOCKER_ENV ] && __jeefo_install_vim
 
     # Node
     __jeefo_install_nvm
