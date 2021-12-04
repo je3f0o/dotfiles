@@ -182,7 +182,7 @@ function __jeefo_install {
         # Powerline
         __jeefo_install_powerline_fonts
     else
-        sudo apt-get update && apt-get install -y \
+        sudo apt-get update && sudo apt-get install -y \
              tmux \
              xsel \
              cmake \
