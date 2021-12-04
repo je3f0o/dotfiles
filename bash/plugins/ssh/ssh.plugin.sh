@@ -13,3 +13,8 @@ function ssh_tunnel {
 
 	ssh -D "$port" -N "$host"
 }
+
+function ssh_copy_id {
+    echo "$ cat ~/.ssh/id_rsa.pub | \
+            ssh user@remote-host 'cat >> ~/.ssh/authorized_keys'"
+}
