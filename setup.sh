@@ -12,7 +12,21 @@ function __is_darwin {
     [ `uname` == "Darwin" ]
 }
 
-__is_darwin || sudo apt-get update
+function __jeefo_install_brew {
+    __jeefo_info 'Homebrew'
+    local u=https://raw.githubusercontent.com/Homebrew/install/master/install.sh
+    brew --version &> /dev/null
+    [ $? != 0 ] && /bin/bash -c $(curl -fsSL $u)
+}
+
+if __is_darwin; then
+    __jeefo_install_brew
+
+    [ lolcat --version &> /dev/null ] || brew install lolcat
+    [ cowsay --version &> /dev/null ] || brew install cowsay
+else
+    sudo apt-get update && sudo apt-get install lolcat cowsay -y
+fi
 
 git --version &> /dev/null
 if [ $? != 0 ]; then

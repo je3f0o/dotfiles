@@ -42,12 +42,6 @@ function __jeefo_install_monaco {
     popd
 }
 
-function __jeefo_install_brew {
-    __jeefo_info 'Homebrew'
-    brew --version &> /dev/null
-    [ $? != 0 ] && /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-}
-
 function __jeefo_install_bash_completion {
     __jeefo_info 'Bash auto-completion'
     [ ! -f `brew --prefix`/etc/bash_completion ] && \
@@ -172,7 +166,6 @@ function __jeefo_install_tmux {
 function __jeefo_install {
     if __is_darwin; then
         # Homebrew
-        __jeefo_install_brew
         __jeefo_install_bash_completion
         __jeefo_install_git_bash_completion
 
