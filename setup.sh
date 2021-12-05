@@ -24,8 +24,9 @@ if __is_darwin; then
 
     [ lolcat --version &> /dev/null ] || brew install lolcat
     [ cowsay --version &> /dev/null ] || brew install cowsay
+    [ fortune --version &> /dev/null ] || brew install fortune
 else
-    sudo apt-get update && sudo apt-get install lolcat cowsay -y
+    sudo apt-get update && sudo apt-get install lolcat cowsay fortune -y
 fi
 
 git --version &> /dev/null
