@@ -9,20 +9,20 @@ function f {
     find . -name "$1"
 }
 
-function rm {
-    local path
-    for path in "$@"; do
-        if [ "$path" == ~ ]; then
-            echo "Cannot delete HOME folder. It canceled." >&2
-            return 1;
-        fi
-    done
-
-    # for debug
-    #echo "Deleting '$@'"
-
-    /bin/rm -rf "$@"
-}
+#function rm {
+#    local path
+#    for path in "$@"; do
+#        if [ "$path" == ~ ]; then
+#            echo "Cannot delete HOME folder. It canceled." >&2
+#            return 1;
+#        fi
+#    done
+#
+#    # for debug
+#    #echo "Deleting '$@'"
+#
+#    /bin/rm -rf "$@"
+#}
 
 # Copy w/ progress
 function cp_p {
@@ -147,5 +147,4 @@ function myscp {
 #       echo "'$1' is not a valid file"
 #   fi
 # }
-
 
