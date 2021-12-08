@@ -4,7 +4,7 @@ This repo is containing my config files and install softwares with plugins that
 I will be use.
 
 ## Installation
-`mkdir -p ~/cloud/dotfiles && cd ~/cloud/dotfiles && git clone https://github.com/je3f0o/dotfiles.git . && bash setup.sh`
+`curl -o- https://raw.githubusercontent.com/je3f0o/dotfiles/master/setup.sh | bash setup.sh`
 
 ## Target systems
 - MacOS Catalina
