@@ -125,9 +125,9 @@ set hidden
 " Vertical window split on right side
 set splitright
 
-" I use more more modern way to loss data, I use GIT
 set nobackup
-set noswapfile
+" swapfile on
+set swapfile
 
 " correction
 iabbr ture true

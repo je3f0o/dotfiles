@@ -1,4 +1,14 @@
 
+# List files
+if is_true $__IS_MAC; then
+	alias ll='ls -lhGtr'
+	alias lla='ls -lhGtra'
+else
+    alias ls='ls --color=auto'
+	alias ll='ls -lhtr --color=auto'
+	alias lla='ls -lhtra --color=auto'
+fi
+
 # Easier navigation for now
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -114,6 +124,10 @@ function redir_command_off {
 #alias xdo_compiler="bash ${xdo_compiler_path}"
 #alias xdo_compiler_debug="IMPORT_BASH_DEBUGGER='$HOME/Programming/bash/libs/libtrap.sh' bash ${xdo_compiler_path}"
 
+# GNU sed
+#if __is_command_exists gsed; then
+	#alias sed=gsed
+#fi
 
 # Automatically add completion for all aliases to commands having completion functions
 function alias_completion {

@@ -17,5 +17,4 @@ function __autoloader {
 }
 
 __autoloader libs lib
-__autoloader aliases
 __autoloader plugins plugin
