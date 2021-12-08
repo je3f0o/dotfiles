@@ -16,7 +16,8 @@ else
   $(fortune -n 0 &> /dev/null) || sudo apt-get install -y fortune
 
   if ! test -f /usr/share/cowsay/cows/small.cow; then
-    ln -s /usr/share/cowsay/cows/default.cow /usr/share/cowsay/cows/small.cow
+    sudo ln -s /usr/share/cowsay/cows/default.cow \
+               /usr/share/cowsay/cows/small.cow
   fi
 fi
 
