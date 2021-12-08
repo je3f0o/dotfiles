@@ -41,8 +41,7 @@ if __is_darwin; then
   __jeefo_require_brew;
 else
   if [ $(id -u) != 0 ]; then
-    echo Please run as root
-    exit 1
+    sudo echo hello > /dev/null
   fi
 fi
 
