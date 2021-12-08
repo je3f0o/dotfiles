@@ -28,9 +28,15 @@ function ssh_copy_id {
 		echo 'argv2 = destination host required.'
 		return 1
 	fi
+  local user=$(whoami)
   local src_host="$1"
-  local dst_host="$1"
+  local dst_host="$2"
 
-  ssh "@dst" 'mkdir -p ~/.ssh' && \
-    scp "@$src_host:~/.ssh/id_rsa.pub" "@dst_host:~/.ssh/authorized_keys"
+  pushd /tmp
+  scp "$user"@"$src_host":~/.ssh/id_rsa.pub .
+  cat id_rsa.pub | ssh "$user"@"$dst_host" \
+    'mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys'
+  rm id_rsa.pub
+  popd
+  
 }
