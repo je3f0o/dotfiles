@@ -4,7 +4,7 @@ This repo is containing my config files and install softwares with plugins that
 I will be use.
 
 ## Installation
-`curl -o- https://raw.githubusercontent.com/je3f0o/dotfiles/master/setup.sh | bash setup.sh`
+`curl -q -o- https://raw.githubusercontent.com/je3f0o/dotfiles/master/setup.sh | bash`
 
 ## Target systems
 - MacOS Catalina
