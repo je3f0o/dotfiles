@@ -2,7 +2,6 @@
 # legacy var depricated
 JEEFO_ENV_OS_NAME=`uname`
 
-source installer/shared.sh
 source installer/installer.sh
 source installer/linker.sh
 

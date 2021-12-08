@@ -1,15 +1,16 @@
 #!/bin/bash
 
 function __console_info {
-    echo -e "\x1b[36m[INFO]\x1b[0m Trying to install \x1b[32m$@\x1b[0m"
+  echo -e "\x1b[36m[INFO] \x1b[32m$1\x1b[0m"
 }
 
 function __is_darwin {
     [ `uname` == "Darwin" ]
 }
 
+# only for installing prefix
 function __jeefo_info {
-  __console_info $@
+  echo -e "\x1b[36m[INFO] \x1b[0mTrying to install \x1b[32m$@\x1b[0m"
 }
 
 function __jeefo_require_brew {
