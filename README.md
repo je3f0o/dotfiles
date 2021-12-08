@@ -9,5 +9,5 @@ curl -s -o- https://raw.githubusercontent.com/je3f0o/dotfiles/master/setup.sh | 
 ```
 
 ## Target systems
-- MacOS Catalina
-- Ubuntu 18
+- MacOS Big Sur
+- Ubuntu 20.04
