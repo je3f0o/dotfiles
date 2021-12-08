@@ -10,4 +10,4 @@ curl -s -o- https://raw.githubusercontent.com/je3f0o/dotfiles/master/setup.sh | 
 
 ## Target systems
 - MacOS Big Sur
-- Ubuntu 20.04
+- Ubuntu 20.04 LTS
