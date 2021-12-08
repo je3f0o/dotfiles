@@ -49,6 +49,10 @@ function __jeefo_link {
       __jeefo_symlink "$from" "$to_path" "$backup_dir/$file"
     done
 
+    # linking ssh config
+    rm -rf ~/.ssh/config
+    ln -s ~/cloud/dotfiles/ssh_config ~/.ssh/config
+
     # Termintator config
     if ! __is_darwin; then
       file=terminator_config

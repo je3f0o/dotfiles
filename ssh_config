@@ -1,0 +1,21 @@
+Host *
+	ServerAliveInterval 120
+
+Host tmc
+    HostName 209.97.160.116
+    User jeefo
+    #ForwardX11 yes
+    #ForwardX11Trusted yes
+
+Host izi
+    HostName 159.223.34.214
+    User jeefo
+
+Host lbc
+    HostName 103.80.210.50
+    User jeefo
+
+Host goldenpen
+    HostName 206.189.47.142
+    User jeefo
+
