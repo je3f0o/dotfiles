@@ -1,4 +1,4 @@
 
 function reload_bashrc {
-	source ~/.bash_profile
+  __is_darwin && source ~/.bash_profile || source ~/.bashrc
 }
