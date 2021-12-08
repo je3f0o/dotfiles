@@ -14,7 +14,17 @@ function ssh_tunnel {
 	ssh -D "$port" -N "$host"
 }
 
+function ssh_keygen {
+  mkdir -p .ssh & ssh-keygen -q -t rsa -N '' -f ~/.ssh/id_rsa
+}
+
 function ssh_copy_id {
-    echo "$ cat ~/.ssh/id_rsa.pub | \
-            ssh user@remote-host 'cat >> ~/.ssh/authorized_keys'"
+	if [ -z $1 ]; then
+		echo 'argv1 => ssh host is required.'
+		return 1
+	fi
+  local host="$1"
+  test -f ~/.ssh/id_rsa.pub || ssh_keygen
+  cat ~/.ssh/id_rsa.pub | ssh "@$host" \
+    'mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys'
 }
