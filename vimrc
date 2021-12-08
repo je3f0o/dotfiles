@@ -57,9 +57,9 @@ set incsearch
 set autoindent
 set smarttab
 set smartindent
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 " On pressing tab, insert spaces or tab (noexpandtab = tab, expandtab = spaces)
 " after change the config use `:retab` to replace tabs
 set expandtab
@@ -187,7 +187,7 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
-let g:SuperTabDefaultCompletionType = '<C-n>'
+"let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " ES lint
 "let g:syntastic_javascript_checkers = ['eslint']
@@ -212,6 +212,3 @@ let g:potion_command = "~/.vim/bundle/potion"
 
 " init modes
 source ~/.vim/modes/modes.vim
-
-
-let g:ycm_clangd_binary_path='clangd'

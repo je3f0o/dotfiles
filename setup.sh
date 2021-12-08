@@ -36,7 +36,11 @@ if [ $? != 0 ]; then
     [ $? != 0 ] && exit 1
 fi
 
-git clone https://github.com/je3f0o/dotfiles.git . || exit 1
+function __is_git {
+    git symbolic-ref --quiet HEAD &> /dev/null
+    [ $? -ne 128 ]
+}
+__is_git || $(git clone https://github.com/je3f0o/dotfiles.git . || echo exit 1)
 
 source "installer/installer.sh"
 source "installer/linker.sh"
