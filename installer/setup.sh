@@ -2,6 +2,7 @@
 # legacy var depricated
 JEEFO_ENV_OS_NAME=`uname`
 
+source installer/shared.sh
 source installer/installer.sh
 source installer/linker.sh
 
@@ -11,7 +12,9 @@ if __is_darwin; then
   $(cowsay hello > /dev/null) || brew install cowsay
   $(fortune -n 0 &> /dev/null) || brew install fortune
 else
-  sudo apt-get update && sudo apt-get install lolcat cowsay fortune -y
+  $(lolcat --version &> /dev/null) || sudo apt-get install -y lolcat
+  $(cowsay hello > /dev/null) || sudo apt-get install -y cowsay
+  $(fortune -n 0 &> /dev/null) || sudo apt-get install -y fortune
 fi
 
 __jeefo_install
