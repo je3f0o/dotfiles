@@ -28,7 +28,7 @@ function __jeefo_require_git {
   git --version &> /dev/null
   if [ $? != 0 ]; then
     __console_info 'Git'
-    $(__is_darwin && brew install git || sudo apt-get install git -y) || exit 1
+    $(__is_darwin && brew install git || apt-get install git -y) || exit 1
   fi
 }
 
@@ -37,7 +37,15 @@ function __is_git {
     [ $? -ne 128 ]
 }
 
-__jeefo_require_brew;
+if __is_darwin; then
+  __jeefo_require_brew;
+else
+  if [ $(id -u) != 0 ]; then
+    echo Please run as root
+    exit 1
+  fi
+fi
+
 __jeefo_require_git;
 
 mkdir -p ~/cloud/dotfiles && cd ~/cloud/dotfiles
