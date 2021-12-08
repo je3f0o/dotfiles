@@ -20,11 +20,17 @@ function ssh_keygen {
 
 function ssh_copy_id {
 	if [ -z $1 ]; then
-		echo 'argv1 => ssh host is required.'
+		echo 'argv1 => source host required.'
+		echo 'argv2 => destination host required.'
 		return 1
 	fi
-  local host="$1"
-  test -f ~/.ssh/id_rsa.pub || ssh_keygen
-  cat ~/.ssh/id_rsa.pub | ssh "@$host" \
-    'mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys'
+	if [ -z $2 ]; then
+		echo 'argv2 = destination host required.'
+		return 1
+	fi
+  local src_host="$1"
+  local dst_host="$1"
+
+  ssh "@dst" 'mkdir -p ~/.ssh' && \
+    scp "@$src_host:~/.ssh/id_rsa.pub" "@dst_host:~/.ssh/authorized_keys"
 }
