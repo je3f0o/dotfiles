@@ -93,6 +93,10 @@ Plugin 'je3f0o/vim-css-color'
 " Multiple cursors
 Plugin 'terryma/vim-multiple-cursors'
 
+"Nginx"
+"Plugin 'vim-scripts/nginx.vim'
+Plugin 'chr4/nginx.vim'
+
 "Plugin 'felixge/vim-nodejs-errorformat'
 
 "Plugin 'isRuslan/vim-es6'
