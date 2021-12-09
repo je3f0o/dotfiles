@@ -127,14 +127,12 @@ function __jeefo_install_vim {
                   vim/bundle/Vundle.vim
 
     # Vim plugins
-    if [ -z DOCKER_BUILD ]; then
-        vim +PluginInstall +qall
+    vim +PluginInstall +qall
 
-        if [ ! -f ~/.ycm_installed ] || [ `cat ~/.ycm_installed` != 1 ]; then
-            pushd vim/bundle/YouCompleteMe
-            python3 install.py --clangd-completer && echo 1 > ~/.ycm_installed
-            popd
-        fi
+    if [ ! -f ~/.ycm_installed ] || [ `cat ~/.ycm_installed` != 1 ]; then
+        pushd vim/bundle/YouCompleteMe
+        python3 install.py --clangd-completer && echo 1 > ~/.ycm_installed
+        popd
     fi
 }
 
