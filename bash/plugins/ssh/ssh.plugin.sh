@@ -15,7 +15,7 @@ function ssh_tunnel {
 }
 
 function ssh_keygen {
-  mkdir -p .ssh > /dev/null || exit 1
+  mkdir -p .ssh
   ssh-keygen -q -t rsa -N '' -f ~/.ssh/id_rsa
 }
 
