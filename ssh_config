@@ -9,13 +9,14 @@ Host tmc
 
 Host izi
     HostName 159.223.34.214
+    Port 3022
     User jeefo
 
 Host lbc
-    HostName 103.80.210.50
+    HostName 124.158.120.243
     User jeefo
 
 Host goldenpen
     HostName 206.189.47.142
+    Port 2022
     User jeefo
-
