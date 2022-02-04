@@ -70,3 +70,9 @@ if !exists("*FixLastSpellingError")
 		normal! mm[s1z=`m
 	endfunction
 endif
+
+if !exists("*Retab2")
+	function Retab2()
+		exec ':%s;^\(\s\+\);\=repeat(" ", len(submatch(0))/2);g'
+	endfunction
+endif
