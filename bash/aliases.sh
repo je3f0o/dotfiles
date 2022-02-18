@@ -1,13 +1,13 @@
 
 # List files
 if is_true $__IS_MAC; then
-	alias ll='ls -lhGtr'
-	alias lla='ls -lhGtra'
+  alias ls='gls --color=auto'
 else
-    alias ls='ls --color=auto'
-	alias ll='ls -lhtr --color=auto'
-	alias lla='ls -lhtra --color=auto'
+  alias ls='ls --color=auto'
 fi
+
+alias ll='ls -lhtr --group-directories-first'
+alias lla='ls -lhtra --group-directories-first'
 
 # Easier navigation for now
 alias ..='cd ..'
@@ -62,10 +62,10 @@ alias tmux_local="tmux -L $TERM"
 alias ffmpeg="ffmpeg -hide_banner"
 
 function upload_session {
-	if [ -z $1 ]; then
-		echo 'argv1 => session name.'
-		return 1
-	fi
+  if [ -z $1 ]; then
+    echo 'argv1 => session name.'
+    return 1
+  fi
     local session_name="$1"
     tar czf "$session_name.tar.gz" "$session_name"
     scp "$session_name.tar.gz" jeefo@wmc1:~/sessions
@@ -91,26 +91,26 @@ function login_fix_server {
 }
 
 function nasa_email {
-	curl "https://gcn.gsfc.nasa.gov/gcn3/${1}.gcn3"
+  curl "https://gcn.gsfc.nasa.gov/gcn3/${1}.gcn3"
 }
 
 function redir_command_on {
-	redir_command_on = "echo 'rdr pass on %iface inet proto tcp from any to any port %port -> localhost port %rport'"
-	return
-	if [ -a "/tmp/osx_ipfw_rules" ]; then
-		ipfw -q add `head -n 1 osx_ipfw_rules` fwd 127.0.0.1,$1 tcp from any to any $2 in via $3
-	else
-		ipfw add fwd 127.0.0.1,$1 tcp from any to any $2 in via $3 | cut -d " " -f 1 >> /tmp/osx_ipfw_rules
-	fi
+  redir_command_on = "echo 'rdr pass on %iface inet proto tcp from any to any port %port -> localhost port %rport'"
+  return
+  if [ -a "/tmp/osx_ipfw_rules" ]; then
+    ipfw -q add `head -n 1 osx_ipfw_rules` fwd 127.0.0.1,$1 tcp from any to any $2 in via $3
+  else
+    ipfw add fwd 127.0.0.1,$1 tcp from any to any $2 in via $3 | cut -d " " -f 1 >> /tmp/osx_ipfw_rules
+  fi
 }
 
 function redir_command_off {
-	redir_command_off = "pfctl -F all -f /etc/pf.conf"
-	return
-	if [ -a "/tmp/osx_ipfw_rules" ]; then
-		ipfw -q delete `head -n 1 /tmp/osx_ipfw_rules`
-		rm -f /tmp/osx_ipfw_rules
-	fi
+  redir_command_off = "pfctl -F all -f /etc/pf.conf"
+  return
+  if [ -a "/tmp/osx_ipfw_rules" ]; then
+    ipfw -q delete `head -n 1 /tmp/osx_ipfw_rules`
+    rm -f /tmp/osx_ipfw_rules
+  fi
 }
 
 # Copy git post-commit to current git project
@@ -126,7 +126,7 @@ function redir_command_off {
 
 # GNU sed
 #if __is_command_exists gsed; then
-	#alias sed=gsed
+  #alias sed=gsed
 #fi
 
 # Automatically add completion for all aliases to commands having completion functions
