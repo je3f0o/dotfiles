@@ -55,6 +55,10 @@ nnoremap <leader>h :nohlsearch<CR>
 inoremap <leader>h <C-c>:nohlsearch<CR>a
 vnoremap <leader>h <C-c>:nohlsearch<CR>gv
 
+" Visual select surrounded quotes without include leading whitespace
+nnoremap va' v2i'
+nnoremap va" v2i"
+
 " Bubble lines
 "nnoremap <C-Up> [e
 "nnoremap <C-Down> ]e
