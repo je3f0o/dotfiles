@@ -76,3 +76,9 @@ if !exists("*Retab2")
 		exec ':%s;^\(\s\+\);\=repeat(" ", len(submatch(0))/2);g'
 	endfunction
 endif
+
+if !exists("*RemoveHashComments")
+	function RemoveHashComments()
+		exec 'g/^\(#\|$\)/d'
+	endfunction
+endif
