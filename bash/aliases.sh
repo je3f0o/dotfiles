@@ -6,8 +6,8 @@ else
   alias ls='ls --color=auto'
 fi
 
-alias ll='ls -lhtr --group-directories-first'
-alias lla='ls -lhtra --group-directories-first'
+alias ll='ls -lhtrd --group-directories-first *'
+alias lla='ls -lhtrda --group-directories-first * .*'
 
 # Easier navigation for now
 alias ..='cd ..'
