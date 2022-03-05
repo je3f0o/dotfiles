@@ -58,6 +58,11 @@ vnoremap <leader>h <C-c>:nohlsearch<CR>gv
 " Visual select surrounded quotes without include leading whitespace
 nnoremap va' v2i'
 nnoremap va" v2i"
+nnoremap va` v2i`
+
+nnoremap ca' c2i'
+nnoremap ca" c2i"
+nnoremap ca` c2i`
 
 " Bubble lines
 "nnoremap <C-Up> [e
