@@ -1,0 +1,15 @@
+args: bash
+drwxr-xr-x  5 jeefo staff  160 Jan 10  2021 [0m[01;34mjeefo_command[0m
+drwxr-xr-x  5 jeefo staff  160 Jan 10  2021 [01;34mlibs[0m
+drwxr-xr-x  3 jeefo staff   96 Jan 10  2021 [01;34mtemplates[0m
+drwxr-xr-x  3 jeefo staff   96 Jan 10  2021 [01;34mthemes[0m
+drwxr-xr-x 20 jeefo staff  640 Dec  8 15:21 [01;34mplugins[0m
+-rw-r--r--  1 jeefo staff 2.9K Jan 10  2021 colors.sh
+-rw-r--r--  1 jeefo staff   24 Jan 10  2021 configs.sh
+-rwxr-xr-x  1 jeefo staff   87 Jan 10  2021 [01;32mgit_diff_wrapper.sh[0m
+-rw-r--r--  1 jeefo staff  114 Jan 10  2021 paths.sh
+-rw-r--r--  1 jeefo staff 1.1K Dec  5 06:09 exports.sh
+-rw-r--r--  1 jeefo staff  668 Dec  8 20:01 bootstrap.sh
+-rw-r--r--  1 jeefo staff  338 Dec  8 20:02 autoloader.sh
+-rw-r--r--  1 jeefo staff 4.2K Dec  8 20:07 functions.sh
+-rw-r--r--  1 jeefo staff 6.9K Mar  5 17:51 aliases.sh

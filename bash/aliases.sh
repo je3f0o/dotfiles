@@ -1,13 +1,17 @@
 
 # List files
 if is_true $__IS_MAC; then
-  alias ls='gls --color=auto'
+  alias ls='gls --color=always --time-style=long-iso'
 else
-  alias ls='ls --color=auto'
+  alias ls='ls --color=always --time-style=long-iso'
 fi
 
-alias ll='ls -lhtrd --group-directories-first *'
-alias lla='ls -lhtrda --group-directories-first * .*'
+function ll {
+  ls -lht --group-directories-first "$@" | tail -n +2
+}
+function lla {
+  ls -lhta --group-directories-first "$@" | tail -n +2
+}
 
 # Easier navigation for now
 alias ..='cd ..'
