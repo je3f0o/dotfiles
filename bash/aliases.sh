@@ -22,7 +22,7 @@ alias ....='cd ../../..'
 # alias batery_state="upower -i $(upower -e | grep BAT) | grep state | awk '{print \$2}'"
 
 # copy with folders
-alias cp='cp -R'
+alias cp='rsync -av'
 
 # Be nice :)
 alias pls=sudo
