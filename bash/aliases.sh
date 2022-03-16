@@ -7,10 +7,10 @@ else
 fi
 
 function ll {
-  ls -lht --group-directories-first "$@" | tail -n +1
+  ls -lht --group-directories-first "$@" | grep -v '^total'
 }
 function lla {
-  ls -lhta --group-directories-first "$@" | tail -n +1
+  ls -lhta --group-directories-first "$@" | grep -v '^total'
 }
 
 # Easier navigation for now
