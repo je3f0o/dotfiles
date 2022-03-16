@@ -7,10 +7,10 @@ else
 fi
 
 function ll {
-  ls -lht --group-directories-first "$@" | tail -n +2
+  ls -lht --group-directories-first "$@" | tail -n +1
 }
 function lla {
-  ls -lhta --group-directories-first "$@" | tail -n +2
+  ls -lhta --group-directories-first "$@" | tail -n +1
 }
 
 # Easier navigation for now

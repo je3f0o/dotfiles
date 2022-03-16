@@ -30,7 +30,7 @@ function cp_p {
 }
 
 function real-ip {
-    dig +short myip.opendns.com @resolver1.opendns.com
+  curl ifconfig.me
 }
 
 private_fn_path=~/private/functions.sh
@@ -147,4 +147,3 @@ function myscp {
 #       echo "'$1' is not a valid file"
 #   fi
 # }
-
