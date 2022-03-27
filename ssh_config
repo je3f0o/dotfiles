@@ -23,5 +23,5 @@ Host goldenpen
 
 Host nom
     HostName 139.59.112.194
-    #Port 2022
+    Port 2022
     User jeefo
