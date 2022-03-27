@@ -1,6 +1,10 @@
 Host *
 	ServerAliveInterval 120
 
+Host lbc
+    HostName 124.158.120.243
+    User jeefo
+
 Host tmc
     HostName 209.97.160.116
     User jeefo
@@ -12,11 +16,12 @@ Host izi
     Port 3022
     User jeefo
 
-Host lbc
-    HostName 124.158.120.243
-    User jeefo
-
 Host goldenpen
     HostName 206.189.47.142
     Port 2022
+    User jeefo
+
+Host nom
+    HostName 139.59.112.194
+    #Port 2022
     User jeefo

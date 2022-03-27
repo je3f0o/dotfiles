@@ -174,6 +174,18 @@ function __jeefo_install_tmux {
   [ $? != 0 ] && brew install tmux
 }
 
+function __jeefo_pygmentize {
+  __jeefo_info 'Pygments'
+  pygmentize -V &> /dev/null
+  if [ $? != 0 ]; then
+    if __is_darwin; then
+      brew install pygments
+    else
+      sudo apt-get install python3-pygments -y
+    fi
+  fi
+}
+
 function __jeefo_install {
   if __is_darwin; then
     # Homebrew
@@ -203,6 +215,9 @@ function __jeefo_install {
 
   # Vim
   __jeefo_install_vim
+
+  # Pygmentize
+  __jeefo_pygmentize
 
   if [ -z DOCKER_BUILD ]; then
     # Node
