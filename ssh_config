@@ -1,27 +1,32 @@
 Host *
-	ServerAliveInterval 120
+  ServerAliveInterval 120
 
 Host lbc
-    HostName 124.158.120.243
-    User jeefo
+  HostName 167.172.90.99
+  Port 2022
+  User jeefo
 
 Host tmc
-    HostName 209.97.160.116
-    User jeefo
-    #ForwardX11 yes
-    #ForwardX11Trusted yes
+  HostName 209.97.160.116
+  User jeefo
+  #ForwardX11 yes
+  #ForwardX11Trusted yes
 
 Host izi
-    HostName 159.223.34.214
-    Port 3022
-    User jeefo
+  HostName 159.223.34.214
+  Port 3022
+  User jeefo
 
 Host goldenpen
-    HostName 206.189.47.142
-    Port 2022
-    User jeefo
+  HostName 206.189.47.142
+  Port 2022
+  User jeefo
 
 Host nom
-    HostName 139.59.112.194
-    Port 2022
-    User jeefo
+  HostName 139.59.112.194
+  Port 2022
+  User jeefo
+
+Host encoder
+  HostName 124.158.120.243
+  User jeefo
