@@ -18,7 +18,7 @@ Plugin 'scrooloose/nerdtree'
 " Graphical undo tree
 Plugin 'sjl/gundo.vim'
 " YouCompleteMe
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'ycm-core/YouCompleteMe'
 " Neo Complete
 "Plugin 'Shougo/neocomplete.vim'
 " clang_complete

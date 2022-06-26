@@ -13,7 +13,7 @@ Host tmc
   #ForwardX11Trusted yes
 
 Host izi
-  HostName 159.223.34.214
+  HostName 128.199.99.133
   Port 3022
   User jeefo
 

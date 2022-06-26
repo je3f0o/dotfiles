@@ -157,7 +157,7 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
 " Swap characters
-nnoremap <C-u> xhhpl
+nnoremap <C-u> xhPl
 
 " Insert new line before or after
 nnoremap gO O<ESC>j
