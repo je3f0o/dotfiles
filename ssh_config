@@ -17,6 +17,11 @@ Host izi
   Port 3022
   User jeefo
 
+Host db
+  HostName 128.199.232.158
+  Port 3022
+  User jeefo
+
 Host goldenpen
   HostName 206.189.47.142
   Port 2022

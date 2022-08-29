@@ -24,6 +24,10 @@ command! -nargs=+ Silent execute 'silent <args>' | redraw!
 syntax on
 syntax enable
 
+" Modeline magic
+set modeline
+set modelines=1
+
 " General settings
 scriptencoding utf8
 set encoding=utf8

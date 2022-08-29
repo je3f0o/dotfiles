@@ -81,6 +81,7 @@
   "fit",
   "xit",
   "inject",
+  "URLSearchParams",
   "-name"
   ],
 
