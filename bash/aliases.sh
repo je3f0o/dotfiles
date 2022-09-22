@@ -12,7 +12,7 @@ function ll {
 function lla {
   ls -lhta --group-directories-first "$@" | grep -v '^total'
 }
-if __IS_LINUX; then
+if [ $(uname) != "Darwin" ]; then
   function total_disk_usage {
     local total=$(df -h --total)
     echo "$total" | head -n1
