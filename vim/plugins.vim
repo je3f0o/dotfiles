@@ -35,6 +35,8 @@ Plugin 'Lokaltog/vim-easymotion'
 Plugin 'mattn/emmet-vim'
 " fugitive
 Plugin 'tpope/vim-fugitive'
+" Git syntax highlight
+Plugin 'tpope/vim-git'
 " jade
 Plugin 'digitaltoad/vim-jade'
 " seti

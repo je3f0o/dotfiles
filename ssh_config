@@ -32,6 +32,6 @@ Host nom
   Port 2022
   User jeefo
 
-Host encoder
+Host onlive
   HostName 202.21.121.165
   User jeefo

@@ -12,6 +12,13 @@ function ll {
 function lla {
   ls -lhta --group-directories-first "$@" | grep -v '^total'
 }
+if __IS_LINUX; then
+  function total_disk_usage {
+    local total=$(df -h --total)
+    echo "$total" | head -n1
+    echo "$total" | tail -n1
+  }
+fi
 
 # Easier navigation for now
 alias ..='cd ..'
