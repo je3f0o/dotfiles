@@ -237,4 +237,4 @@ nnoremap <leader>d :YcmCompleter GoToDefinition<CR>
 " ToggleComment
 " actual map is: <C+/> special map key whatever...
 nnoremap <C-_> :ToggleComment<CR>
-vnoremap <C-_> :ToggleComment<CR>gv
+vnoremap <C-_> :ToggleComment<CR> gv

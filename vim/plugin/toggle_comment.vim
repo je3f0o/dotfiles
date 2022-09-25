@@ -18,12 +18,13 @@ function! s:ToggleComment() range
   if has_key(s:comment_map, &filetype)
     let comment = s:comment_map[&filetype]
     let firstline = getline(a:firstline)
+    let indent = matchstr(firstline, '^\s*')
     let _range = a:firstline . ',' . a:lastline
 
-    if firstline =~ '^\s*' . comment
-      execute _range . 's/\(\s*\)' . comment . '/\1/'
+    if firstline =~ '^' . indent . comment
+      execute _range . 's/' . indent . comment . '/' . indent . '/'
     else
-      execute _range . 's/\(\s*\)/\1' . comment . '/'
+      execute _range . 's/' . indent . '/' . indent . comment . '/'
     end
   else
     echo 'No comment map found for filetype: ' . &filetype
