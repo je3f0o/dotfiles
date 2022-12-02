@@ -369,3 +369,31 @@ endsnippet
 snippet indxdb "indexedDB new feature on browser"
 indexedDB
 endsnippet
+
+snippet api
+const Router = require("jeefo-router");
+
+const router = new Router();
+
+router.register({
+  path   : "",
+  method : "GET",
+}, (req, res) => {
+	res.sendStatus(200);
+});
+
+module.exports = router;
+endsnippet
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -57,9 +57,6 @@ alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 # Trim new lines and copy to clipboard
 alias trimcopy='tr -d '\n' | pbcopy'
 
-# Shortcuts
-alias catc='pygmentize'
-
 # Shutdown
 alias shutdown='shutdown -h now'
 
@@ -69,8 +66,11 @@ alias emacs="emacs -nw $@"
 # tmux local socket
 alias tmux_local="tmux -L $TERM"
 
-# tmux local socket
+# FFmpeg hide banner
 alias ffmpeg="ffmpeg -hide_banner"
+
+# less with colors
+alias less="less -r"
 
 function upload_session {
   if [ -z $1 ]; then

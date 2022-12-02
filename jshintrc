@@ -73,16 +73,13 @@
   },
 
   "predef"        : [  // Custom globals.
-    "PP",
-  "__MY_MODULE__",
-  "indexedDB",
-  "JT_PRE",
-  "TRIM_LINES",
-  "fit",
-  "xit",
-  "inject",
-  "URLSearchParams",
-  "-name"
+    "indexedDB",
+    "fit",
+    "xit",
+    "inject",
+    "URLSearchParams",
+    "-event",
+    "-name"
   ],
 
   "esversion": 11

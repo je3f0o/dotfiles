@@ -169,6 +169,8 @@ let g:ycm_cache_omnifunc = 0
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_complete_in_comments = 1
 let g:ycm_extra_conf_globlist = 0
+let g:ycm_auto_hover = ''
+let g:ycm_disable_signature_help = 1
 
 "let g:clang_use_library = 1
 "let g:clang_library_path = '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libclang.dylib'

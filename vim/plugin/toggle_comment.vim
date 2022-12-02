@@ -4,6 +4,7 @@ let s:c_style_inline_comment = '\/\/'
 let s:comment_map = {
   \   "c": s:c_style_inline_comment,
   \   "cpp": s:c_style_inline_comment,
+  \   "glsl": s:c_style_inline_comment,
   \   "java": s:c_style_inline_comment,
   \   "javascript": s:c_style_inline_comment,
   \   "php": s:c_style_inline_comment,
@@ -22,9 +23,9 @@ function! s:ToggleComment() range
     let _range = a:firstline . ',' . a:lastline
 
     if firstline =~ '^' . indent . comment
-      execute _range . 's/' . indent . comment . '/' . indent . '/'
+      execute _range . 's/^' . indent . comment . '/' . indent . '/'
     else
-      execute _range . 's/' . indent . '/' . indent . comment . '/'
+      execute _range . 's/^' . indent . '/' . indent . comment . '/'
     end
   else
     echo 'No comment map found for filetype: ' . &filetype

@@ -9,6 +9,10 @@ function f {
     find . -name "$1"
 }
 
+function catc {
+  pygmentize $@ | nl -w3 -s'|'
+}
+
 #function rm {
 #    local path
 #    for path in "$@"; do
