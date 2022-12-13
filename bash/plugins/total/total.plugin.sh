@@ -1,5 +1,4 @@
 
-
 # Total files count
 function total_files {
 	local target=${1-.}
@@ -7,7 +6,7 @@ function total_files {
 }
 
 function total_lines {
-	find . -name "$1" | xargs wc -l
+  find . -type f -name "*.swift" -exec wc -l {} +
 }
 
 function total_size {
