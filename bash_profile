@@ -49,6 +49,8 @@ fi
 # Start bootstrap
 source ~/.bash/bootstrap.sh
 
+export PATH="$PATH:$(go env GOPATH)/bin"
+
 # jeefo_command auto-completion
 source ~/.bash/jeefo_command/jeefo_commands.sh
 

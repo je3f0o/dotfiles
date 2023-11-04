@@ -74,6 +74,7 @@ endif
 if !exists("*Retab2")
 	function Retab2()
 		exec ':%s;^\(\s\+\);\=repeat(" ", len(submatch(0))/2);g'
+    call TabConfigs()
 	endfunction
 endif
 
@@ -81,4 +82,20 @@ if !exists("*RemoveHashComments")
 	function RemoveHashComments()
 		exec 'g/^\(#\|$\)/d'
 	endfunction
+endif
+
+if !exists("TabConfigs")
+  function TabConfigs()
+    set autoindent
+    set smarttab
+    set smartindent
+    set tabstop=2
+    set softtabstop=2
+    set shiftwidth=2
+    " On pressing tab, insert spaces or tab (noexpandtab = tab, expandtab = spaces)
+    " after change the config use `:retab` to replace tabs
+    set expandtab
+  endfunction
+
+  call TabConfigs()
 endif

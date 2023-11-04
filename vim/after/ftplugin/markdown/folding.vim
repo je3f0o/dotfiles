@@ -20,7 +20,6 @@ if ! exists("*MyMarkDownFoldText")
 endif
 
 setlocal foldcolumn=3
-setlocal foldmethod=expr
 setlocal foldexpr=MyMarkDownFolds()
 setlocal foldtext=MyMarkDownFoldText()
-
+set foldmethod=manual

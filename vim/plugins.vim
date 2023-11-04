@@ -16,7 +16,7 @@ Plugin 'VundleVim/Vundle.vim'
 " NERD_tree
 Plugin 'scrooloose/nerdtree'
 " Graphical undo tree
-Plugin 'sjl/gundo.vim'
+Plugin 'mbbill/undotree'
 " YouCompleteMe
 Plugin 'ycm-core/YouCompleteMe'
 " Neo Complete

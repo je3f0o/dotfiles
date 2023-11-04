@@ -6,7 +6,8 @@ function total_files {
 }
 
 function total_lines {
-  find . -type f -name "*.swift" -exec wc -l {} +
+	local target=${1-*}
+  find . -type f -name "$target" -exec wc -l {} +
 }
 
 function total_size {

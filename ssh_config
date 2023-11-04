@@ -2,8 +2,8 @@ Host *
   ServerAliveInterval 120
 
 Host lbc
-  HostName 167.172.90.99
-  Port 2022
+  HostName 178.128.81.231
+  Port 22
   User jeefo
 
 Host tmc
@@ -12,26 +12,6 @@ Host tmc
   #ForwardX11 yes
   #ForwardX11Trusted yes
 
-Host izi
-  HostName 128.199.99.133
-  Port 3022
-  User jeefo
-
-Host db
-  HostName 128.199.232.158
-  Port 3022
-  User jeefo
-
-Host goldenpen
-  HostName 206.189.47.142
-  Port 2022
-  User jeefo
-
-Host nom
-  HostName 139.59.112.194
-  Port 2022
-  User jeefo
-
-Host onlive
-  HostName 202.21.121.165
-  User jeefo
+Host handpro
+  HostName 66.181.164.191
+  User je3f0o

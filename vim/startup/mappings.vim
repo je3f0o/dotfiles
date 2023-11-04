@@ -83,6 +83,10 @@ vnoremap <S-h> <gv
 " righ
 vnoremap <S-l> >gv
 
+" YCM keys
+nnoremap <leader>gi :YcmCompleter GoToInclude<CR>
+nnoremap <leader>gd :YcmCompleter GoToDefinition<CR>
+
 " Window keys
 nnoremap <leader>w <C-w>
 inoremap <leader>w <C-w>
@@ -95,6 +99,12 @@ vnoremap <C-w> <C-c><C-w>
 
 " Toggle folds
 nnoremap <Space> za
+
+" Always use exact location and easier to press
+"nnoremap ' `
+" Mark cursor location and center screen
+nnoremap <leader>ga 'azz
+
 " Fold marker
 inoremap <leader>[ <ESC>:call MakeFoldMarker()<CR>a
 inoremap <leader>] }}}
@@ -183,6 +193,8 @@ nnoremap <silent> <leader>vr :source $MYVIMRC<CR>:echo "vimrc reloaded."<CR>
 " I don't want to SHIFT + semicolon anymore
 nnoremap ; :
 nnoremap : ;
+vnoremap ; :
+vnoremap : ;
 
 " Copy line to
 nnoremap <C-t> :t.<left><left>

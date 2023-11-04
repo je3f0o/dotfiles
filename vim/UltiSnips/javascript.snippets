@@ -1,4 +1,3 @@
-
 # stringify
 snippet jstr
 JSON.stringify($1);$0
@@ -7,11 +6,6 @@ endsnippet
 # parse
 snippet jparse
 JSON.parse($1);$0
-endsnippet
-
-# quotmark
-snippet quot
-/* jshint quotmark : false */
 endsnippet
 
 # require
@@ -28,11 +22,6 @@ if (require.main === module) {
 }
 
 // ignore:end
-endsnippet
-
-# parser.log
-snippet plog
-parser.log($1);$0
 endsnippet
 
 # console.log
@@ -56,7 +45,7 @@ console.error($1);$0
 endsnippet
 
 # function
-snippet self_exec_fn
+snippet iife
 (function(${1}) {
 	$0
 }());
@@ -130,35 +119,11 @@ module.exports = function ${1:function_name}($2) {
 endsnippet
 
 # function
-snippet comp
-exports.selector = "$1";
-
-exports.style = \`
-    /* css */
-\`;
-
-exports.template = \`
-    { jt }
-\`;
-
-exports.bindings = {};
-
-exports.controller = {};
-endsnippet
-
-# function
 snippet exfna
 module.exports = ${1:params} => {
 	$0
 };
 endsnippet
-
-# function
-#snippet fna
-#let ${1:function_name} = function($2) {
-	#$0
-#};
-#endsnippet
 
 # Anonymous function
 snippet fna
@@ -181,13 +146,6 @@ class ${1:ConstructorName} {
 }$2
 endsnippet
 
-# Class
-snippet met
-${1:method}(${2:params}) {
-	$0
-}
-endsnippet
-
 # if condition
 snippet if
 if (${1:condition}) {
@@ -195,9 +153,9 @@ if (${1:condition}) {
 }
 endsnippet
 
-# for each loop number of times iterate
-snippet iter
-for (${2:i} = ${1:length}; $2--;) {
+# for loop number of times iterate
+snippet for
+for (${2:let }${3:i} = ${4:0}; $3 < ${1:length}; ++$3) {
 	$0
 }
 endsnippet
@@ -209,31 +167,10 @@ for (${3:const} ${2:element} of ${1:elements}) {
 }
 endsnippet
 
-# for each loop
-snippet each
-for (${2:let }${3:i} = ${4:0}; $3 < ${1:things}.length; ++$3) {
-	$0
-}
-endsnippet
-
 snippet eachr
 for (${3:let }${2:i} = ${1:items}.length - 1; $2 >= 0; --$2) {
 	$0
 }
-endsnippet
-
-snippet fe
-${1:array}.forEach(${2:params} => $0);
-endsnippet
-
-snippet obj
-Object.create(null);$0
-endsnippet
-
-snippet ofe
-Object.keys(${1:things}).forEach(${2:params} => {
-	$0
-});
 endsnippet
 
 snippet reduce
@@ -262,39 +199,9 @@ ${1:array}.some(${2:value} => {
 });
 endsnippet
 
-snippet ngex
-angular.extend(${1:destination}, ${2:source...});$0
-endsnippet
-
-snippet ngeach
-angular.forEach(${1:array}, function(${2:thing}) {
-	$0
-});
-endsnippet
-
-snippet ngisarr
-$0angular.isArray(${1:thing})
-endsnippet
-
-snippet water
-waterfall([
-	cb => {
-		$0
-	}
-], ${3:${1:err} => {
-	$2
-}});
-endsnippet
-
-snippet while
-async.whilst(() => ${1:i < len}, cb => {
-	${0}
-}, ${2:callback});
-endsnippet
-
 snippet switch
 switch (${1:value}) {
-	case ${2:case_value} :
+	case ${2:case_value}:
 		$0
 		break;
 }
@@ -384,16 +291,3 @@ router.register({
 
 module.exports = router;
 endsnippet
-
-
-
-
-
-
-
-
-
-
-
-
-

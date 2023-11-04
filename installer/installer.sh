@@ -4,7 +4,7 @@ function __jeefo_install_monaco {
 
   [ -f ~/.fonts/MonacoB-Bold.ttf ] && return 0
 
-  curl --version &> /dev/null
+  fontforge --version &> /dev/null
   if [ $? != 0 ]; then
     sudo apt-get install fontforge -y
   fi
@@ -80,7 +80,7 @@ function __jeefo_install_nvm {
 
   nvm --version &> /dev/null
   [ $? != 0 ] && curl -s -o- \
-    https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 
   node --version &> /dev/null
   [ $? != 0 ] && nvm install node
@@ -137,7 +137,8 @@ function __jeefo_install_vim {
   if [ ! -f ~/.ycm_installed ] || [ `cat ~/.ycm_installed` != 1 ]; then
     pushd vim/bundle/YouCompleteMe
     git submodule update --init --recursive
-    python3 install.py --clangd-completer && echo 1 > ~/.ycm_installed
+    python3 install.py --clangd-completer --go-completer && \
+      echo 1 > ~/.ycm_installed
     popd
   fi
 

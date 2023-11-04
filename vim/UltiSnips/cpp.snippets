@@ -15,6 +15,20 @@ if (${1:condition}) {
 }$0
 endsnippet
 
+# switch condition
+snippet switch
+switch (${1:condition}) {
+	$0
+}
+endsnippet
+
+# foreach
+snippet foreach
+for (${2:const auto&} ${3:v}: ${1:object}) {
+	$0
+}
+endsnippet
+
 # include
 snippet inc
 #include ${1:source}$0
@@ -81,10 +95,10 @@ class ${1:ClassName} {
 endsnippet
 
 # Struct
-snippet strct
+snippet struct
 struct ${1:StructName} {
 	$0
-}
+};
 endsnippet
 
 # Size variable

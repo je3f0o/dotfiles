@@ -21,6 +21,10 @@ command! -nargs=+ Silent execute 'silent <args>' | redraw!
 " Might be useful when u have some stupid highlight won't go away
 " :call clearmatches()
 
+let g:rust_recommended_style = 0
+let g:python_recommended_style = 0
+let g:pymode_lint_checkers = ['mccabe', 'pyflakes', 'pylint', 'pep8', 'pep257']
+let g:pymode_lint_ignore = 'E111,W0311'
 syntax on
 syntax enable
 
@@ -35,12 +39,6 @@ set showmatch
 set visualbell
 set backspace=indent,eol,start
 set mouse=a
-
-"set nofoldenable    " disable folding
-set foldmethod=manual
-"set foldmethod=marker
-"set foldlevel=1
-set viewdir=~/.vimview
 
 " Automaticaly word wrap and insert new line
 set textwidth=0
@@ -57,17 +55,6 @@ set smartcase
 set ignorecase
 set incsearch
 
-" Tab configs
-set autoindent
-set smarttab
-set smartindent
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
-" On pressing tab, insert spaces or tab (noexpandtab = tab, expandtab = spaces)
-" after change the config use `:retab` to replace tabs
-set expandtab
-
 " Search down into subfolders
 " Provides tab-completion for all file-related tasks
 set path=*,**
@@ -79,7 +66,7 @@ set wildmenu
 set pastetoggle=<F3>
 
 " Syntastic
-let g:syntastic_cpp_compiler_options = ' -std=c++11'
+" let g:syntastic_cpp_compiler_options = ' -std=c++11'
 
 " Conque Terminal
 " let g:ConqueTerm_CloseOnEnd = 1
@@ -122,6 +109,26 @@ source ~/.vim/startup/mappings.vim
 source ~/.vim/startup/color.vim
 source ~/.vim/autocmd.vim
 source ~/.vim/syntax.vim
+
+" Tab configs
+set autoindent
+set smarttab
+set smartindent
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+" On pressing tab, insert spaces or tab (noexpandtab = tab, expandtab = spaces)
+" after change the config use `:retab` to replace tabs
+set expandtab
+
+" Scroll offsest
+set scrolloff=8
+
+"set nofoldenable    " disable folding
+set foldmethod=manual
+"set foldmethod=marker
+set foldlevel=3
+set viewdir=~/.vimview
 
 " Change buffer without saved
 set hidden
@@ -167,10 +174,21 @@ let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:ycm_key_invoke_completion = '<C-Space>'
 let g:ycm_cache_omnifunc = 0
 let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_complete_in_comments = 1
+let g:ycm_complete_in_strings = 1
 let g:ycm_extra_conf_globlist = 0
 let g:ycm_auto_hover = ''
 let g:ycm_disable_signature_help = 1
+let g:ycm_add_preview_to_completeopt = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_always_populate_location_list = 1
+
+" python...
+"let g:ycm_confirm_extra_conf=0
+"let g:ycm_python_binary_path='/usr/local/anaconda3/bin/python'
+let g:ycm_python_binary_path='/usr/local/bin/python3.11'
+" autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 
 "let g:clang_use_library = 1
 "let g:clang_library_path = '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libclang.dylib'
@@ -183,8 +201,8 @@ let g:ycm_disable_signature_help = 1
 " If you prefer the Omni-Completion tip window to close when a selection is
 " made, these lines close it on movement in insert mode or when leaving
 " insert mode
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+" autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+" autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"

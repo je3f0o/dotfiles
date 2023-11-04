@@ -15,6 +15,6 @@ augroup jsbeautify
 	autocmd!
 	" autocmd FileType html,css,javascript,json
         " \ command! -bar -nargs=0 -buffer -range=% JsBeautify <line1>,<line2>call s:JsBeautify()
-	autocmd FileType javascript
+	autocmd FileType javascript,json
         \ command! -bar -nargs=0 -buffer -range=% JsBeautify <line1>,<line2>call s:JsBeautify()
 augroup END
