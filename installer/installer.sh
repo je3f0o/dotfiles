@@ -141,13 +141,6 @@ function __jeefo_install_vim {
       echo 1 > ~/.ycm_installed
     popd
   fi
-
-  # Tern for vim
-  if [ ! -d ~/.vim/bundle/tern_for_vim/node_modules ]; then
-    pushd vim/bundle/tern_for_vim
-    npm i
-    popd
-  fi
 }
 
 function __jeefo_install_powerline_fonts {
