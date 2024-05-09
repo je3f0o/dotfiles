@@ -30,5 +30,6 @@ endfunction
 nnoremap <buffer> <localleader>b :so %<CR>:call MyMake()<CR>
 
 autocmd BufNewFile,BufRead *.js nnoremap <buffer> <localleader>b :call MyMake()<CR>
+autocmd BufNewFile,BufRead *.c nnoremap <buffer> <localleader>b :call MyMake()<CR>
 autocmd BufNewFile,BufRead *.cpp nnoremap <buffer> <localleader>b :call MyMake()<CR>
 autocmd BufNewFile,BufRead *.hpp nnoremap <buffer> <localleader>b :call MyMake()<CR>

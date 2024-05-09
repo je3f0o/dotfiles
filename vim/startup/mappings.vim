@@ -55,6 +55,9 @@ nnoremap <leader>h :nohlsearch<CR>
 inoremap <leader>h <C-c>:nohlsearch<CR>a
 vnoremap <leader>h <C-c>:nohlsearch<CR>gv
 
+" Toggle directory mode
+nnoremap <leader>rd <C-c>:Ex<CR>
+
 " Visual select surrounded quotes without include leading whitespace
 nnoremap va' v2i'
 nnoremap va" v2i"
@@ -72,17 +75,6 @@ nnoremap ca` c2i`
 "nnoremap <C-h> <<
 "nnoremap <C-l> >>
 
-" move selected lines up
-"vnoremap <C-k> [egv
-vnoremap <S-k> :move '<-2<cr>gv
-" move selected lines down
-"vnoremap <C-j> ]egv
-vnoremap <S-j> :move '>+1<cr>gv
-" left
-vnoremap <S-h> <gv
-" righ
-vnoremap <S-l> >gv
-
 " YCM keys
 nnoremap <leader>gi :YcmCompleter GoToInclude<CR>
 nnoremap <leader>gd :YcmCompleter GoToDefinition<CR>
@@ -92,8 +84,19 @@ nnoremap <leader>w <C-w>
 inoremap <leader>w <C-w>
 vnoremap <leader>w <C-w>
 
+" Switch window
+nnoremap <C-k> <C-w>k
+nnoremap <C-j> <C-w>j
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+
+" Close current window
+nnoremap <C-q> <C-w>c
+inoremap <C-q> <C-c><C-q>
+vnoremap <C-q> <C-c><C-q>
+
 " Kill current buffer
-nnoremap <silent> <C-w> :bd<CR>
+nnoremap <C-w> :bd<CR>
 inoremap <C-w> <C-c><C-w>
 vnoremap <C-w> <C-c><C-w>
 
@@ -160,12 +163,6 @@ nmap <leader>- ;syn sync fromstart<CR>
 " Toggle list! command
 nnoremap <leader>l :set list!<CR>
 
-" Move window
-nnoremap <C-k> <C-w>k
-nnoremap <C-j> <C-w>j
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
-
 " Swap characters
 nnoremap <C-u> xhPl
 
@@ -202,7 +199,7 @@ nnoremap <C-t> :t.<left><left>
 " Toggle number
 nnoremap <leader>n :call CycleLineNumbers()<CR>
 
-nnoremap <C-a> ggVG
+" nnoremap <C-a> ggVG
 
 
 " ------------------ INSERT MODE ------------------
@@ -243,10 +240,24 @@ vnoremap <leader>t] :Tabularize /\]<CR>
 " nnoremap <C-m> :ConqueTerm bash --login<CR>
 
 " YouCompleteMe
-nnoremap <C-g> :YcmCompleter GoToDeclaration<CR>
-nnoremap <leader>d :YcmCompleter GoToDefinition<CR>
+nnoremap <C-g> :YcmCompleter GoToDefinition<CR>
+"nnoremap <C-g> :YcmCompleter GoToDeclaration<CR>
+"nnoremap <leader>d :YcmCompleter GoToDefinition<CR>
 
 " ToggleComment
 " actual map is: <C+/> special map key whatever...
 nnoremap <C-_> :ToggleComment<CR>
 vnoremap <C-_> :ToggleComment<CR> gv
+
+" Move selected text
+vnoremap J :move '>+1<CR>gv=gv
+vnoremap K :move '<-2<CR>gv=gv
+"vnoremap <C-k> [egv
+"vnoremap <C-j> ]egv
+" left
+vnoremap <S-h> <gv
+" righ
+vnoremap <S-l> >gv
+
+" Preserves cursor position
+nnoremap J mzJ`z

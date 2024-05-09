@@ -1,3 +1,13 @@
+# guard
+snippet guard
+#ifndef __$1__
+#define __$1__
+
+$0
+
+#endif
+endsnippet
+
 # include
 snippet inc
 #include $0
@@ -26,9 +36,28 @@ endsnippet
 
 # main
 snippet main
-int main() {
+int main(void) {
 	$0
 
 	return 0;
 }
+endsnippet
+
+# println
+snippet log
+println("$1"$2);$0
+endsnippet
+
+# typedef struct
+snippet typestr
+typedef struct {
+	$0
+} $1;
+endsnippet
+
+# typedef enum
+snippet typen
+typedef enum {
+	$0
+} $1;
 endsnippet

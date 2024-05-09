@@ -6,6 +6,11 @@ if !exists('*s:SetBashFlag')
   endfunction
 endif
 
+function! CKeybind()
+  nnoremap <C-g> :YcmCompleter GoToDefinition<CR>
+  nnoremap <leader>d :YcmCompleter GoToDeclaration<CR>
+endfunction
+
 if has("autocmd")
 	" Enable filetype detection for after load startup
 	filetype plugin on
@@ -20,6 +25,9 @@ if has("autocmd")
 	autocmd BufNewFile,BufRead * set nofixendofline
 
 	autocmd BufNewFile,BufRead *.md set filetype=markdown
+
+  " Rust
+  "autocmd FileType rust nnoremap <buffer> <leader>rf :%!rustfmt<CR>
 
   " Bindzone
   autocmd BufNewFile,BufRead */bind/zone.*	setf bindzone
@@ -39,6 +47,11 @@ if has("autocmd")
   autocmd InsertLeave * set nocul
 
   autocmd BufEnter,VimEnter *.sh call s:SetBashFlag()
+
+  " For C
+  augroup c
+    autocmd FileType c call CKeybind()
+  augroup end
 
   "autocmd VimLeavePre * bufdo diffoff
   autocmd QuitPre * windo diffoff

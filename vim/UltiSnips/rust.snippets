@@ -1,5 +1,15 @@
 snippet if
 if ${1:condition} {
-	$2
-}$0
+	$0
+}
+endsnippet
+
+snippet for
+for ${2:item} in ${1:items} {
+	$0
+}
+endsnippet
+
+snippet log
+println!("$0");
 endsnippet

@@ -14,25 +14,6 @@ if !exists("*PreHeaderJavascript")
 	endfunction
 endif
 
-if !exists("*UpdateHeaderJavascript")
-	function! s:edit_js_header()
-		silent! exec "2g/File Name\\s*:.*/s//File Name   : " . expand("%:t")
-		silent! exec "4g/Updated at\\s*:.*/s//Updated at  : " . strftime("%Y-%m-%d")
-	endfunction
-
-	function! UpdateHeaderJavascript()
-		" Save window and cursor location:
-    let l:cursor_save = getpos('.')
-		"let l:winview = winsaveview()
-
-		silent! undojoin | call s:edit_js_header()
-
-		" Restore window and cursor location:
-    call setpos('.', l:cursor_save)
-		"call winrestview(l:winview)
-	endfunction
-endif
-
 if !exists("*PreHeaderGeneric")
   function! PreHeaderGeneric()
     let l:filetype = &filetype
@@ -50,30 +31,34 @@ endif
 
 if !exists("*UpdateHeaderGeneric")
   function! s:edit_header()
-    let l:filetype = &filetype
-    if l:filetype ==# 'c' || l:filetype ==# 'rust' " Add more filetypes here as needed
-      let s:filename = expand("~/.vim/plugin/c_style_header.txt")
-      if filereadable(s:filename)
-        silent! exec "2g/File Name\\s*:.*/s//File Name   : " . expand("%:t")
-        silent! exec "4g/Updated at\\s*:.*/s//Updated at  : " . strftime("%Y-%m-%d")
-      else
-        echo "Header not updated: " . s:filename
-      endif
+    let file_name_line  = getline(2)
+    let updated_at_line = getline(4)
+
+    let is_file_name_valid  = file_name_line  =~? '\* File Name\s*:.*'
+    let is_updated_at_valid = updated_at_line =~? '\* Updated at\s*:.*'
+
+    " just reminder for new line continuation
+    if is_file_name_valid
+      \ && is_updated_at_valid
+      " Update the 'File Name' and 'Updated at' headers
+      let new_file_name  = ' * File Name   : ' . expand("%:t")
+      let new_updated_at = ' * Updated at  : ' . strftime("%Y-%m-%d")
+      call setline(2, new_file_name)
+      call setline(4, new_updated_at)
     endif
   endfunction
 
   function! UpdateHeaderGeneric()
     " Save cursor position:
-    let l:cursor_save = getpos('.')
-
+    "let l:cursor_save = getpos('.')
     " Save window and cursor location:
     "let l:winview = winsaveview()
 
     silent! undojoin | call s:edit_header()
+    "call feedkeys("\<C-o>\<C-o>")
 
     " Restore cursor position:
-    call setpos('.', l:cursor_save)
-
+    "call setpos('.', l:cursor_save)
     " Restore window and cursor location:
     "call winrestview(l:winview)
   endfunction
@@ -84,12 +69,9 @@ if !exists("s:is_loaded") && has("autocmd")
   autocmd BufWritePre * %s/\s\+$//e
 
   " Update header
-	autocmd BufNewFile *.c,*.rs       :call PreHeaderGeneric()
-  autocmd BufWritePre,FileWritePre * call UpdateHeaderGeneric()
-
-  " Update header
-	autocmd BufNewFile *.js               call PreHeaderJavascript()
-	autocmd BufWritePre,FileWritePre *.js call UpdateHeaderJavascript()
+	autocmd BufNewFile *.js                        call PreHeaderJavascript()
+	autocmd BufNewFile *.c,*.rs                    call PreHeaderGeneric()
+  autocmd BufWritePre,FileWritePre *.c,*.rs,*.js call UpdateHeaderGeneric()
 
   let s:is_loaded = 1
 endif

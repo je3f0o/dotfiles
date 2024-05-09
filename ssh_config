@@ -2,7 +2,7 @@ Host *
   ServerAliveInterval 120
 
 Host lbc
-  HostName 178.128.81.231
+  HostName 139.59.103.31
   Port 22
   User jeefo
 
@@ -15,3 +15,7 @@ Host tmc
 Host handpro
   HostName 66.181.164.191
   User je3f0o
+
+Host db
+  HostName 68.183.236.229
+  User jeefo

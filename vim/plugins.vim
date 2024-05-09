@@ -13,6 +13,9 @@ Plugin 'VundleVim/Vundle.vim'
 " js highlight
 " Plugin 'pangloss/vim-javascript'
 
+" Rust
+" i hate it so much. everytime save it so slow...
+"Plugin 'rust-lang/rust.vim'
 " NERD_tree
 Plugin 'scrooloose/nerdtree'
 " Graphical undo tree
@@ -23,8 +26,6 @@ Plugin 'ycm-core/YouCompleteMe'
 "Plugin 'Shougo/neocomplete.vim'
 " clang_complete
 "Plugin 'Rip-Rip/clang_complete'
-" Tern JS autocompletor using YouCompleteMe
-Plugin 'ternjs/tern_for_vim'
 " airline
 Plugin 'bling/vim-airline'
 " ctrlp (fuzzy finder)
@@ -67,6 +68,8 @@ Plugin 'altercation/vim-colors-solarized'
 "Plugin 'vim-scripts/Conque-Shell'
 " Markdown syntax highlight
 Plugin 'plasticboy/vim-markdown'
+" Zig
+"Plugin 'ziglang/zig.vim'
 
 " Vim do
 "Plugin 'joonty/vim-do'
@@ -74,9 +77,9 @@ Plugin 'plasticboy/vim-markdown'
 " Pandoc
 " Plugin 'vim-pandoc/vim-pandoc'
 " Typescript
-Plugin 'leafgarland/typescript-vim'
+"Plugin 'leafgarland/typescript-vim'
 " TypeScript auto complate
-Plugin 'Quramy/tsuquyomi'
+"Plugin 'Quramy/tsuquyomi'
 
 "Plugin 'Shougo/vimproc.vim'
 

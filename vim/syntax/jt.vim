@@ -30,15 +30,18 @@ syn cluster JeefoTemplateComponent  contains=JeefoTemplateClassChar,JeefoTemplat
 syn region  JeefoTemplateContent	start="("  end=")"  keepend contains=JeefoTemplateString
 
 syn region  JeefoTemplateComment	start="{"  end="}"  keepend
+syn region  JeefoTemplateGoTemplate	start="{{"  end="}}"  keepend
 
 syn region  JeefoTemplateString	    start=+'+  skip=+\\'+  end=+'+  contained keepend extend
 syn region  JeefoTemplateString	    start=+"+  skip=+\\"+  end=+"+  contained keepend extend
+
+syn region  JeefoTemplateBind	    start=+`+  end=+`+  contained keepend extend
 
 syn match   JeefoTemplateAttributesParens     "\[\|]" contained
 syn match   JeefoTemplateAttributeDelimiter   ","     contained
 syn match   JeefoTemplateAttributeAssignment  "="     contained
 
-syn region  JeefoTemplateAttributes    start="\["  end="]"  keepend  contains=JeefoTemplateString,JeefoTemplateAttributesParens,JeefoTemplateAttributeDelimiter,JeefoTemplateAttributeAssignment,JeefoTemplateStyleAttribute
+syn region  JeefoTemplateAttributes    start="\["  end="]"  keepend  contains=JeefoTemplateString,JeefoTemplateBind,JeefoTemplateAttributesParens,JeefoTemplateAttributeDelimiter,JeefoTemplateAttributeAssignment,JeefoTemplateStyleAttribute
 
 
 " Style attribute
@@ -60,6 +63,8 @@ hi JeefoTemplateAttributesParens      ctermfg=40
 hi JeefoTemplateAttributeAssignment   ctermfg=4
 hi JeefoTemplateAttributeDelimiter    ctermfg=1
 hi JeefoTemplateStyleAttribute        ctermfg=167
+hi JeefoTemplateGoTemplate            ctermfg=7
+hi JeefoTemplateBind                  ctermfg=218
 
 
 
