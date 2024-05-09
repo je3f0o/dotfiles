@@ -137,7 +137,7 @@ function __jeefo_install_vim {
   if [ ! -f ~/.ycm_installed ] || [ `cat ~/.ycm_installed` != 1 ]; then
     pushd vim/bundle/YouCompleteMe
     git submodule update --init --recursive
-    python3 install.py --clangd-completer --go-completer && \
+    python3 install.py --all && \
       echo 1 > ~/.ycm_installed
     popd
   fi
