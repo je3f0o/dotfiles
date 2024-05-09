@@ -137,8 +137,7 @@ function __jeefo_install_vim {
   if [ ! -f ~/.ycm_installed ] || [ `cat ~/.ycm_installed` != 1 ]; then
     pushd vim/bundle/YouCompleteMe
     git submodule update --init --recursive
-    python3 install.py --all && \
-      echo 1 > ~/.ycm_installed
+    python3 install.py --all && echo 1 > ~/.ycm_installed
     popd
   fi
 }
@@ -207,15 +206,15 @@ function __jeefo_install {
     __jeefo_install_monaco
   fi
 
-  # Vim
-  __jeefo_install_vim
-
-  # Pygmentize
-  __jeefo_pygmentize
-
   if [ -z DOCKER_BUILD ]; then
     # Node
     __jeefo_install_nvm
     __jeefo_install_jshint
   fi
+
+  # Vim
+  __jeefo_install_vim
+
+  # Pygmentize
+  __jeefo_pygmentize
 }
