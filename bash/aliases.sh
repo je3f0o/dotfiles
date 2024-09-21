@@ -42,7 +42,7 @@ alias egrep='egrep --color=auto'
 
 # Docker
 alias dps='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Status}}\t{{.RunningFor}}"'
-alias dc='docker-compose'
+alias dc='docker compose'
 
 # Git
 alias gd='git d'
