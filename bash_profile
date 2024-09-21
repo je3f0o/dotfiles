@@ -49,9 +49,18 @@ fi
 # Start bootstrap
 source ~/.bash/bootstrap.sh
 
-export PATH="$PATH:$(go env GOPATH)/bin"
+if __IS_MAC; then
+  export PATH="$PATH:$(go env GOPATH)/bin"
+else
+  export PATH="$PATH:$HOME/go/bin"
+fi
 
 # jeefo_command auto-completion
-source ~/.bash/jeefo_command/jeefo_commands.sh
+#source ~/.bash/jeefo_command/jeefo_commands.sh
 
 export BASH_SILENCE_DEPRECATION_WARNING=1
+# Added by OrbStack: command-line tools and integration
+# Comment this line if you don't want it to be added again.
+source ~/.orbstack/shell/init.bash 2>/dev/null || :
+
+source <(kubectl completion bash)

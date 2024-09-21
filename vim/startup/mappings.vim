@@ -280,4 +280,3 @@ function! SmartJoin()
 endfunction
 
 nnoremap J :call SmartJoin()<CR>
-nnoremap G :G<CR>

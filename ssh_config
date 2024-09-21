@@ -1,13 +1,23 @@
+# Added by OrbStack: 'orb' SSH host for Linux machines
+# This only works if it's at the top of ssh_config (before any Host blocks).
+# Comment this line if you don't want it to be added again.
+Include ~/.orbstack/ssh/config
+
 Host *
   ServerAliveInterval 120
 
 Host lbc
-  HostName 139.59.103.31
-  Port 22
+  HostName 188.166.176.223
+  User jeefo
+
+Host db
+  HostName 206.189.159.227
   User jeefo
 
 Host tmc
   HostName 209.97.160.116
   User jeefo
+  #ForwardX11 yes
+  #ForwardX11Trusted yes
   #ForwardX11 yes
   #ForwardX11Trusted yes
