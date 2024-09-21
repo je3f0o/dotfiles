@@ -49,8 +49,15 @@ fi
 # Start bootstrap
 source ~/.bash/bootstrap.sh
 
-if __IS_MAC; then
+if __is_darwin; then
+  # Maybe from brew or something...
   export PATH="$PATH:$(go env GOPATH)/bin"
+
+  # Added by OrbStack: command-line tools and integration
+  # Comment this line if you don't want it to be added again.
+  source ~/.orbstack/shell/init.bash 2>/dev/null || :
+
+  source <(kubectl completion bash)
 else
   export PATH="$PATH:$HOME/go/bin"
 fi
@@ -59,8 +66,3 @@ fi
 #source ~/.bash/jeefo_command/jeefo_commands.sh
 
 export BASH_SILENCE_DEPRECATION_WARNING=1
-# Added by OrbStack: command-line tools and integration
-# Comment this line if you don't want it to be added again.
-source ~/.orbstack/shell/init.bash 2>/dev/null || :
-
-source <(kubectl completion bash)
