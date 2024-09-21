@@ -18,6 +18,10 @@ Plugin 'VundleVim/Vundle.vim'
 "Plugin 'rust-lang/rust.vim'
 " NERD_tree
 Plugin 'scrooloose/nerdtree'
+
+" Vim delta
+"Plugin 'davidosomething/vim-delta'
+
 " Graphical undo tree
 Plugin 'mbbill/undotree'
 " YouCompleteMe
@@ -93,7 +97,9 @@ Plugin 'tommcdo/vim-exchange'
 "Plugin 'flowtype/vim-flow'
 
 " Hex colors
-Plugin 'je3f0o/vim-css-color'
+"Plugin 'je3f0o/vim-css-color'
+
+Plugin 'ap/vim-css-color'
 
 " Multiple cursors
 Plugin 'terryma/vim-multiple-cursors'
@@ -101,6 +107,9 @@ Plugin 'terryma/vim-multiple-cursors'
 "Nginx"
 "Plugin 'vim-scripts/nginx.vim'
 Plugin 'chr4/nginx.vim'
+
+" GraphQL
+Plugin 'jparise/vim-graphql'
 
 "Plugin 'felixge/vim-nodejs-errorformat'
 

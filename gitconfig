@@ -1,31 +1,50 @@
 [user]
-    name  = je3f0o
-    email = je3f0o@gmail.com
+  name  = je3f0o
+  email = je3f0o@gmail.com
 [diff]
-    tool = vimdiff
-[difftool]
-    #prompt = false
+  tool       = vimdiff
+  #colorMoved = default
+
 [difftool "vimdiff"]
-    cmd = vimdiff "$REMOTE" "$LOCAL"
-    #path = ~/.bash/git_diff_wrapper.sh
-    #trustExitCode = true
+  cmd = vim -d "$LOCAL" "$REMOTE" -c 'wincmd L' -c 'wincmd h'
+
+  #cmd = vim -d $LOCAL $BASE $REMOTE $MERGED -c 'wincmd w' -c 'wincmd J'
+
+  #path = ~/.bash/git_diff_wrapper.sh
+  #trustExitCode = true
+  #prompt = false
 [alias]
-    d   = difftool
-    c   = commit -m
-    ca  = commit -am
-    up  = pull
-    p   = push
-    s   = status -s
-    lol = log --graph --oneline --decorate
-    pl  = log --pretty=format:'%Cred%h%Creset - %C(blue)%an%Creset, %C(magenta)%ar%Creset : %C(green)%s%Creset'
+  d   = difftool
+  c   = commit -m
+  ca  = commit -am
+  up  = pull
+  p   = push
+  s   = status -s
+  lol = log --graph --oneline --decorate
+  pl  = log --pretty=format:'%Cred%h%Creset - %C(blue)%an%Creset, %C(magenta)%ar%Creset : %C(green)%s%Creset'
 [url "https://"]
-    insteadOf = git://
+  insteadOf = git://
 [push]
-    default = simple
+  default = simple
 [color]
-    ui = always
+  ui = always
 [init]
 	defaultBranch = master
     #templatedir = ~/.git_snapshots
 [core]
-    editor = vim
+  editor = vim
+  pager = delta
+
+# Delta things
+[interactive]
+  diffFilter = delta --color-only
+
+[delta]
+  navigate = true    # use n and N to move between diff sections
+  # delta detects terminal colors automatically; set one of these to disable auto-detection
+  # dark = true
+  # light = true
+  features = side-by-side line-numbers decorations
+  syntax-theme = OneHalfDark
+[merge]
+  conflictstyle = diff3

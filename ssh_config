@@ -11,11 +11,3 @@ Host tmc
   User jeefo
   #ForwardX11 yes
   #ForwardX11Trusted yes
-
-Host handpro
-  HostName 66.181.164.191
-  User je3f0o
-
-Host db
-  HostName 68.183.236.229
-  User jeefo

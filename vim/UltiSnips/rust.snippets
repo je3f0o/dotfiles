@@ -13,3 +13,15 @@ endsnippet
 snippet log
 println!("$0");
 endsnippet
+
+snippet match
+match ${1:thing} {
+	$0
+}${2:;}
+endsnippet
+
+snippet fn
+fn ${1:function_name}(${2:args}) $3{
+	$0
+}
+endsnippet

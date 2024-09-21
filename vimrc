@@ -191,6 +191,13 @@ let g:ycm_clangd_args=['--header-insertion=never']
 let g:ycm_python_binary_path='/usr/local/bin/python3.11'
 " autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 
+let g:ycm_echo_current_diagnostic = 1 " default
+" Or, when you have Vim supporting virtual text
+"let g:ycm_echo_current_diagnostic = 'virtual-text'
+
+
+
+
 "let g:clang_use_library = 1
 "let g:clang_library_path = '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libclang.dylib'
 "let g:clang_complete_auto = 1
@@ -232,6 +239,9 @@ let g:syntastic_html_checkers = []
 
 " Vim flow
 let g:flow#enable = 0
+
+" Git delta
+let g:fugitive_diff_command = 'delta --features=side-by-side'
 
 " Test external command
 let g:potion_command = "~/.vim/bundle/potion"

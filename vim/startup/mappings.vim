@@ -219,8 +219,8 @@ vnoremap <leader>' c''<C-c>P
 
 " -------------------------------------------------
 
-nnoremap <leader>t= :Tabularize /=<CR>
-vnoremap <leader>t= :Tabularize /=<CR>
+nnoremap <leader>t= :Tabularize /^[^=]*\zs=\s*/l1r0<CR>
+vnoremap <leader>t= :Tabularize /^[^=]*\zs=\s*/l1r0<CR>
 nnoremap <leader>t; :Tabularize /:<CR>
 vnoremap <leader>t; :Tabularize /:<CR>
 nnoremap <leader>t{ :Tabularize /{<CR>
@@ -233,6 +233,7 @@ nnoremap <leader>t[ :Tabularize /[<CR>
 vnoremap <leader>t[ :Tabularize /[<CR>
 nnoremap <leader>t] :Tabularize /\]<CR>
 vnoremap <leader>t] :Tabularize /\]<CR>
+vnoremap <leader>t\ :Tabularize /\\<CR>
 
 " Soft wrap prefix
 
@@ -250,8 +251,10 @@ nnoremap <C-_> :ToggleComment<CR>
 vnoremap <C-_> :ToggleComment<CR> gv
 
 " Move selected text
-vnoremap J :move '>+1<CR>gv=gv
-vnoremap K :move '<-2<CR>gv=gv
+"vnoremap J :move '>+1<CR>gv=gv
+"vnoremap K :move '<-2<CR>gv=gv
+vnoremap J :move '>+1<CR>gv
+vnoremap K :move '<-2<CR>gv
 "vnoremap <C-k> [egv
 "vnoremap <C-j> ]egv
 " left
@@ -260,4 +263,21 @@ vnoremap <S-h> <gv
 vnoremap <S-l> >gv
 
 " Preserves cursor position
-nnoremap J mzJ`z
+"nnoremap J mzJ:execute "normal! " . (getline('.')[col('.')-1] == ' ' ? 'x' : '') . '`z'<CR>
+
+function! SmartJoin()
+  " Mark the current position
+  normal! mz
+  " Join the current line with the line below
+  normal! J
+  " Check if the character under the cursor is a space
+  if getline('.')[col('.') - 1] == ' '
+    " Delete the space character
+    normal! x
+  endif
+  " Return to the marked position
+  normal! `z
+endfunction
+
+nnoremap J :call SmartJoin()<CR>
+nnoremap G :G<CR>

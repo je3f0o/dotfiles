@@ -69,9 +69,9 @@ if !exists("s:is_loaded") && has("autocmd")
   autocmd BufWritePre * %s/\s\+$//e
 
   " Update header
-	autocmd BufNewFile *.js                        call PreHeaderJavascript()
-	autocmd BufNewFile *.c,*.rs                    call PreHeaderGeneric()
-  autocmd BufWritePre,FileWritePre *.c,*.rs,*.js call UpdateHeaderGeneric()
+	autocmd BufNewFile *.js                                         call PreHeaderJavascript()
+	autocmd BufNewFile *.c,*.rs,*.ts,*.jsx,*.tsx                    call PreHeaderGeneric()
+  autocmd BufWritePre,FileWritePre *.c,*.rs,*.js,*.ts,*.jsx,*.tsx call UpdateHeaderGeneric()
 
   let s:is_loaded = 1
 endif

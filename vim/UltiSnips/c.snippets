@@ -22,7 +22,7 @@ endsnippet
 
 # for statement
 snippet for
-for (size_t ${1:i} = 0; $1 < ${2:something}; ++$1) {
+for (${2:size_t} ${3:i} = 0; $3 < ${1:something}; ++$3) {
 	$0
 }
 endsnippet
@@ -49,7 +49,7 @@ println("$1"$2);$0
 endsnippet
 
 # typedef struct
-snippet typestr
+snippet types
 typedef struct {
 	$0
 } $1;
