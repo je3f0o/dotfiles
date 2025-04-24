@@ -17,6 +17,7 @@
   d   = difftool
   c   = commit -m
   ca  = commit -am
+  ck  = checkout
   up  = pull
   p   = push
   s   = status -s

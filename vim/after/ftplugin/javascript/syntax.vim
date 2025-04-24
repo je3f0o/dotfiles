@@ -35,7 +35,7 @@ syn region jsTemplateExpression matchgroup=jsTemplateExpressionBraces  start=+${
 syn region javaScriptTemplateString   start=+`+  skip=+\\\\\|\\`+ end=+`+ contains=jsTemplateExpression   keepend
 
 
-call css_color#init('hex', 'hex', 'JavaScriptStringS,JavaScriptStringD,JavaScriptComment')
+" call css_color#init('hex', 'hex', 'JavaScriptStringS,JavaScriptStringD,JavaScriptComment')
 
 " Custom string embeded language syntax
 unlet b:current_syntax
@@ -65,4 +65,3 @@ hi link javaScriptTemplateString String
 if $TERM == "xterm-256color-italic"
     hi Comment cterm=italic ctermfg=9
 endif
-

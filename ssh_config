@@ -7,11 +7,11 @@ Host *
   ServerAliveInterval 120
 
 Host lbc
-  HostName 188.166.176.223
+  HostName 178.128.86.201
   User jeefo
 
 Host db
-  HostName 206.189.159.227
+  HostName 128.199.162.71
   User jeefo
 
 Host tmc
@@ -21,3 +21,9 @@ Host tmc
   #ForwardX11Trusted yes
   #ForwardX11 yes
   #ForwardX11Trusted yes
+
+Host aibox
+  HostName 103.168.35.174
+  User m51c
+  #PubKeyAuthentication yes
+  #IdentityFile ~/.ssh/id_rsa

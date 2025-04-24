@@ -21,12 +21,11 @@ command! -nargs=+ Silent execute 'silent <args>' | redraw!
 " Might be useful when u have some stupid highlight won't go away
 " :call clearmatches()
 
-let g:rust_recommended_style = 0
-let g:python_recommended_style = 0
-let g:pymode_lint_checkers = ['mccabe', 'pyflakes', 'pylint', 'pep8', 'pep257']
-let g:pymode_lint_ignore = 'E111,W0311'
 syntax on
 syntax enable
+
+" Man pages
+runtime! ftplugin/man.vim
 
 " Modeline magic
 set modeline
@@ -144,6 +143,8 @@ set swapfile
 iabbr ture true
 iabbr flase false
 iabbr fasle false
+iabbr awiat await
+iabbr cosnt const
 iabbr recieve receive
 iabbr cleant client
 
@@ -184,12 +185,46 @@ let g:ycm_add_preview_to_completeopt = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_always_populate_location_list = 1
 let g:ycm_clangd_args=['--header-insertion=never']
+"let g:ycm_show_diagnostics_ui = 0
 
 " python...
 "let g:ycm_confirm_extra_conf=0
 "let g:ycm_python_binary_path='/usr/local/anaconda3/bin/python'
-let g:ycm_python_binary_path='/usr/local/bin/python3.11'
+let g:ycm_python_binary_path='/usr/local/bin/python3.9'
 " autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+
+" C#
+"let g:ycm_roslyn_binary_path='/Users/jeefo/projects/csharp/omnisharp/OmniSharp'
+"let g:ycm_use_omnisharp = 1
+"let g:ycm_auto_start_csharp_server = 1
+"let g:ycm_language_server =
+"  \ [
+"  \   {
+"  \     'name': 'csharp',
+"  \     'cmdline': [ '/Users/jeefo/projects/csharp/omnisharp/OmniSharp', '-lsp' ],
+"  \     'filetypes': [ 'cs' ],
+"  \     'project_root_files': [ '*.csproj', '*.sln' ]
+"  \   }
+"  \ ]
+let g:OmniSharp_highlighting = 0
+let g:OmniSharp_server_stdio = 0
+let g:OmniSharp_server_use_net6 = 1
+"let g:OmniSharp_server_use_mono = 1
+"let g:OmniSharp_want_snippet=1
+let g:OmniSharp_popup = 0
+let g:OmniSharp_popup_mappings = {
+  \ 'sigNext': '<C-n>',
+  \ 'sigPrev': '<C-p>',
+  \ 'lineDown': ['<C-e>', 'j'],
+  \ 'lineUp': ['<C-y>', 'k']
+  \}
+let g:OmniSharp_popup_options = {
+  \ 'highlight': 'Normal',
+  \ 'padding': [1],
+  \ 'border': [1],
+  \ 'borderchars': ['─', '│', '─', '│', '╭', '╮', '╯', '╰'],
+  \ 'borderhighlight': ['Special']
+  \}
 
 let g:ycm_echo_current_diagnostic = 1 " default
 " Or, when you have Vim supporting virtual text
@@ -245,6 +280,12 @@ let g:fugitive_diff_command = 'delta --features=side-by-side'
 
 " Test external command
 let g:potion_command = "~/.vim/bundle/potion"
+
+" Rust python
+let g:rust_recommended_style = 0
+let g:python_recommended_style = 0
+let g:pymode_lint_checkers = ['mccabe', 'pyflakes', 'pylint', 'pep8', 'pep257']
+let g:pymode_lint_ignore = 'E111,E112,W0311'
 
 " init modes
 source ~/.vim/modes/modes.vim

@@ -1,19 +1,3 @@
-if !exists("*PreHeaderJavascript")
-	function! PreHeaderJavascript()
-    let l:filetype = &filetype
-    let s:filename = expand("~/.vim/after/ftplugin/javascript/js_header.txt")
-    echo "source " . s:filename
-    if filereadable(s:filename)
-      exec "source " . s:filename
-      exec "2g/File Name\\s*:.*/s//File Name   : " . expand("%:t")
-      exec "3g/Created at\\s*:.*/s//Created at  : " . strftime("%Y-%m-%d")
-      normal G
-    else
-      echo "Header not inserted: " . s:filename
-    endif
-	endfunction
-endif
-
 if !exists("*PreHeaderGeneric")
   function! PreHeaderGeneric()
     let l:filetype = &filetype
@@ -69,8 +53,7 @@ if !exists("s:is_loaded") && has("autocmd")
   autocmd BufWritePre * %s/\s\+$//e
 
   " Update header
-	autocmd BufNewFile *.js                                         call PreHeaderJavascript()
-	autocmd BufNewFile *.c,*.rs,*.ts,*.jsx,*.tsx                    call PreHeaderGeneric()
+	autocmd BufNewFile *.c,*.rs,*.js,*.ts,*.jsx,*.tsx           call PreHeaderGeneric()
   autocmd BufWritePre,FileWritePre *.c,*.rs,*.js,*.ts,*.jsx,*.tsx call UpdateHeaderGeneric()
 
   let s:is_loaded = 1

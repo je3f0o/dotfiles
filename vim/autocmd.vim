@@ -26,6 +26,9 @@ if has("autocmd")
 
 	autocmd BufNewFile,BufRead *.md set filetype=markdown
 
+  " Python
+	"autocmd BufNewFile,BufRead *.py let g:syntastic_mode_map = {"mode": "passive"}
+
   " Rust
   "autocmd FileType rust nnoremap <buffer> <leader>rf :%!rustfmt<CR>
 
@@ -69,5 +72,7 @@ if has("autocmd")
   "let &t_SI = "\<Esc>]50;CursorShape=1\x7"
   "let &t_SR = "\<Esc>]50;CursorShape=2\x7"
   "let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
+	"source ~/.vim/auto_commands/omni_sharp.vim
 
 endif

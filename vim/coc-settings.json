@@ -1,0 +1,7 @@
+{
+  "coc.preferences.snippetSupport": true,
+  "languageserver": {
+    "csharp": {
+    }
+  }
+}

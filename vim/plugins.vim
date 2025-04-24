@@ -42,6 +42,12 @@ Plugin 'mattn/emmet-vim'
 Plugin 'tpope/vim-fugitive'
 " Git syntax highlight
 Plugin 'tpope/vim-git'
+" unimpaired
+Plugin 'tpope/vim-unimpaired'
+" vim-repeat
+Plugin 'tpope/vim-repeat'
+" case switcher
+Plugin 'nicwest/vim-camelsnek'
 " jade
 Plugin 'digitaltoad/vim-jade'
 " seti
@@ -56,12 +62,8 @@ Plugin 'scrooloose/syntastic'
 Plugin 'godlygeek/tabular'
 " ultisnips
 Plugin 'SirVer/ultisnips'
-" unimpaired
-Plugin 'tpope/vim-unimpaired'
 " vim-glsl
 Plugin 'tikhomirov/vim-glsl'
-" vim-repeat
-Plugin 'tpope/vim-repeat'
 " Surround
 Plugin 'tpope/vim-surround'
 " All 256 xterm colors with their RGB equivalents, right in Vim!
@@ -114,6 +116,14 @@ Plugin 'jparise/vim-graphql'
 "Plugin 'felixge/vim-nodejs-errorformat'
 
 "Plugin 'isRuslan/vim-es6'
+
+" C3 lang syntax highlight
+Plugin 'Airbus5717/c3.vim'
+
+" C#
+Plugin 'OmniSharp/omnisharp-vim'
+"Plugin 'dense-analysis/ale'
+Plugin 'neoclide/coc.nvim'
 
 call vundle#end() " required
 "filetype plugin indent on

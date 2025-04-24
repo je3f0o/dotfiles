@@ -31,6 +31,8 @@ let s:comment_map = {
   \   "c": s:c_style_inline_comment,
   \   "cpp": s:c_style_inline_comment,
   \   "go": s:c_style_inline_comment,
+  \   "c3": s:c_style_inline_comment,
+  \   "cs": s:c_style_inline_comment,
   \   "kotlin": s:c_style_inline_comment,
   \   "glsl": s:c_style_inline_comment,
   \   "sass": s:c_style_inline_comment,

@@ -150,8 +150,10 @@ vnoremap <F2> "+gp
 nnoremap G Gzz
 nnoremap n nzz
 nnoremap N Nzz
-nnoremap } }zz
-nnoremap { {zz
+"nnoremap } }zz
+"nnoremap { {zz
+nnoremap <silent> } :call search('^$', 'W') \| normal! zz<CR>
+nnoremap <silent> { :call search('^$', 'bW') \| normal! zz<CR>
 nnoremap [c [czz
 nnoremap ]c ]czz
 
@@ -159,6 +161,15 @@ nnoremap <C-n> :cn<CR>
 nnoremap <C-p> :cp<CR>
 
 nmap <leader>- ;syn sync fromstart<CR>
+
+function! RepeatableCamelSnek()
+  execute "normal! :Snek\<CR>"
+  call repeat#set("\<Plug>(RepeatableCamelSnek)")
+endfunction
+" Define a plug mapping for the command
+nnoremap <silent> <Plug>(RepeatableCamelSnek) :call RepeatableCamelSnek()<CR>
+" Map leader key to trigger the command
+nnoremap <leader>c <Plug>(RepeatableCamelSnek)
 
 " Toggle list! command
 nnoremap <leader>l :set list!<CR>
@@ -172,9 +183,6 @@ nnoremap <S-CR> o<ESC>k " fucking not work :(
 
 " Remove quote
 "nmap "" T"dht"lx
-
-" Cut line
-nnoremap <C-x> dd
 
 " Quick edit
 " vimrc
@@ -205,8 +213,10 @@ nnoremap <leader>n :call CycleLineNumbers()<CR>
 " ------------------ INSERT MODE ------------------
 " Move cursor
 imap <C-h> <left>
-imap <C-j> <down>
-imap <C-k> <up>
+"imap <C-j> <down>
+"imap <C-k> <up>
+imap <C-j> <C-n>
+imap <C-k> <C-p>
 imap <C-l> <right>
 
 " Insert new line
