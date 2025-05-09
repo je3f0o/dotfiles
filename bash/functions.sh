@@ -34,7 +34,7 @@ function cp_p {
 }
 
 function real-ip {
-  curl ifconfig.me
+  curl -4 ifconfig.me
 }
 
 private_fn_path=~/private/functions.sh

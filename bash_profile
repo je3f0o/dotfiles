@@ -81,6 +81,7 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-
+if __is_darwin; then
 # Added by `rbenv init` on Sun Mar  9 03:48:34 +08 2025
-eval "$(rbenv init - --no-rehash bash)"
+  eval "$(rbenv init - --no-rehash bash)"
+fi
