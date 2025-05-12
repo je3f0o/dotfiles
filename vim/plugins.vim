@@ -123,7 +123,7 @@ Plugin 'Airbus5717/c3.vim'
 " C#
 Plugin 'OmniSharp/omnisharp-vim'
 "Plugin 'dense-analysis/ale'
-Plugin 'neoclide/coc.nvim'
+"Plugin 'neoclide/coc.nvim'
 
 call vundle#end() " required
 "filetype plugin indent on
