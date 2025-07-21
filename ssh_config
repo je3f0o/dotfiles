@@ -7,11 +7,11 @@ Host *
   ServerAliveInterval 120
 
 Host lbc
-  HostName 188.166.214.45
+  HostName 188.166.242.224
   User jeefo
 
 Host db
-  HostName 167.99.75.69
+  HostName 128.199.247.224
   User jeefo
 
 Host tmc

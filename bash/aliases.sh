@@ -6,6 +6,8 @@ else
   alias ls='ls --color=always --time-style=long-iso'
 fi
 
+alias k8='kubectl'
+
 function ll {
   ls -lht --group-directories-first "$@" | grep -v '^total'
 }

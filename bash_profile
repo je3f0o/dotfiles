@@ -8,6 +8,10 @@ case $- in
 	  *) return;;
 esac
 
+if [ "$TERM" = "alacritty" ]; then
+  export TERM=xterm-256color
+fi
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
@@ -56,10 +60,12 @@ if __is_darwin; then
   # Added by OrbStack: command-line tools and integration
   # Comment this line if you don't want it to be added again.
   source ~/.orbstack/shell/init.bash 2>/dev/null || :
-
-  source <(kubectl completion bash)
 else
   export PATH="$PATH:$HOME/go/bin"
+fi
+
+if command -v kubectl &> /dev/null; then
+  source <(kubectl completion bash)
 fi
 
 # jeefo_command auto-completion
