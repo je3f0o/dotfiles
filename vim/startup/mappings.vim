@@ -142,7 +142,7 @@ else
 endif
 " Paste from clipboard
 nnoremap <F2> "+gp
-inoremap <F2> <C-c>"+gpi
+inoremap <C-v> <C-c>"+gpi
 vnoremap <F2> "+gp
 
 " ------------------ NORMAL MODE ------------------

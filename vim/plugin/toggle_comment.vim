@@ -49,6 +49,7 @@ let s:comment_map = {
   \   "conf": '#',
   \   "toml": '#',
   \   "yaml": '#',
+  \   "make": '#',
   \   "vim": '"',
   \   "rust": s:c_style_inline_comment,
   \ }

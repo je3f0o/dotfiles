@@ -13,7 +13,7 @@ syntax keyword typescriptTypeImport type
 syntax match typescriptTypeOnlyImport /\<type\s/ contained
 
 " Highlight the import block { type FlexProps }
-syntax region typescriptImportBlock start=+{+ end=+}+ contains=typescriptTypeOnlyImport
+syntax region typescriptImportBlock start=+{+ end=+}+ contains=typescriptTypeOnlyImport,typescriptComment,typescriptLineComment
 
 " Highlight the whole import line
 "syntax region typescriptImportLine start=+^import+ end=+;$\|from\s\+['"].\{-}['"]+ contains=typescriptImportBlock
