@@ -32,6 +32,27 @@ alias ....='cd ../../..'
 
 # copy with folders
 alias cp='rsync -avP --exclude ".*.swp" --exclude ".*.swo"'
+function root_sync {
+	if [ -z $1 ]; then
+		echo 'argv1 => source_file path.'
+		return 1
+	fi
+	if [ -z $2 ]; then
+		echo 'argv2 => remote_address:path.'
+		return 1
+	fi
+	local source_path="$1"
+	local target_path="$2"
+
+  ssh "sudo rsync -aAXv $source_path root@$target_path"
+}
+
+function root_sync {
+  local user_name="${1-adminf}"
+  local server_id="${2-fix_server}"
+  ssh "sudo rsync -aAXv streams/ root@178.128.53.82:/volumes/streams/"
+}
+
 
 # Be nice :)
 alias pls=sudo

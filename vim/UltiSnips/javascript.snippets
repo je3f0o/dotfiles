@@ -24,69 +24,62 @@ if (require.main === module) {
 // ignore:end
 endsnippet
 
-# console.log
 snippet log
 console.log($1);$0
 endsnippet
 
-# console.warn
+snippet dir
+console.dir($1, {depth: null});$0
+endsnippet
+
 snippet warn
 console.warn($1);$0
 endsnippet
 
-# console.info
 snippet info
 console.info($1);$0
 endsnippet
 
-# console.error
 snippet error
 console.error($1);$0
 endsnippet
 
-# function
 snippet iife
 (function(${1}) {
 	$0
 }());
 endsnippet
 
-# function
 snippet fn
 function ${1:function_name}($2) {
 	$0
 }$3
 endsnippet
 
-# async arrow function
 snippet aafn
 async (${1:}) => ${2:{
 	$3
 }}
 endsnippet
 
-# async arrow IIFE
 snippet aaII
 (async (${1:}) => {
 	$0
 })()${2:;}
 endsnippet
 
-# async IIFE
 snippet main
 (async function main() {
 	$0
 })();
 endsnippet
 
-# async function
 snippet afn
 async function ${1:function_name}($2) {
 	$0
 }$3
 endsnippet
 
-# Exports
 snippet ex "export common js pattern"
 module.exports = ${1:thing};$0
 endsnippet
@@ -111,33 +104,28 @@ class ${1:ClassName}Service {
 module.exports = new $1Service();
 endsnippet
 
-# function
 snippet exfn
 module.exports = function ${1:function_name}($2) {
 	$0
 };
 endsnippet
 
-# function
 snippet exfna
 module.exports = ${1:params} => {
 	$0
 };
 endsnippet
 
-# Anonymous function
 snippet fna
 ${1:params} => $2$0
 endsnippet
 
-# Anonymous function ends with semicolon
 snippet fnae
 function($1) {
 	$0
 };
 endsnippet
 
-# Class
 snippet class
 class ${1:ConstructorName} {
 	${3:constructor}(${4:params}) {
@@ -146,21 +134,18 @@ class ${1:ConstructorName} {
 }$2
 endsnippet
 
-# if condition
 snippet if
 if (${1:condition}) {
 	$0
 }
 endsnippet
 
-# for loop number of times iterate
 snippet for
 for (${2:let }${3:i} = ${4:0}; $3 < ${1:length}; ++$3) {
 	$0
 }
 endsnippet
 
-# for-of statement
 snippet forof
 for (${3:const} ${2:element} of ${1:elements}) {
 	$0
