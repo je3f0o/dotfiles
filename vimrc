@@ -4,6 +4,14 @@ set nocompatible
 " Append +=
 " Ask variable's value -> set variable?
 
+let g:ycm_language_servers = {
+  \ 'dart': {
+  \   'cmd': ['/Users/jeefo/flutter/bin/dart', 'language-server', '--lsp'],
+  \   'filetypes': ['dart'],
+  \   'project_root_files': ['pubspec.yaml']
+  \ }
+\ }
+
 if exists('cliclick')
 	source ~/.vim/robot_plugins.vim
 elseif exists('weak_mode')

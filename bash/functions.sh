@@ -50,9 +50,11 @@ function auto-rename-tmux-window {
 }
 #export PROMPT_COMMAND=auto-rename-tmux-window
 
-# Let's toss an image onto my server and pbcopy that bitch.
-function myscp {
-    scp "$1" "jeefo@${2}:${3}";
+function dps {
+  (
+    echo -e "ID\tNAMES\tIMAGE\tSTATUS\tRUNNINGFOR"
+    docker ps --format "{{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Status}}\t{{.RunningFor}}" | sort -k2
+  ) | column -t -s $'\t'
 }
 
 # # cd into whatever is the forefront Finder window.

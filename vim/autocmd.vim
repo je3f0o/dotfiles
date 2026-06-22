@@ -35,6 +35,9 @@ if has("autocmd")
   " Bindzone
   autocmd BufNewFile,BufRead */bind/zone.*	setf bindzone
 
+  " Exixir template
+  au BufRead,BufNewFile *.eex,*.heex,*.leex,*.sface,*.lexs set filetype=eelixir
+
   " Cache views
   function! s:MakeView()
     let l:filepath = expand('%:p')

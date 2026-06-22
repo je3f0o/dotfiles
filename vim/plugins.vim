@@ -1,4 +1,3 @@
-
 " Required Vundle setup
 filetype off " required
 " set the runtime path to include Vundle and initialize
@@ -117,13 +116,21 @@ Plugin 'jparise/vim-graphql'
 
 "Plugin 'isRuslan/vim-es6'
 
+" Flutter
+Plugin 'dart-lang/dart-vim-plugin'
+"Plugin 'natebosch/vim-lsc'
+"Plugin 'natebosch/vim-lsc-dart'
+"Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+
 " C3 lang syntax highlight
 Plugin 'Airbus5717/c3.vim'
 
 " C#
 Plugin 'OmniSharp/omnisharp-vim'
 "Plugin 'dense-analysis/ale'
-"Plugin 'neoclide/coc.nvim'
+
+" Elixir
+Plugin 'elixir-editors/vim-elixir'
 
 call vundle#end() " required
 "filetype plugin indent on
