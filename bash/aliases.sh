@@ -9,10 +9,10 @@ fi
 alias k8='kubectl'
 
 function ll {
-  ls -lht --group-directories-first "$@" | grep -v '^total'
+  ls -lh --group-directories-first "$@" | grep -v '^total'
 }
 function lla {
-  ls -lhta --group-directories-first "$@" | grep -v '^total'
+  ls -lha --group-directories-first "$@" | grep -v '^total'
 }
 if [ $(uname) != "Darwin" ]; then
   function total_disk_usage {
@@ -62,6 +62,9 @@ alias please=sudo
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
+
+# Tree
+alias tree='tree -C'
 
 # Docker
 alias dc='docker compose'

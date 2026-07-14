@@ -7,16 +7,16 @@ Host *
   ServerAliveInterval 120
 
 Host lbc
-  HostName 157.230.245.14
-  User jeefo
+  HostName 159.223.73.121
 
 Host db
-  HostName 129.212.239.179
-  User jeefo
+  HostName 167.71.214.3
+
+Host maestro
+  HostName 178.128.116.214
 
 Host tmc
   HostName 209.97.160.116
-  User jeefo
   #ForwardX11 yes
   #ForwardX11Trusted yes
   #ForwardX11 yes
@@ -27,6 +27,7 @@ Host github.com
   User git
   IdentityFile ~/.ssh/github_deploy_key
   IdentitiesOnly yes
+  StrictHostKeyChecking accept-new
 
 Host miat
   HostName 122.201.23.233
