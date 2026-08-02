@@ -15,6 +15,9 @@ Host db
 Host maestro
   HostName 178.128.116.214
 
+Host prod
+  HostName 139.59.237.136
+
 Host tmc
   HostName 209.97.160.116
   #ForwardX11 yes
@@ -25,7 +28,7 @@ Host tmc
 Host github.com
   HostName github.com
   User git
-  IdentityFile ~/.ssh/github_deploy_key
+  IdentityFile ~/.ssh/github
   IdentitiesOnly yes
   StrictHostKeyChecking accept-new
 
